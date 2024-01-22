@@ -22,7 +22,7 @@ export function BoardHeader({ onSetFilter, onUpdateBoard }) {
     const storeBoradTitle = useSelector(state => state.boardModule.board.title)
     const storeIsStarred = useSelector(state => state.boardModule.board.isStarred)
     const members = useSelector(state => state.boardModule.board.members)
-       
+
     const [boardTitle, setBoardTitle] = useState(storeBoradTitle)
     const [isStarred, setIsStarred] = useState(storeIsStarred)
     const [isEditingBoardTitle, setIsEditingBoardTitle] = useState(false)
@@ -30,14 +30,13 @@ export function BoardHeader({ onSetFilter, onUpdateBoard }) {
 
     useOutsideClick(refInputBoardTitle, () => setIsEditingBoardTitle(false))
 
-    useEffect(()=>{
+    useEffect(() => {
         setBoardTitle(storeBoradTitle)
     }, [storeBoradTitle])
 
-    useEffect(()=>{
+    useEffect(() => {
         setIsStarred(storeIsStarred)
     }, [storeIsStarred])
-
 
     function onChangeBoardTitle(ev) {
         const title = ev.target.value
@@ -47,7 +46,7 @@ export function BoardHeader({ onSetFilter, onUpdateBoard }) {
 
     function onChangeIsStarred() {
         setIsStarred(prevIsStarred => {
-            const newIsStarred = ! prevIsStarred
+            const newIsStarred = !prevIsStarred
             onUpdateBoard('isStarred', newIsStarred, true)
             return newIsStarred
         })
@@ -56,25 +55,25 @@ export function BoardHeader({ onSetFilter, onUpdateBoard }) {
     return (
         <header className="board-header">
             <section className="btns-container h100">
-            {
-                isEditingBoardTitle
-                ?
-                <input
-                    className="board-title input-cleaner"
-                    type="text"
-                    value={boardTitle}
-                    onChange={onChangeBoardTitle}
-                    ref={refInputBoardTitle}
-                    autoFocus
-                />
-                :
-                <button
-                    className="board-title header-btn"
-                    onClick={() => setIsEditingBoardTitle(true)}
-                >
-                    {boardTitle}
-                </button>
-            }
+                {
+                    isEditingBoardTitle
+                        ?
+                        <input
+                            className="board-title input-cleaner"
+                            type="text"
+                            value={boardTitle}
+                            onChange={onChangeBoardTitle}
+                            ref={refInputBoardTitle}
+                            autoFocus
+                        />
+                        :
+                        <button
+                            className="board-title header-btn"
+                            onClick={() => setIsEditingBoardTitle(true)}
+                        >
+                            {boardTitle}
+                        </button>
+                }
                 <div
                     className="header-icon-btn icon flex center"
                     onClick={onChangeIsStarred}

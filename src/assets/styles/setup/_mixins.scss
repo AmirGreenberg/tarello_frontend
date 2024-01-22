@@ -12,12 +12,6 @@
     }
 }
 
-@mixin for-tablet-layout {
-    @media (min-width: calc($tablet-breakpoint + 40px)) {
-        @content;
-    }
-}
-
 @mixin for-normal-layout {
     @media (min-width: calc($narrow-breakpoint + 40px)) {
         @content;
@@ -54,15 +48,6 @@
     }
 }
 
-// Mixin for removing hover efects on iphone screen
-@mixin hover-supported {
-    @media not all and (pointer: coarse) {
-        &:hover {
-            @content;
-        }
-    }
-}
-
 @mixin task-details-main-grid {
     display: grid;
     grid-template-columns: 1.5em 1fr;
@@ -80,7 +65,7 @@
 }
 
 @mixin action-btn {
-    // font-family: "CharlieText-regular", sans-serif;
+    font-family: "CharlieText-regular", sans-serif;
     align-items: center;
     display: inline-flex;
     justify-content: center;
@@ -130,21 +115,6 @@
     &:hover {
         background-color: var(--btn-bg-clr-6);
         border-color: var(--btn-bg-clr-6);
-    }
-}
-
-@mixin red-action-btn {
-    width: 53px;
-    height: 32px;
-    background-color: var(--task-details-delete-btn);
-    border-color: var(--task-details-delete-btn);
-    color: white;
-    border-radius: 3px;
-    font-size: rem(14px);
-
-    &:hover {
-        background-color: var(--task-details-delete-btn-hover);
-        border-color: var(--task-details-delete-btn-hover);
     }
 }
 
@@ -205,9 +175,4 @@
         background: var(--btn-bg-clr-1);
         color: white !important;
     }
-}
-
-@mixin fixed-img-url() {
-    background-position: center center;
-    background-size: cover;
 }

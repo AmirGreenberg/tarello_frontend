@@ -5,8 +5,6 @@ import { MenuBoardList } from "./MenuBoardList";
 import { updateBoard, loadBoards } from '../../src/store/actions/board.actions.js'
 import { Link, useNavigate } from 'react-router-dom'
 
-
-
 export function SideBarLeft() {
 
     const boards = useSelector((state) => state.boardModule.boards)
@@ -19,8 +17,6 @@ export function SideBarLeft() {
             showErrorMsg('Cannot show boards')
         })
     }, [])
-
-
 
     function onToggleSideBar(ev) {
         ev.stopPropagation()
@@ -41,8 +37,6 @@ export function SideBarLeft() {
         updateBoard(board)
     }
 
-
-
     function onToggleStarred(ev, boardId) {
         ev.preventDefault()
         const board = boards.find((board) => {
@@ -60,7 +54,6 @@ export function SideBarLeft() {
 
         setModal({ isModalOpen: true, type, event })
     }
-
 
     return (
         <section

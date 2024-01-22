@@ -51,7 +51,6 @@ export function Workspace() {
         }
     }
 
-
     function toggleModal({ event, type }) {
         if (modal.isModalOpen) {
             setModal({ ...modal, isModalOpen: false })

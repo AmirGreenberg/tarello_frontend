@@ -1,18 +1,5 @@
-.users-container {
-    display: grid;
-    grid-template-rows: repeat(auto-fill 24px);
-    grid-auto-flow: row;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-   
-    
-
-}
-
 .user-img-wrapper {
     position: relative;
-    
 
     &:hover::after {
         content: "";
@@ -35,10 +22,9 @@
     cursor: pointer;
     border: 1px solid var(--darken20Percent);
     aspect-ratio: 1 / 1;
-    
 }
 
-.member-initials{
+.member-initials {
     display: grid;
     justify-content: center;
     align-items: center;

@@ -67,7 +67,7 @@ export function LoginSignup() {
     function handleChange(ev) {
         const field = ev.target.name
         const value = ev.target.value
-        
+
         setCredentials({ ...credentials, [field]: value })
     }
 

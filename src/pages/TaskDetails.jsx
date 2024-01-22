@@ -22,11 +22,9 @@ import { IconArrow, IconAttachment, IconChecked, IconClock, IconDuplicate, IconL
 import { DynamicActionModal, TO_RIGHT } from '../cmps/dynamic-cmps/DynamicActionModal'
 import { TO_BOTTOM } from '../cmps/dynamic-cmps/DynamicActionModal'
 
-
 const ICON_SIZE = 21
 const ICON_SIZE_BUTTON = 16
 const ICON_COLOR = 'var(--clr9)'
-
 
 export function TaskDetails() {
     const board = useSelector(state => state.boardModule.board)
@@ -154,8 +152,6 @@ export function TaskDetails() {
                         {/* <Dates          {...{ dates: task.dates, onClickDates: event => setModalProps({ event, content: modalContent.addDates }) }} /> */}
                     </section>
 
-
-
                     <Description    {...{ iconProps, taskDescription: task.description, refTaskDetails, onUpdateTask }} />
                     {task.cover?.imgUrl && <Attachments    {...{ iconProps, imgUrl: task.cover.imgUrl }} />}
                     <Checklists     {...{ iconProps, checklists: task.checklists, onUpdateTask, refTaskDetails }} />
@@ -232,7 +228,6 @@ export function TaskDetails() {
                             <IconShareSocial {...buttonIconProps} />
                             Share
                         </button>
-
 
                     </section>
                 </section>

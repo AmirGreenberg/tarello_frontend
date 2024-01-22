@@ -3,7 +3,6 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import { StaticDatePicker } from '@mui/x-date-pickers/StaticDatePicker'
 
-
 export function AddDates({ dates, onUpdateTask }) {
     return
 }
@@ -11,7 +10,6 @@ export function AddDates({ dates, onUpdateTask }) {
 
 //     const [startDate, setStartDate] = useState(dates.startDate)
 //     const [dueDate, setDueDate] = useState(dates.dueDate)
-
 
 //     function onAddDates(ev) {
 //         ev.preventDefault()
@@ -88,7 +86,6 @@ export function AddDates({ dates, onUpdateTask }) {
 //         </section>
 //     )
 // }
-
 
 ///// michael:
 

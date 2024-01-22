@@ -1,5 +1,4 @@
 .borad-list-container {
-    
     display: flex;
     flex-direction: column;
     overflow: auto;
@@ -18,16 +17,12 @@
             grid-template-columns: 1fr em(20px);
             justify-content: start;
             align-items: center;
-            // gap: 5px;
-            // margin: em(0px, 16px) em(-10px, 16px) em(0px, 16px) em(-25px, 16px);
             padding: em(0px, 25px) em(12px, 16px) em(0px, 16px) em(25px, 16px);
             height: em(45px);
 
             &:hover {
                 background-color: var(--darken10Percent);
             }
-
-   
         }
         .board-list-title {
             font-size: em(14px);
@@ -43,7 +38,6 @@
             .starred-container .star-icon {
                 opacity: 1;
                 stroke-width: 20px;
-
             }
         }
     }
@@ -52,7 +46,6 @@
 .starred-container {
     position: relative;
     transition: 0.3s ease-in-out;
-    
 
     .full-star {
         opacity: 1;

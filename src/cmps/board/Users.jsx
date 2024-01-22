@@ -2,7 +2,6 @@ import { utilService } from "../../services/util.service";
 
 export function Users({ members = [], size, gap = -2 }) {
 
-
     function getRandomClr() {
         const bgColors = ['--clr1', '--clr2', '--clr3', '--clr4', '--clr5', '--clr8', '--clr9']
         return bgColors[utilService.getRandomIntInclusive(0, bgColors.length)]

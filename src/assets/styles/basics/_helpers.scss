@@ -40,7 +40,7 @@
         flex-direction: column;
     }
 
-    &.center{
+    &.center {
         justify-content: center;
         align-items: center;
     }
@@ -48,11 +48,11 @@
     &.justify-center {
         justify-content: center;
     }
-   
+
     &.justify-start {
         justify-content: flex-start;
     }
-   
+
     &.justify-end {
         justify-content: flex-end;
     }
@@ -72,13 +72,9 @@
     &.align-end {
         align-items: end;
     }
-    &.gap{
-        gap: em(10px)
+    &.gap {
+        gap: em(10px);
     }
-
-    
-    
-
 }
 
 // GRID HELPERS
@@ -86,7 +82,7 @@
 .grid {
     display: grid;
 
-    &.center{
+    &.center {
         justify-content: center;
         align-items: center;
     }
@@ -122,10 +118,10 @@
     height: 100vh;
 }
 
-.pad-left-0{
+.pad-left-0 {
     padding-left: 0;
 }
-.h100{
+.h100 {
     height: 100%;
 }
 
@@ -172,9 +168,6 @@
     line-height: inherit;
     resize: none;
     overflow-y: hidden;
-    // font-size: em(14px,16px);
-    // overflow: auto;
-    // height: auto;
 }
 
 .custom-link {
@@ -206,7 +199,7 @@
     color: gray;
 }
 
-.txt-center{
+.txt-center {
     text-align: center;
 }
 
@@ -224,19 +217,16 @@
     @include aspect-ratio(9, 16);
 }
 
-
 .bold {
-font-weight: 500;
+    font-weight: 500;
 }
-
 
 .truncate {
-    max-width: em(160px);          
-    overflow: hidden;     
-    white-space: nowrap;  
+    max-width: em(160px);
+    overflow: hidden;
+    white-space: nowrap;
     text-overflow: ellipsis;
 }
-
 
 .btn-type-1 {
     background-color: var(--btn-bg-clr-1);

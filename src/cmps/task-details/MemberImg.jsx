@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from "react";
-// import { updateBoardGroup    Type, updateUserCmp } from "../../store/actions/board.actions";
 import { utilService } from "../../services/util.service";
 
 export function MemberImg({ member, size }) {
@@ -12,12 +11,6 @@ export function MemberImg({ member, size }) {
     const medium = 28
     const large = 32
 
-    function getRandomClr() {
-        const bgColors = ['--clr1', '--clr2', '--clr3', '--clr4', '--clr5', '--clr8', '--clr9']
-        return bgColors[utilService.getRandomIntInclusive(0, bgColors.length)]
-    }
-
-
     useEffect(() => {
         setSize(size)
     }, [])
@@ -27,26 +20,7 @@ export function MemberImg({ member, size }) {
         else setImgSize(large)
     }
 
-    // function handleAvtarClick(ev) {
-    //     ev.stopPropagation()
-    //     setIsAvatarClicked(!isAvatarClicked)
-    //     const screenWidth = window.innerWidth;
-    //     let rightBorder = imgRef.current.getBoundingClientRect().left
-    //     if (rightBorder > screenWidth - 304) {
-    //         rightBorder = imgRef.current.getBoundingClientRect().right - 165
-    //     }
-    //     const position = {
-    //         top: imgRef.current.getBoundingClientRect().top,
-    //         left: rightBorder
-    //     }
-
-    //     const userCmp = { isOpen: true, user: member, position: position }
-    //     updateUserCmp(userCmp)
-    //     updateBoardGroupTaskType(null, null, null, '', null)
-    // }
-
     return (
-        // <div className="member-img-container" ref={imgRef} onClick={handleAvtarClick}>
         <div key={member._id} className="user-img-wrapper">
             {member.imgUrl ? <img src={member.imgUrl} className="user-img" style={{ width: size + 'px', marginInlineEnd: '7px' }} />
                 :

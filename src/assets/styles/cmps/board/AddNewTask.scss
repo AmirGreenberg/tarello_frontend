@@ -1,17 +1,15 @@
-
 .buttons-container {
     display: flex;
     align-items: center;
     gap: 0.5em;
 
-    .btn-add-card {        
+    .btn-add-card {
         padding: em(6px) em(12px);
     }
 }
 
-.group-preview-footer{
+.group-preview-footer {
     padding: em(0px, 16px) em(8px, 16px);
-    
 
     .add-task-btn {
         font-size: em(14px);
@@ -23,15 +21,12 @@
         gap: 0.5rem;
         font-weight: 500;
         color: var(--txtClrDark);
-    
-        &:hover{
+
+        &:hover {
             background-color: var(--darken15Percent);
             border-radius: em(8px);
         }
-    
     }
-    
-
 }
 
 .add-task-input {

@@ -11,7 +11,6 @@ export function AddMembers({ boardMembers, board, task, onUpdateTask, onCloseMod
     const SIZE = 24
     const GAP = 1
 
-
     function handleChange({ target }) {
         setSearchTxt(target.value)
     }

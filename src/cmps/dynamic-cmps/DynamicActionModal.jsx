@@ -7,7 +7,6 @@ const MARGIN = 10
 export const TO_RIGHT = 'TO_RIGHT'
 export const TO_BOTTOM = 'TO_BOTTOM'
 
-
 export function DynamicActionModal({ content, event, onOutsideClick, modalPosition }) {
     if (!event || !content) return
 

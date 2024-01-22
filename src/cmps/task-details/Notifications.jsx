@@ -1,7 +1,5 @@
 import { IconV, IconWatch } from "../../services/icons.service"
 
-
-
 export function Notifications({ buttonIconProps, isWatching, onClickWatching }) {
     return (
         <section className="notifications">
@@ -12,12 +10,12 @@ export function Notifications({ buttonIconProps, isWatching, onClickWatching }) 
             >
                 <IconWatch {...buttonIconProps} />
                 {isWatching ? 'Watching' : 'Watch'}
-            {
-                isWatching &&
-                <div className="icon-v-container">
-                    <IconV size={28} color={'#fff'} />
-                </div>
-            }
+                {
+                    isWatching &&
+                    <div className="icon-v-container">
+                        <IconV size={28} color={'#fff'} />
+                    </div>
+                }
             </button>
         </section>
     )

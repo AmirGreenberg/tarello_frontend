@@ -7,7 +7,7 @@
     gap: 0.5em;
     background-color: var(--brighten25Percent);
     font-size: em(14px);
-    
+
     &:hover {
         background-color: var(--brighten10Percent);
     }
@@ -23,15 +23,14 @@
         width: 100%;
         border-radius: em(5px);
         overflow-y: hidden;
-        padding: em(6px,14px) em(12px,14px);
-        
+        padding: em(6px, 14px) em(12px, 14px);
     }
-    
+
     .btn-container {
         display: flex;
     }
 
-    .btn-type-1{
+    .btn-type-1 {
         margin: 0;
     }
 
@@ -39,11 +38,10 @@
         margin-left: em(5px);
         display: flex;
         justify-content: center;
-        align-items: center; 
- 
+        align-items: center;
+
         .icon {
             width: em(23px);
         }
     }
 }
-

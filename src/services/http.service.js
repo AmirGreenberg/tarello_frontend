@@ -4,7 +4,6 @@ const BASE_URL = process.env.NODE_ENV === 'production'
     ? '/api/'
     : '//localhost:3031/api/'
 
-
 const axios = Axios.create({
     withCredentials: true
 })
@@ -17,7 +16,7 @@ export const httpService = {
         return ajax(endpoint, 'POST', data)
     },
     put(endpoint, data) {
-        
+
         return ajax(endpoint, 'PUT', data)
     },
     delete(endpoint, data) {

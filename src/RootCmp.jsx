@@ -12,7 +12,6 @@ import { useSelector } from 'react-redux'
 import { useRef } from 'react'
 import { utilService } from './services/util.service'
 
-
 export function RootCmp() {
     const backgroundImage = useSelector(state => state.boardModule.board?.style.backgroundImage)
     const refImg = useRef()

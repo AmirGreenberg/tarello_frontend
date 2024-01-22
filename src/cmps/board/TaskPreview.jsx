@@ -11,7 +11,6 @@ import {
 } from '../../services/icons.service'
 import { Users } from './Users'
 
-
 export function TaskPreview({ onToggleLabel, isTagOpen, boardId, groupId, task }) {
     const navigate = useNavigate()
 
@@ -32,7 +31,6 @@ export function TaskPreview({ onToggleLabel, isTagOpen, boardId, groupId, task }
         comments,
         members
     } = task
-
 
     function getChecklistsTaskCount() {
         let taskCount = 0
@@ -92,7 +90,6 @@ export function TaskPreview({ onToggleLabel, isTagOpen, boardId, groupId, task }
 
                             </section>
                         }
-
 
                         <div className="task-preview-title clean-textarea">
                             {title}

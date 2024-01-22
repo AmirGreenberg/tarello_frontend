@@ -51,14 +51,3 @@ export function AddChecklist({ checklists, onUpdateTask, onCloseModal }) {
         </section >
     )
 }
-// return (
-//     <section className="feature-checklist scroll">
-//         <h3>Add checklist</h3>
-//         <form onSubmit={onAddChecklist}>
-//             <h4>Title</h4>
-//             <input type="text" name="title" />
-//             <button className="button-add-checklist">Add</button>
-//         </form>
-//     </section>
-// )
-// }

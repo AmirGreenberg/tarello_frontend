@@ -53,9 +53,8 @@
             }
         }
 
-
         .board-title {
-            font-size: em(18px,14px);
+            font-size: em(18px, 14px);
             line-height: 14px;
             font-weight: 500;
             color: var(--txtClr);
@@ -88,8 +87,6 @@
                 background-color: var(--hoverClr);
                 transition: 0.2s;
             }
-
-            
         }
 
         .search-box {

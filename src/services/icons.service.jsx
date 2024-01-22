@@ -960,7 +960,6 @@ export function IconQuestion({ size = 16, color = 'var(--txtClr)' }) {
 export function IconShareSocial({ size = 16, color = 'var(--txtClr)' }) {
     const refPath = useRef()
 
-
     return (
         <svg
             width={size}
@@ -1479,9 +1478,6 @@ export function TarelloLogo({ size = 16, color = 'var(--txtClr)' }) {
     );
 }
 
-
-
-
 export function IconTarelloFace({ size = 16, color = 'var(--txtClr)' }) {
     return (
         <svg
@@ -1581,16 +1577,8 @@ export function IconAlert() {
     )
 }
 
-
 export function IconDescription({ size = 16, color = "var(--txtClr)" }) {
     const refPath = useRef()
-
-    // useEffect(() => {
-    // 	const xDiff = (24 - refPath.current.getBBox().width) / 2
-    // 	const yDiff = (24 - refPath.current.getBBox().height) / 2
-    // 	refPath.current.setAttribute('transform', `translate(${xDiff}, ${yDiff})`)
-    // })
-
     return (
         <svg
             width={size}
@@ -1605,8 +1593,6 @@ export function IconDescription({ size = 16, color = "var(--txtClr)" }) {
         </svg>
     )
 }
-
-
 
 export function IconActivity({ size = 16, color = "var(--txtClr)" }) {
     const svgStyle = {

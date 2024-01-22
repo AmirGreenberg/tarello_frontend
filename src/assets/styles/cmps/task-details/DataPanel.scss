@@ -1,13 +1,9 @@
 .features-data {
     grid-column: 2/3;
     flex-wrap: wrap;
-    // gap: 25px;
-    // margin-top: 20px;
-
     * {
         color: var(--clr9);
     }
-
 
     .members {
         .members-img {
@@ -68,19 +64,6 @@
             gap: 6px;
             padding: 6px 12px 6px 12px;
             margin: 0;
-        }
-
-        .v-icon {
-            background-color: var(--clr4);
-            width: 28px;
-            height: 24px;
-            border-radius: 3px;
-            margin-inline-start: 5px;
-            margin-inline-end: -8px;
-
-            svg {
-                fill: white;
-            }
         }
     }
 

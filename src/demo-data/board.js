@@ -10038,7 +10038,6 @@
         }
     ]
     
-    
     // Guidelines
     // boardStore (no need for groupStore, taskStore), boardService
     // *. Support saving the entire board and also on the task level, 
@@ -10059,13 +10058,10 @@
     // As start - you can replace the entire board
     // Later, support switching a specific task
     
-    
     // <BoardDetails> => <BoardGroup v-for / map>
     // <BoardGroup> => <TaskPreview v-for / map>
     // <TaskDetails> (supports edit) - initially can be loaded in seperate route 
     // (later on we can place it in a modal and nested route)
-    
-    
     
     // // The comment feature can be implemented with activity
     // const activity = {
@@ -10096,9 +10092,6 @@
     //     // return task
     // }
     
-    
-    
-    
     // const user = {
     //     "_id": "u101",
     //     "fullname": "Abi Abambi",
@@ -10117,7 +10110,6 @@
     // <DatePicker info={} onUpdate={} />
     
     // <DynamicPicker info={} onUpdate={} >
-    
     
     // For Monday Mostly:
     // Dynamic Components:
@@ -10141,7 +10133,6 @@
     //     // dispatch to store: updateTask(task, activity)
     // }
     
-    
     // const cmp1 = {
     //     type: 'StatusPicker',
     //     info: {
@@ -10164,10 +10155,6 @@
     //         selectedDate: '2022-09-07',
     //     }
     // }
-    
-    
-    
-    
     
     // React.js
     // export function TaskPreview({ task }) {
@@ -10209,10 +10196,7 @@
     //     }
     // }
     
-
-
 // ]
-
 
 // Guidelines
 // boardStore (no need for groupStore, taskStore), boardService
@@ -10234,13 +10218,10 @@
 // As start - you can replace the entire board
 // Later, support switching a specific task
 
-
 // <BoardDetails> => <BoardGroup v-for / map>
 // <BoardGroup> => <TaskPreview v-for / map>
 // <TaskDetails> (supports edit) - initially can be loaded in seperate route 
 // (later on we can place it in a modal and nested route)
-
-
 
 // // The comment feature can be implemented with activity
 // const activity = {
@@ -10271,9 +10252,6 @@
 //     // return task
 // }
 
-
-
-
 // const user = {
 //     "_id": "u101",
 //     "fullname": "Abi Abambi",
@@ -10292,7 +10270,6 @@
 // <DatePicker info={} onUpdate={} />
 
 // <DynamicPicker info={} onUpdate={} >
-
 
 // For Monday Mostly:
 // Dynamic Components:
@@ -10316,7 +10293,6 @@
 //     // dispatch to store: updateTask(task, activity)
 // }
 
-
 // const cmp1 = {
 //     type: 'StatusPicker',
 //     info: {
@@ -10339,10 +10315,6 @@
 //         selectedDate: '2022-09-07',
 //     }
 // }
-
-
-
-
 
 // React.js
 // export function TaskPreview({ task }) {

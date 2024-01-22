@@ -18,7 +18,7 @@ export function HomePage() {
 
     return (
         <section className="homepage">
-            <div ref={topRef} /> {/* Invisible element at the top */}
+            <div ref={topRef} />
             <HomePageHeader />
 
             <section className="homepage-container">

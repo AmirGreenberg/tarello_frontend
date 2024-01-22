@@ -1,8 +1,7 @@
 import { useEffect, useRef } from "react"
 import { IconTaskDetails, IconX } from "../../services/icons.service"
 
-
-export function Title({ iconProps, taskTitle, groupTitle, onChangeTask, onUpdateBoard}) {
+export function Title({ iconProps, taskTitle, groupTitle, onChangeTask, onUpdateBoard }) {
     const refTextarea = useRef()
 
     useEffect(() => {

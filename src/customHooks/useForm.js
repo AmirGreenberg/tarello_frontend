@@ -20,8 +20,5 @@ export function useForm(initialState) {
         setFields((prevFields) => ({ ...prevFields, [field]: value }))
     }
 
-
     return [fields, setFields, handleChange]
-
-
 }

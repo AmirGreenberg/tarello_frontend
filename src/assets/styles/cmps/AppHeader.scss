@@ -4,7 +4,7 @@
     align-items: center;
     background-color: var(--themeBGcolor);
     outline: 1px solid var(--darken20Percent);
-    // backdrop-filter: blur(5px);
+    // backdrop-filter: blr(5px);
     height: em(48px);
     padding: em(8px);
 
@@ -65,7 +65,7 @@
                 background: none;
             }
         }
-        
+
         .create-btn {
             background-color: var(--btnBg);
             &:hover {
@@ -93,65 +93,6 @@
             ::placeholder {
                 color: var(--txtClr);
             }
-
-            .search-box-icon {
-                margin-left: em(7px);
-                width: em(16px);
-            }
-
-        .btns-header-user {
-            max-height: rem(32px);
-
-            .btn-user {
-                margin-inline-start: 4px;
-                &:hover {
-                    border-radius: 100%;
-                }
-
-                .center-svg {
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    height: rem(32px);
-                    width: rem(32px);
-                    padding: 4px;
-
-                    span {
-                        border-radius: 100%;
-                        width: rem(32px);
-                        padding-inline: rem(4px);
-                        color: var(--txtClr);
-                        align-items: center;
-                        display: flex;
-                        justify-content: end;
-                        place-content: center;
-                        font-weight: 500;
-                        font-size: rem(11px);
-                        height: rem(23px);
-                    }
-                }
-            }
-            button.btn-action.guest {
-                width: rem(75px);
-                max-height: rem(26px);
-                margin-inline: rem(4px);
-            }
-            .btn-img-user {
-                &:hover {
-                    background-color: #b3b3b338;
-                }
-            }
-
-            img {
-                width: 24px;
-                height: 24px;
-                border-radius: 50%;
-            }
-        }
-
-  
-
-
         }
     }
 }

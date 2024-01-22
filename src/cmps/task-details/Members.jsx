@@ -7,7 +7,6 @@ export function Members({ members, onClickMembers }) {
     if (!members?.length) return
     const [modalProps, setModalProps] = useState({})
 
-
     return (
         <section className="small-items  ">
             {members && (

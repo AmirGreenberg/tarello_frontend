@@ -9,7 +9,6 @@ import { utilService } from '../services/util.service.js'
 import { boardService } from '../services/board.service.js'
 import { SOCKET_EVENT_BOARD_UPDATED, socketService } from '../services/socket.service.js'
 
-
 export function BoardApp() {
     const { boardId } = useParams()
     const board = useSelector((storeState) => storeState.boardModule.board)
@@ -29,7 +28,7 @@ export function BoardApp() {
 
             return () => {
                 socketService.off(SOCKET_EVENT_BOARD_UPDATED)
-                
+
             }
 
         })
@@ -67,7 +66,7 @@ export function BoardApp() {
         <>
             <section
                 className="board-app"
-                // style={{ backgroundImage: `url(${board.style.backgroundImage})` }}
+            // style={{ backgroundImage: `url(${board.style.backgroundImage})` }}
             >
                 <BoardHeader {...{ onSetFilter, onUpdateBoard }} />
                 <GroupList

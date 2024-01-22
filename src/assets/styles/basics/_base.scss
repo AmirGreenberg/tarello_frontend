@@ -1,5 +1,5 @@
 * {
-   font-family:
+    font-family:
         Segoe UI,
         Roboto,
         Noto Sans,
@@ -9,11 +9,16 @@
         sans-serif;
 }
 
-
 * {
     box-sizing: border-box;
-    // font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    font-family: Segoe UI,Roboto,Noto Sans,Ubuntu,Droid Sans,Helvetica Neue,sans-serif;
+    font-family:
+        Segoe UI,
+        Roboto,
+        Noto Sans,
+        Ubuntu,
+        Droid Sans,
+        Helvetica Neue,
+        sans-serif;
 }
 
 ::selection {
@@ -110,7 +115,7 @@ button {
             "Open Sans",
             "Helvetica Neue",
             sans-serif;
-            font-weight: 500;
+        font-weight: 500;
     }
 
     a {

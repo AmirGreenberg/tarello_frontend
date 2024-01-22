@@ -50,8 +50,6 @@ export function Checklist({ iconProps, checklist, onUpdateTask, onDeleteChecklis
         onUpdateTask('checklist', checklist)
     }
 
-
-
     return (
         <section className="checklist">
             <IconChecked {...iconProps} />

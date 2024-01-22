@@ -120,11 +120,6 @@ function getLoggedinUser() {
 //     return user
 // }
 
-
-
-
-
-
 // async function changeScore(by) {
 //     const user = getLoggedinUser()
 //     if (!user) throw new Error('Not loggedin')
@@ -133,14 +128,8 @@ function getLoggedinUser() {
 //     return user.score
 // }
 
-
-
-
 // ;(async ()=>{
 //     await userService.signup({fullname: 'Puki Norma', username: 'puki', password:'123',score: 10000, isAdmin: false})
 //     await userService.signup({fullname: 'Master Adminov', username: 'admin', password:'123', score: 10000, isAdmin: true})
 //     await userService.signup({fullname: 'Muki G', username: 'muki', password:'123', score: 10000})
 // })()
-
-
-

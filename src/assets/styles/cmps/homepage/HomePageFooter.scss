@@ -4,7 +4,7 @@
     grid-template-columns: 1fr minmax(370px, 1100px) 1fr;
 
     * {
-        color: var(--clr7);     
+        color: var(--clr7);
     }
 
     background-color: var(--clr8);
@@ -24,99 +24,9 @@
         justify-content: space-between;
         align-items: center;
         .footer-logo {
-            padding: 0 rem(16px) 0;
-            align-items: baseline;
-            line-height: 3;
-            display: flex;
-            justify-content: space-around;
-            align-items: normal;
-
-            .inner-logo {
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-                margin: rem(16px) (16px) 0 0;
-            }
-
-            .footer-login-btn {
-                text-align: start;
-                margin-bottom: rem(10px);
-            }
-
             img {
                 width: rem(60px);
             }
-        }
-
-        .footer-info {
-            padding: rem(16px);
-
-            ul {
-                display: flex;
-            }
-
-            li {
-                line-height: 2;
-                padding: rem(16px);
-            }
-        }
-    }
-
-    .footer-seperator {
-        border-top: 1px solid rgb(80, 95, 121);
-        width: 98%;
-    }
-
-    .lower-section {
-        grid-column: 2/3;
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        div {
-            padding: rem(16px);
-        }
-
-        .language {
-            display: flex;
-            gap: 10px;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .social-links {
-            justify-content: end;
-            display: flex;
-            gap: 10px;
-            margin-inline-start: auto;
-        }
-
-        svg {
-            width: rem(12px);
-            fill: var(--clr7);
-        }
-
-        .social-btn {
-            justify-content: center;
-            align-items: center;
-            border-radius: 50%;
-            border: 2px solid rgb(255, 255, 255);
-            display: flex;
-            height: rem(28px);
-            width: rem(28px);
-        }
-
-        a {
-            font-size: rem(12px);
-        }
-
-        .policies {
-            justify-content: start;
-            display: flex;
-            gap: 1.5rem;
-            align-items: center;
-            flex: 0.8;
         }
     }
 }
