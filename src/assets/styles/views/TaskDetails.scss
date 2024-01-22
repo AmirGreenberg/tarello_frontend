@@ -203,14 +203,6 @@
         }
     }
 
-    @media (max-width: 800px) {
-        .task-details-container {
-            grid-template-columns: 43px 1fr !important;
-            margin-inline: 5px;
-            max-width: 95vw;
-        }
-    }
-
     @media (max-width: 410px) {
         .dates-data .dates-txt {
             flex-direction: column;

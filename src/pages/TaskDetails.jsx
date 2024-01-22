@@ -127,6 +127,7 @@ export function TaskDetails() {
                     <Cover {...{ cover: task.cover }} />
                     <Title {...{ iconProps, taskTitle: task.title, groupTitle: group.title, onChangeTask, onUpdateBoard }} />
                 </header>
+
                 <section className="main-content">
                     <section>
                         <Members        {...{ members: task.members, onClickMembers: event => setModalProps({ event, content: modalContent.addMembers }) }} />
