@@ -3,6 +3,13 @@
         @include input-task-feature;
     }
 
+    .board-members {
+        margin: 16px 0px 8px 0;
+        font-size: rem(12px);
+        color: var(--clr9);
+        font-weight: 600;
+    }
+
     .members-container {
         .member {
             gap: 10px;
@@ -10,6 +17,12 @@
             padding: 4px;
             border-radius: 3px;
             cursor: pointer;
+
+            .member-img {
+                border-radius: 50%;
+                height: 32px;
+                width: 32px;
+            }
 
             .member-name {
                 font-weight: initial;

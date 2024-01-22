@@ -70,3 +70,42 @@ export async function updateBoard(board) {
         throw err
     }
 }
+
+export async function removeAttachment(board, group, task, attachIdx) {
+    try {
+        const gIdx = getGroupIdx(board, group)
+        const tIdx = getTaskIdx(group, task)
+
+        board.groups[gIdx].tasks[tIdx].attachment.splice(attachIdx, 1)
+
+        await updateBoard(board)
+
+    } catch (err) {
+        console.log('Cannot delete attachment', err)
+        throw err
+    }
+}
+
+function getGroupIdx(board, group) {
+    return board.groups.findIndex(g => g.id === group.id)
+}
+
+function getTaskIdx(group, task) {
+    return group.tasks.findIndex(t => t.id === task.id)
+}
+
+export async function updatePhotoBackground(board, group, task, photo) {
+    try {
+        const gIdx = getGroupIdx(board, group)
+        const tIdx = getTaskIdx(group, task)
+
+        board.groups[gIdx].tasks[tIdx].cover.img.imgBgClr = ''
+        board.groups[gIdx].tasks[tIdx].cover.img.url = photo
+
+        await updateBoard(board)
+
+    } catch (err) {
+        console.log('Cannot update background photo', err)
+        throw err
+    }
+}

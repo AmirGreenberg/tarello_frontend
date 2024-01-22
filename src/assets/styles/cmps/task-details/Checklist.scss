@@ -5,13 +5,13 @@
         align-items: center;
     }
 
-    .checklist-todos {
+    .checklist-todos.checklist-todos {
         grid-column: 1 / -1;
 
         .todo {
             display: grid;
-            grid-template-columns: 1.5rem 1fr;
-            column-gap: em(5px);
+            grid-template-columns: 1.5rem 1fr auto;
+            column-gap: 1rem;
             align-items: center;
 
             input[type="checkbox"] {
@@ -20,32 +20,13 @@
                 justify-self: center;
             }
 
-            .todo-item {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                font-size: em(14px);
-                min-height: em(12px, 14px);
-                padding: em(6px, 14px) em(8px, 14px);
-                border-radius: em(12px, 14px);
-
-                .btn-delete-todo {
-                    height: 1.25rem;
-                    width: 1.25rem;
-                    display: none;
-                    border-radius: 50%;
-                }
-
-                &:hover {
-                    cursor: pointer;
-                    background-color: var(--task-details-btn-bg-clr);
-
-                    .btn-delete-todo {
-                        display: grid;
-                        align-content: center;
-                        justify-content: center;
-                    }
-                }
+            .btn-delete-todo {
+                height: 1.25rem;
+                width: 1.25rem;
+                display: grid;
+                align-content: center;
+                justify-content: center;
+                border-radius: 50%;
             }
         }
     }
@@ -53,5 +34,31 @@
     .todo-title-input {
         height: auto;
         padding: 0.5rem 0.75rem;
+    }
+}
+
+.button-container {
+    display: flex;
+    gap: 0.25rem;
+
+    button {
+        padding: 0.375rem 0.75rem;
+    }
+
+    .btn-cancel {
+        background-color: #0000;
+
+        &:hover {
+            background-color: var(--task-details-btn-hover-bg-clr);
+        }
+    }
+
+    .btn-confirm {
+        color: #fff;
+        background-color: var(--btn-confirm-bg-clr);
+
+        &:hover {
+            background-color: var(--btn-confirm-hover-bg-clr);
+        }
     }
 }

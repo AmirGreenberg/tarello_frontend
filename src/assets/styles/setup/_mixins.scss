@@ -176,3 +176,23 @@
         color: white !important;
     }
 }
+
+@mixin fixed-img-url() {
+    background-position: center center;
+    background-size: cover;
+}
+
+@mixin red-action-btn {
+    width: 53px;
+    height: 32px;
+    background-color: var(--task-details-delete-btn);
+    border-color: var(--task-details-delete-btn);
+    color: white;
+    border-radius: 3px;
+    font-size: rem(14px);
+
+    &:hover {
+        background-color: var(--task-details-delete-btn-hover);
+        border-color: var(--task-details-delete-btn-hover);
+    }
+}

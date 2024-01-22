@@ -2,7 +2,7 @@ export function HomePageProductivity() {
     return (
         <div className="productivity-container flex ">
             <div className="productivity-text flex">
-                <p className="Tarello-101">Tarello 101</p>
+                <p className="tarello-101">Tarello 101</p>
                 <h2 className="productivity-text">A productivity powerhouse</h2>
                 <p className="productivity-p">
                     Simple, flexible, and powerful. All it takes are boards,

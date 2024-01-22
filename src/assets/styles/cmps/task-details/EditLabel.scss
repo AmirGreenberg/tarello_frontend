@@ -1,0 +1,101 @@
+.edit-label {
+    .display-chosen-label {
+        width: 300px;
+        height: 100px;
+        background-color: var(--clr17);
+        margin: 0 -12px;
+
+        .chosen-color {
+            width: 232px;
+            height: 32px;
+            padding-inline: 12px;
+            border-radius: 3px;
+            font-size: rem(14px);
+            font-weight: 500;
+            color: var(--purpleSubtleTx);
+        }
+    }
+
+    * {
+        color: var(--clr9);
+    }
+
+    h3 {
+        font-weight: 600;
+        margin: 12px 0 8px 0;
+    }
+
+    input {
+        @include input-task-feature;
+    }
+
+    .colors-container {
+        flex-wrap: wrap;
+        gap: 8px;
+
+        .color-container {
+            height: 28px;
+            width: 47px;
+            border-radius: 3px;
+            cursor: pointer;
+
+            &:hover {
+                opacity: 0.7;
+            }
+        }
+    }
+
+    .remove-color-btn {
+        @include btn-gray-bgc;
+        margin: 8px 0;
+        gap: 8px;
+
+        &.without-color {
+            cursor: not-allowed;
+            color: var(--task-details-not-allowed-txt);
+            background-color: var(--task-details-not-allowed-bgc);
+        }
+
+        &.without-color:hover {
+            background-color: var(--task-details-not-allowed-bgc);
+        }
+
+        .create-new-label {
+            font-weight: 600;
+            color: var(--txtClrDark);
+        }
+
+        .create-new-label.without-color {
+            color: var(--task-details-not-allowed-txt);
+        }
+
+        svg {
+            width: 14px;
+        }
+    }
+
+    hr {
+        margin: 24px 0 16px 0;
+    }
+
+    .save-delete-btns {
+        button {
+            font-weight: 500;
+            @include blue-action-btn;
+        }
+
+        button:last-child {
+            @include red-action-btn;
+        }
+    }
+
+    .back-btn {
+        @include back-and-exit-btns;
+        position: absolute;
+        top: 7px;
+
+        svg {
+            margin: 2px 0 0 0;
+        }
+    }
+}

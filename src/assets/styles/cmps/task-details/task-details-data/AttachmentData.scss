@@ -1,0 +1,63 @@
+.attachment-container {
+    gap: 20px;
+
+    .file-type {
+        &:hover {
+            background-color: var(--task-details-btn-bg-clr);
+        }
+
+        .filetype-preview {
+            width: 112px;
+            height: 80px;
+            color: var(--clr9);
+            background-color: var(--task-details-btn-bg-clr);
+            font-size: rem(18px);
+            font-weight: 700;
+            border-radius: 3px;
+        }
+
+        &.img {
+            background-size: contain;
+            background-position: center center;
+            background-repeat: no-repeat;
+            border-radius: 3px;
+        }
+    }
+
+    .content {
+        flex-direction: column;
+        align-items: start;
+        justify-content: center;
+        gap: 5px;
+
+        a {
+            color: var(--clr8);
+            font-weight: 700;
+            max-width: 512px;
+            word-wrap: break-word;
+        }
+
+        button {
+            text-decoration: underline;
+            color: var(--clr9);
+        }
+
+        svg {
+            height: 10px;
+            margin-inline-start: 5px;
+        }
+
+        .options {
+            gap: 10px;
+
+            svg {
+                margin-inline-end: 5px;
+                height: 16px;
+            }
+
+            div {
+                cursor: pointer;
+            }
+        }
+    }
+}

@@ -22,9 +22,10 @@ export function Description({ iconProps, taskDescription, refTaskDetails, onUpda
     }
 
     return (
-        <section className="description" ref={refDescriptionContainer}>
-            <IconDescription {...{ iconProps, color: 'var(--clr9)', size: 24 }} />
-            <h3 className="main-content-title">Description</h3>
+        <section className="description-container" ref={refDescriptionContainer}>
+
+            <h2>Description</h2>
+
             {
                 isTextareaOpen
                     ?

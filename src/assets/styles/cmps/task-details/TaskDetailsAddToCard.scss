@@ -1,0 +1,41 @@
+.task-features {
+    margin-top: 20px;
+
+    h3 {
+        color: var(--clr9);
+        font-weight: 600;
+    }
+
+    div {
+        display: flex;
+        gap: 6px;
+        cursor: pointer;
+        align-items: center;
+        padding: 6px 12px;
+        border-radius: 3px;
+        margin-top: 8px;
+        background-color: var(--task-details-btn-bg-clr);
+        width: 168px;
+
+        transition: all 0.1s;
+
+        p {
+            color: var(--clr8);
+            font-weight: 600;
+            margin: 0;
+            padding: 0;
+        }
+
+        svg {
+            height: 16px;
+        }
+
+        &:hover {
+            background: var(--task-details-scroll-bar);
+        }
+    }
+}
+
+.actions-btn {
+    margin-top: 2rem;
+}

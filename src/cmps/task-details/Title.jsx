@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react"
-import { IconTaskDetails, IconX } from "../../services/icons.service"
+import { IconEye, IconWatch } from "../../services/icons.service"
 
-export function Title({ iconProps, taskTitle, groupTitle, onChangeTask, onUpdateBoard }) {
+export function Title({ iconProps, task, taskTitle, groupTitle, onChangeTask, onUpdateBoard }) {
     const refTextarea = useRef()
 
     useEffect(() => {
@@ -19,11 +19,11 @@ export function Title({ iconProps, taskTitle, groupTitle, onChangeTask, onUpdate
     }
 
     return (
-        <section className="title">
-            <IconTaskDetails {...iconProps} />
+        <div className="task-title">
+
             <section className="title-input-container">
                 <textarea
-                    className="title-input clean-textarea"
+                    className="title-input clean-textarea blue-focus"
                     type="text"
                     name="title"
                     value={taskTitle}
@@ -40,7 +40,10 @@ export function Title({ iconProps, taskTitle, groupTitle, onChangeTask, onUpdate
                     <IconX {...{...iconProps}} />
                 </button> */}
             </section>
-            <p className="in-group">in list <a href="#">{groupTitle}</a></p>
-        </section>
+            <p className="flex align-center">in list
+                <a href="#">{groupTitle}</a>
+                {task.isWatch && <IconWatch />}
+            </p>
+        </div>
     )
 }

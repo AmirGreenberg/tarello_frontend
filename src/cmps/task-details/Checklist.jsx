@@ -1,3 +1,5 @@
+import React from "react";
+
 import { useEffect, useRef, useState } from 'react'
 import { boardService } from '../../services/board.service'
 import { IconChecked, IconExit, IconX } from '../../services/icons.service'
@@ -51,35 +53,36 @@ export function Checklist({ iconProps, checklist, onUpdateTask, onDeleteChecklis
     }
 
     return (
-        <section className="checklist">
-            <IconChecked {...iconProps} />
-            <section className="checklist-title">
-                <h3 className='main-content-title'>{checklist.title}</h3>
+        <section className="check-list-container">
+
+            <div className="header flex align-center justify-between">
+                <input className="checklist-title"
+                    value={checklist.title}>
+                </input>
                 <button
-                    className="btn-delete-checklist btn-type-3"
+                    className="delete-checklist"
                     onClick={onDeleteChecklist}
                 >
                     Delete
                 </button>
-            </section>
-            <ul className="checklist-todos clean-list">
-                {
-                    checklist.todos?.map((todo, i) =>
-                        <li className="todo" key={todo.id}>
-                            <input type="checkbox" name="todo" id={todo.id} checked={todo.isDone} onChange={(e) => onToggleTodo(todo.id, e.target.checked)} />
-                            <div className="todo-item">
+            </div>
+
+            {
+                checklist.todos?.map((todo, i) =>
+                    <React.Fragment key={todo.id}>
+                        <div className="todo flex align-center" >
+                            <input className="todo-checkbox" type="checkbox" name="todo" id={todo.id} checked={todo.isDone} onChange={(e) => onToggleTodo(todo.id, e.target.checked)} />
+                            <div className="todo-title">
                                 <label style={{ textDecoration: todo.isDone ? 'line-through' : 'none' }} htmlFor={todo.id}>{todo.title}</label>
-                                <button
-                                    className="btn-delete-todo"
-                                    onClick={() => onDeleteTodo(i)}
-                                >
-                                    <IconExit />
-                                </button>
                             </div>
-                        </li>
-                    )
-                }
-            </ul>
+                            <div className="remove-todo" onClick={() => onDeleteTodo(i)}>
+                                <IconExit />
+                            </div>
+                        </div>
+                    </React.Fragment>
+                )
+            }
+
             <section className="add-todo">
                 {
                     !isAddTodo &&
@@ -122,6 +125,6 @@ export function Checklist({ iconProps, checklist, onUpdateTask, onDeleteChecklis
                     </form>
                 }
             </section>
-        </section>
+        </section >
     )
 }

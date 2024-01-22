@@ -6,8 +6,7 @@
 
     .btn-description {
         width: 100%;
-        text-align: start;
-        cursor: pointer;
+        align-items: start;
 
         &:not(.not-button) {
             height: 3.5rem;

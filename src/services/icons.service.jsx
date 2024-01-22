@@ -609,6 +609,15 @@ export function IconCover({ size = 16, color = 'var(--txtClr)' }) {
         </svg>
     )
 }
+
+export function IconArrowTopRightCorner() {
+    return (
+        <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 16 16" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+            <path fillRule="evenodd" d="M14 2.5a.5.5 0 0 0-.5-.5h-6a.5.5 0 0 0 0 1h4.793L2.146 13.146a.5.5 0 0 0 .708.708L13 3.707V8.5a.5.5 0 0 0 1 0v-6z"></path>
+        </svg>
+    )
+}
+
 export function IconCustomField({ size = 16, color = 'var(--txtClr)' }) {
     const refPath = useRef()
 
@@ -1657,6 +1666,59 @@ export function IconExit() {
     return (
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
             <path fillRule="evenodd" clipRule="evenodd" d="M10.5858 12L5.29289 6.70711C4.90237 6.31658 4.90237 5.68342 5.29289 5.29289C5.68342 4.90237 6.31658 4.90237 6.70711 5.29289L12 10.5858L17.2929 5.29289C17.6834 4.90237 18.3166 4.90237 18.7071 5.29289C19.0976 5.68342 19.0976 6.31658 18.7071 6.70711L13.4142 12L18.7071 17.2929C19.0976 17.6834 19.0976 18.3166 18.7071 18.7071C18.3166 19.0976 17.6834 19.0976 17.2929 18.7071L12 13.4142L6.70711 18.7071C6.31658 19.0976 5.68342 19.0976 5.29289 18.7071C4.90237 18.3166 4.90237 17.6834 5.29289 17.2929L10.5858 12Z" fill="currentColor" />
+        </svg>
+    )
+}
+
+export function IconCard() {
+    return (
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" id="Layer_2" data-name="Layer 2" viewBox="0 0 20.41 15.8">
+            <defs>
+
+            </defs>
+            <g id="Layer_1-2" data-name="Layer 1">
+                <path className="cls-1" d="M18.17,0H2.24C1,0,0,1,0,2.24V13.56c0,1.24,1,2.24,2.24,2.24h15.92c1.24,0,2.24-1,2.24-2.24V2.24c0-1.24-1-2.24-2.24-2.24ZM8.15,13.95H3.36c-.77,0-1.4-.63-1.4-1.4s.63-1.4,1.4-1.4h4.79c.77,0,1.4,.63,1.4,1.4s-.63,1.4-1.4,1.4Zm8.89,0c-.77,0-1.4-.62-1.4-1.4s.62-1.4,1.4-1.4,1.4,.62,1.4,1.4-.62,1.4-1.4,1.4Zm1.03-4.74H2.33c-.2,0-.36-.16-.36-.36V2.37c0-.2,.16-.36,.36-.36h15.75c.2,0,.36,.16,.36,.36v6.48c0,.2-.16,.36-.36,.36Z" />
+            </g>
+        </svg>
+    )
+}
+
+export function IconEye() {
+    return (
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="15px" height="15px" viewBox="0 0 58.000000 44.000000" preserveAspectRatio="xMidYMid meet">
+            <g transform="translate(0.000000,44.000000) scale(0.100000,-0.100000)" stroke="none">
+                <path d="M185 416 c-96 -44 -155 -116 -155 -189 0 -40 45 -115 88 -146 114 -81 230 -81 344 0 43 31 88 106 88 146 0 104 -133 213 -260 213 -37 0 -72 -8 -105 -24z m205 -53 c65 -34 113 -91 113 -133 0 -69 -120 -160 -212 -160 -115 1 -239 111 -210 187 16 42 58 83 114 109 68 33 129 31 195 -3z" />
+                <path d="M216 299 c-59 -69 -15 -169 74 -169 91 0 135 106 71 171 -24 23 -38 29 -74 29 -38 0 -49 -5 -71 -31z m102 -25 c24 -17 30 -62 10 -82 -37 -37 -113 12 -89 57 10 18 37 40 51 41 3 0 16 -7 28 -16z" />
+            </g>
+        </svg>
+    )
+}
+
+export function IconCheckList() {
+    return (
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="16px" height="16px" viewBox="0 0 55.000000 51.000000" preserveAspectRatio="xMidYMid meet">
+            <g transform="translate(0.000000,51.000000) scale(0.100000,-0.100000)" stroke="none">
+                <path d="M26 458 c-23 -33 -24 -393 0 -426 15 -22 19 -22 224 -22 l210 0 15 24 c12 18 15 45 13 112 -3 87 -3 89 -28 89 -25 0 -25 -2 -28 -88 l-3 -87 -179 0 -180 0 0 185 0 185 163 2 c154 3 162 4 162 23 0 19 -8 20 -177 23 -173 2 -177 2 -192 -20z" />
+                <path d="M365 310 c-60 -60 -114 -110 -120 -110 -5 0 -29 23 -53 50 -43 50 -77 64 -88 35 -8 -20 114 -155 141 -155 29 0 280 253 272 274 -13 33 -45 13 -152 -94z" />
+            </g>
+        </svg>
+    )
+}
+
+export function IconXDetails() {
+    return (
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
+            <path fillRule="evenodd" clipRule="evenodd" d="M10.5858 12L5.29289 6.70711C4.90237 6.31658 4.90237 5.68342 5.29289 5.29289C5.68342 4.90237 6.31658 4.90237 6.70711 5.29289L12 10.5858L17.2929 5.29289C17.6834 4.90237 18.3166 4.90237 18.7071 5.29289C19.0976 5.68342 19.0976 6.31658 18.7071 6.70711L13.4142 12L18.7071 17.2929C19.0976 17.6834 19.0976 18.3166 18.7071 18.7071C18.3166 19.0976 17.6834 19.0976 17.2929 18.7071L12 13.4142L6.70711 18.7071C6.31658 19.0976 5.68342 19.0976 5.29289 18.7071C4.90237 18.3166 4.90237 17.6834 5.29289 17.2929L10.5858 12Z" fill="currentColor" />
+        </svg>
+    )
+}
+
+export function IconVDetails() {
+    return (
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="12" height="12" viewBox="0 0 48.000000 35.000000" preserveAspectRatio="xMidYMid meet">
+            <g transform="translate(0.000000,35.000000) scale(0.100000,-0.100000)" stroke="none">
+                <path d="M384 289 c-10 -12 -63 -62 -117 -112 l-98 -90 -54 53 c-53 52 -85 62 -85 24 0 -21 119 -144 139 -144 26 0 275 255 268 274 -9 22 -30 20 -53 -5z" />
+            </g>
         </svg>
     )
 }

@@ -1,0 +1,43 @@
+.feature-cover {
+    .remove-cover {
+        @include btn-gray-bgc;
+    }
+
+    h1 {
+        font-size: rem(12px);
+        font-weight: 600;
+        color: var(--clr9);
+        margin: 16px 0 8px 0;
+    }
+
+    .colors-container {
+        flex-wrap: wrap;
+        gap: 7px;
+
+        .color-container {
+            height: 32px;
+            width: 50px;
+            border-radius: 3px;
+        }
+    }
+
+    .photos-container {
+        flex-wrap: wrap;
+        gap: 7px;
+
+        .photo-container {
+            height: 48px;
+            width: 88px;
+            border-radius: 3px;
+            @include fixed-img-url;
+        }
+    }
+
+    .color-container,
+    .photo-container {
+        &:hover {
+            opacity: 0.8;
+            cursor: pointer;
+        }
+    }
+}

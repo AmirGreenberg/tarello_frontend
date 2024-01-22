@@ -1,23 +1,12 @@
 .feature-labels {
     .search-lables {
         @include input-task-feature;
-        width: 88%;
-    }
-
-    input {
-        // margin: 12px;
-        margin-inline: 12px;
-    }
-
-    ul {
-        padding: 0 12px 12px;
-        margin: 0;
     }
 
     .labels-suggestions {
         gap: 5px;
 
-        margin: 0px 0px 0px 2px;
+        margin: 12px 0px 8px 2px;
 
         * {
             color: var(--clr9);
@@ -25,9 +14,6 @@
 
         .labels-title {
             font-size: rem(12px);
-            font-weight: 500;
-            margin-inline-start: rem(12px);
-            padding: 0;
         }
     }
 
@@ -76,7 +62,7 @@
     }
 
     .create-new-label {
-        font-weight: 500;
+        font-weight: 600;
         @include btn-gray-bgc;
     }
 }

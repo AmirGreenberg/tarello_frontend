@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { useNavigate, useParams } from 'react-router'
+import React from "react";
+
 
 import { loadBoard, loadBoards, updateBoard } from '../store/actions/board.actions'
 import { AddLabels } from '../cmps/task-details/AddLabels'
@@ -18,7 +20,7 @@ import { AddDates } from '../cmps/task-details/AddDates'
 import { Dates } from '../cmps/task-details/Dates'
 import { AddMembers } from '../cmps/task-details/AddMembers'
 import useOutsideClick from '../cmps/customHooks/useOutsideClick'
-import { IconArrow, IconAttachment, IconChecked, IconClock, IconDuplicate, IconLabel, IconMan, IconShare, IconShareSocial, IconX, IconXLarge, IconXSmall } from '../services/icons.service'
+import { IconArrow, IconAttachment, IconCheckList, IconChecked, IconClock, IconCover, IconDescription, IconDuplicate, IconLabel, IconMan, IconShare, IconShareSocial, IconTaskDetails, IconV, IconWatch, IconX, IconXDetails, IconXLarge, IconXSmall } from '../services/icons.service'
 import { DynamicActionModal, TO_RIGHT } from '../cmps/dynamic-cmps/DynamicActionModal'
 import { TO_BOTTOM } from '../cmps/dynamic-cmps/DynamicActionModal'
 
@@ -114,126 +116,148 @@ export function TaskDetails() {
     }
 
     return (
-        <section className="task-details-container" >
+        <div className="overlay flex justify-center" >
 
-            <section className="task-details" ref={refTaskDetails} onClick={(ev) => ev.stopPropagation()} >
-                <header className="task-details-header">
-                    <button
-                        className="btn-clean btn-close btn-round flex center "
-                        onClick={(ev) => onCloseTaskDetails(ev)}
-                    >
-                        <IconXLarge color={"var(--txtClrDark)"} />
-                    </button>
-                    <Cover {...{ cover: task.cover }} />
-                    <Title {...{ iconProps, taskTitle: task.title, groupTitle: group.title, onChangeTask, onUpdateBoard }} />
+            <section className="task-details-container" ref={refTaskDetails} onClick={(ev) => ev.stopPropagation()} >
+                <Cover {...{ cover: task.cover }} />
+
+                <header className="task-header flex align-start">
+                    <div className="title-img">
+                        <IconTaskDetails {...iconProps} />
+                    </div>
+                    <Title {...{ iconProps, task, taskTitle: task.title, groupTitle: group.title, onChangeTask, onUpdateBoard }} />
                 </header>
 
-                <section className="main-content">
-                    <section>
-                        <Members        {...{ members: task.members, onClickMembers: event => setModalProps({ event, content: modalContent.addMembers }) }} />
-                    </section>
-                    <section>
-                        <Labels         {...{ labels: task.labels, onClickLabel: event => setModalProps({ event, content: modalContent.addLabels }) }} />
-                    </section>
-                    {task.dates && <section className="small-items">
-                        <div className="dates-container">
-                            <p className="mini-title">Dates</p>
-                            <div className='date-box flex center gap'>
 
-                                <IconClock color={'var(--txtClrDark)'} />
-                                <span>{task.dates.longString}</span>
+                <main className="task-details-content flex">
+                    <section className="task-details-data">
+
+                        <section className="features-data flex">
+
+                            <Members        {...{ members: task.members, onClickMembers: event => setModalProps({ event, content: modalContent.addMembers }) }} />
+
+                            <Labels         {...{ labels: task.labels, onClickLabel: event => setModalProps({ event, content: modalContent.addLabels }) }} />
+
+                            <div className="watch">
+                                <p className="title">Notifications</p>
+                                {/* <div className="notifications flex" onClick={onSetIsWatch}> */}
+                                <div className="notifications flex" >
+                                    <IconWatch />
+                                    {task.isWatch ? <p className="txt">Watching</p> : <p className="txt">Watch</p>}
+                                    {task.isWatch &&
+                                        <div className="v-icon flex justify-center align-center"><IconV /></div>}
+                                </div>
                             </div>
-                        </div>
-                    </section>}
-                    <section className="small-items">
+
+                            {task.dates &&
+                                <div className="dates-data" >
+                                    <p className="dates-title">Dates</p>
+                                    <div className="flex checkbox-and-dates">
+                                        <div className="dates-txt">
+                                            <p className="class-Done">{task.dates.longString}</p>
+
+                                            {/* <IconClock color={'var(--txtClrDark)'} /> */}
+                                        </div>
+                                    </div>
+                                </div>}
+
+                        </section>
+
+                        {/* <section className="small-items"> */}
                         {/* <Notifications  {...{ buttonIconProps, isWatching, onClickWatching: () => setIsWatching(prev => !prev) }} /> */}
-                    </section>
+                        {/* </section> */}
 
-                    <section className="small-items">
+                        {/* <section className="small-items"> */}
                         {/* <Dates          {...{ dates: task.dates, onClickDates: event => setModalProps({ event, content: modalContent.addDates }) }} /> */}
+                        {/* </section> */}
+
+                        <div className="description-svg">
+                            <IconDescription {...{ iconProps, color: 'var(--clr9)', size: 24 }} />
+                        </div>
+                        <Description    {...{ iconProps, taskDescription: task.description, refTaskDetails, onUpdateTask }} />
+
+                        {task.attachment.length > 0 &&
+                            <Attachments    {...{ board, group, task }} />}
+
+                        {
+                            task.checklists.length > 0 && task.checklists.map((checklist, i) =>
+                                <React.Fragment key={checklist.id}>
+                                    <div className="checklist-svg">
+                                        <IconChecked {...iconProps} />
+                                    </div>
+                                    <div className="checklist-item">
+                                        <Checklists     {...{ i, iconProps, checklist, checklists: task.checklists, onUpdateTask, refTaskDetails }} />
+                                    </div>
+                                </React.Fragment>)}
+
+                        {/* <Activity       {...{ iconProps, activities: task.activities }} /> */}
                     </section>
 
-                    <Description    {...{ iconProps, taskDescription: task.description, refTaskDetails, onUpdateTask }} />
-                    {task.cover?.imgUrl && <Attachments    {...{ iconProps, imgUrl: task.cover.imgUrl }} />}
-                    <Checklists     {...{ iconProps, checklists: task.checklists, onUpdateTask, refTaskDetails }} />
-                    {/* <Activity       {...{ iconProps, activities: task.activities }} /> */}
-                </section>
-                <section className="side-bar">
-                    <section className="add-to-card mini-title-side">
-                        <h4>Add to card</h4>
-                        <button
-                            className="btn-add-members task-detail-btn"
-                            onClick={event => setModalProps({ event, content: modalContent.addMembers })}
-                        >
+                    <section className="task-features">
+
+                        <h3>Add to card</h3>
+                        <div onClick={event => setModalProps({ event, content: modalContent.addMembers })}>
                             <IconMan {...buttonIconProps} />
-                            Members
-                        </button>
-                        <button
-                            className="btn-add-labels task-detail-btn"
-                            onClick={event => setModalProps({ event, content: modalContent.addLabels })}
-                        >
+                            <p>Members</p>
+                        </div>
+
+                        <div onClick={event => setModalProps({ event, content: modalContent.addLabels })}>
                             <IconLabel {...buttonIconProps} size={12} />
-                            Labels
-                        </button>
-                        <button
-                            className="btn-add-checklist task-detail-btn"
-                            onClick={event => setModalProps({ event, content: modalContent.addChecklist })}
-                        >
+                            <p>Labels</p>
+                        </div>
+
+                        <div onClick={event => setModalProps({ event, content: modalContent.addChecklist })}>
                             <IconChecked {...buttonIconProps} />
-                            Checklist
-                        </button>
-                        <button
-                            className="btn-add-dates task-detail-btn"
-                            onClick={event => setModalProps({ event, content: modalContent.addDates })}
-                        >
+                            <p>Checklist</p>
+                        </div>
+
+                        <div onClick={event => setModalProps({ event, content: modalContent.addDates })}>
                             <IconClock {...buttonIconProps} />
-                            Dates
-                        </button>
+                            <p>Dates</p>
+                        </div>
 
-                        <button
-                            className="btn-add-dates task-detail-btn"
-                            onClick={event => setModalProps({ event, content: modalContent.addDates })}
-                        >
+                        <div onClick={event => setModalProps({ event, content: modalContent.addDates })}>
                             <IconAttachment {...buttonIconProps} />
-                            Attachments
-                        </button>
-                        <h4>Actions</h4>
-                        <button
-                            className="btn-add-dates task-detail-btn"
-                            onClick={onDeleteTask}
-                        >
+                            <p>Attachment</p>
+                        </div>
+
+                        <div onClick={event => setModalProps({ event, content: modalContent.addDates })}>
+                            <IconCover {...buttonIconProps} />
+                            <p>Cover</p>
+                        </div>
+
+                        <h3 className='actions-btn'>Actions</h3>
+
+                        <div onClick={onDeleteTask}>
                             <IconXSmall {...buttonIconProps} size={10} />
-                            Delete
-                        </button>
+                            <p>Delete</p>
+                        </div>
 
-                        <button
-                            className="btn-add-dates task-detail-btn"
-                            onClick={event => setModalProps({ event, content: modalContent.addDates })}
-                        >
+                        <div>
                             <IconDuplicate {...buttonIconProps} />
-                            Copy
-                        </button>
+                            <p>Copy</p>
+                        </div>
 
-                        <button
-                            className="btn-add-dates task-detail-btn"
-                            onClick={event => setModalProps({ event, content: modalContent.addDates })}
-                        >
+                        <div>
                             <IconArrow {...buttonIconProps} />
-                            Move
-                        </button>
+                            <p>Move</p>
+                        </div>
 
-                        <button
-                            className="btn-add-dates task-detail-btn"
-                            onClick={event => setModalProps({ event, content: modalContent.addDates })}
-                        >
+                        <div>
                             <IconShareSocial {...buttonIconProps} />
-                            Share
-                        </button>
+                            <p>Share</p>
+                        </div>
 
                     </section>
-                </section>
+
+                </main>
+
+                <div className="exit-taxt-details-btn" onClick={(ev) => onCloseTaskDetails(ev)}>
+                    <IconXDetails />
+                </div>
+
             </section>
             <DynamicActionModal {...{ ...modalProps, modalPosition: TO_BOTTOM, onOutsideClick: onCloseModal }} />
-        </section>
+        </div>
     )
 }

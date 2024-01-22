@@ -350,7 +350,13 @@
             .productivity-text {
                 flex-direction: column;
                 color: var(--clr10);
-                width: 600px;
+                // max-width: 600px;
+
+                .tarello-101 {
+                    font-family: charlie-semibold, sans-serif;
+                    margin-block-end: rem(8px);
+                    font-size: rem(16px);
+                }
 
                 .productivity-p {
                     font-size: rem(20px);

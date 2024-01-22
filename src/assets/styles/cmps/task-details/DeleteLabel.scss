@@ -1,0 +1,21 @@
+.delete-label {
+    p {
+        margin-bottom: 8px;
+    }
+
+    .delete-btn {
+        @include red-action-btn;
+
+        width: 100%;
+    }
+
+    .back-btn {
+        @include back-and-exit-btns;
+        position: absolute;
+        top: 7px;
+
+        svg {
+            margin: 2px 0 0 0;
+        }
+    }
+}

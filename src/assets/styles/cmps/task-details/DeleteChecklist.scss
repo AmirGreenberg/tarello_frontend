@@ -1,0 +1,11 @@
+.delete-checklist {
+    p {
+        font-weight: 400;
+    }
+    .delete-btn {
+        @include red-action-btn;
+        width: 100%;
+        margin-top: 16px;
+        font-weight: 500;
+    }
+}

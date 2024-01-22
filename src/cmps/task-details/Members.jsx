@@ -7,27 +7,22 @@ export function Members({ members, onClickMembers }) {
     if (!members?.length) return
     const [modalProps, setModalProps] = useState({})
 
-    return (
-        <section className="small-items  ">
-            {members && (
-                <section className="type-container">
-                    <div className="members">
-                        <p className="mini-title">Members</p>
-                        <div className="members-img flex clean-list">
-                            {members.filter(member => member.isActive).map((member, index) =>
-                                <li className="" key={index} onClick={onClickMembers}>
-                                    {members && <MemberImg member={member} size={32} />}
-                                </li>
 
-                            )}
-                            <button className="round-btn plus-btn-members flex center" onClick={onClickMembers}>
-                                <IconPlusAddList />
-                            </button>
-                        </div>
-                    </div>
-                </section>
-            )}
-        </section>
+    return (
+        <div className="members">
+            <p className="title">Members</p>
+            <div className="members-img flex align-center">
+                {members.filter(member => member.isActive).map((member, index) =>
+                    <li className="" key={index} onClick={onClickMembers}>
+                        {members && <MemberImg member={member} size={32} />}
+                    </li>
+
+                )}
+                <button className="round-btn plus-btn-members flex center" onClick={onClickMembers}>
+                    <IconPlusAddList />
+                </button>
+            </div>
+        </div>
     )
 }
 

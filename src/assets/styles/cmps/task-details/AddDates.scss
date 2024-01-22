@@ -1,0 +1,96 @@
+.feature-dates {
+    p {
+        font-size: rem(12px);
+        font-weight: 700;
+    }
+
+    p.clicked {
+        color: #0c66e4;
+    }
+
+    .start-date,
+    .due-date {
+        gap: 10px;
+        margin: 5px 0 10px 0;
+    }
+
+    input[type="text"] {
+        @include input-task-feature;
+        box-shadow: inset 0 0 0 2px var(--focusFrameClr);
+        width: 90px;
+        height: 32px;
+        padding: 7px;
+    }
+
+    input[type="checkbox"] {
+        @include custom-checkbox;
+    }
+
+    .save-btn {
+        @include blue-action-btn;
+        width: 100%;
+    }
+
+    .remove-btn {
+        @include btn-gray-bgc;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .save-btn,
+    .remove-btn {
+        margin-top: 8px;
+    }
+
+    input.not-clicked {
+        background-color: #091e4208;
+        color: #091e424f;
+        box-shadow: inset 0 0 0 0px #091e4208 !important;
+        cursor: not-allowed;
+    }
+
+    //changes on MUI classes
+
+    .MuiPickersToolbar-root.MuiPickersLayout-toolbar {
+        display: none;
+    }
+
+    .MuiDayCalendar-weekContainer.css-flbe84-MuiDayCalendar-weekContainer {
+        justify-content: flex-start;
+    }
+
+    .css-i5q14k-MuiDayCalendar-header.css-i5q14k-MuiDayCalendar-header {
+        justify-content: flex-start;
+    }
+
+    .MuiPickersCalendarHeader-labelContainer.css-cyfsxc-MuiPickersCalendarHeader-labelContainer {
+        margin-inline-end: 0;
+    }
+
+    .MuiDialogActions-root.MuiDialogActions-spacing {
+        display: none;
+    }
+
+    .MuiPickersCalendarHeader-label.css-dplwbx-MuiPickersCalendarHeader-label {
+        color: var(--txtClrDark);
+        font-size: rem(14px);
+    }
+
+    .MuiPickersCalendarHeader-root.css-nk89i7-MuiPickersCalendarHeader-root {
+        max-width: 280px;
+        justify-content: center;
+    }
+
+    .css-mvmu1r,
+    .css-1n2mv2k {
+        justify-content: start;
+    }
+
+    .css-16j77m4 {
+        margin-right: 0;
+    }
+
+    .css-k008qs {
+        margin-right: 30px;
+    }
+}

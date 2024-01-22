@@ -62,7 +62,7 @@ export function AddMembers({ boardMembers, board, task, onUpdateTask, onCloseMod
                         <label>Board Members</label>
                     </div>
                     <div className="members-container">
-                        {taskMembers.map((member, idx) => (
+                        {taskMembers?.map((member, idx) => (
                             member.fullname?.toLowerCase().includes(searchTxt.toLowerCase()) &&
                             <div className="member flex align-center" onClick={() => onToggleMember(member)} key={idx}>
                                 {member.imgUrl ? <img src={member.imgUrl} className="user-img" style={{ width: SIZE + 'px', margin: `0 ${GAP}px` }} />

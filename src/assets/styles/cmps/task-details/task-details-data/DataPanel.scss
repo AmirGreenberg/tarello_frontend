@@ -1,8 +1,15 @@
 .features-data {
     grid-column: 2/3;
     flex-wrap: wrap;
+    // gap: 25px;
+    margin-top: 20px;
+
     * {
         color: var(--clr9);
+    }
+
+    > * {
+        margin: 0 25px 16px 0;
     }
 
     .members {
@@ -21,7 +28,7 @@
             opacity: 0.8;
         }
 
-        .plus-btn {
+        .plus-ptn {
             @include btn-gray-bgc;
             font-size: 30px;
             width: 32px;
@@ -50,7 +57,7 @@
             opacity: 0.8;
         }
 
-        .plus-btn {
+        .plus-ptn {
             @include btn-gray-bgc;
             font-size: 30px;
             width: 32px;
@@ -65,11 +72,24 @@
             padding: 6px 12px 6px 12px;
             margin: 0;
         }
+
+        .v-icon {
+            background-color: var(--clr4);
+            width: 28px;
+            height: 24px;
+            border-radius: 3px;
+            margin-inline-start: 5px;
+            margin-inline-end: -8px;
+
+            svg {
+                fill: white;
+            }
+        }
     }
 
     p.title {
         font-size: rem(12px);
-        font-weight: 500;
+        font-weight: 600;
         margin-bottom: 4px;
     }
 

@@ -1,0 +1,43 @@
+.dates-data {
+    .dates-title {
+        font-size: rem(12px);
+        font-weight: 600;
+    }
+
+    .checkbox-and-dates {
+        gap: 5px;
+    }
+
+    input[type="checkbox"] {
+        @include custom-checkbox;
+    }
+
+    .dates-txt {
+        @include btn-gray-bgc;
+        gap: 6px;
+        padding: 6px 12px 6px 12px;
+        margin-top: 4px;
+
+        * {
+            color: var(--txtClrDark);
+        }
+
+        .overdue,
+        .completed {
+            font-size: rem(12px);
+            padding: 0 4px;
+            border-radius: 2px;
+        }
+
+        .overdue {
+            color: var(--redSubtleBg) Font;
+            background-color: var(--redSubtleBg) 2;
+            margin-inline-start: 2px;
+        }
+
+        .completed {
+            color: white;
+            background-color: var(--greenBoldBg);
+        }
+    }
+}

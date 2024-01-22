@@ -33,14 +33,29 @@
 @import "cmps/task-details/Title";
 @import "cmps/task-details/Description";
 @import "cmps/task-details/Checklist";
-@import "cmps/task-details/DataPanel";
 @import "cmps/task-details/Activity";
 @import "cmps/task-details/Notifications";
+@import "cmps/task-details/EditLabel";
+@import "cmps/task-details/DeleteLabel";
+@import "cmps/task-details/AddLabel";
 @import "cmps/task-details/AddMembers";
 @import "cmps/task-details/AddChecklist";
-@import "cmps/task-details/AddLabel";
+@import "cmps/task-details/AddDates";
+@import "cmps/task-details/AddAttachment";
+@import "cmps/task-details/AddCover";
+@import "cmps/task-details/TaskDetailsAddToCard";
+@import "cmps/task-details/DeleteChecklist";
+@import "cmps/task-details/TaskDetailsData";
 
-@import "cmps/task-details/Cover";
+//TaskDetails Data Components
+@import "cmps/task-details/task-details-data/AttachmentData.scss";
+@import "cmps/task-details/task-details-data/CheckListData.scss";
+@import "cmps/task-details/task-details-data/DataPanel.scss";
+@import "cmps/task-details/task-details-data/DatesData.scss";
+@import "cmps/task-details/task-details-data/DeleteChecklist.scss";
+@import "cmps/task-details/task-details-data/DescriptionData.scss";
+@import "cmps/task-details/task-details-data/ProgressBar.scss";
+@import "cmps/task-details/task-details-data/MemberImg.scss";
 
 //Homepage Components
 @import "cmps/homepage/HomePageFooter";
