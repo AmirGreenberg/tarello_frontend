@@ -1,0 +1,46 @@
+.homepage-signup-container {
+    background:
+        url(https://images.ctfassets.net/rz1oowkt5gyp/6Q4l8SJeMZGSu1m6W9vAjL/1021a10f6940ce44c50d0ffaefec223e/BigSwingFooterHeroGraphic__Left.svg)
+            left center / contain no-repeat scroll padding-box border-box,
+        url(https://images.ctfassets.net/rz1oowkt5gyp/7KsuX6srvRqJVzeAIdIzIb/da1a3319c278d251ecbd078fcffdcd23/BigSwingFooterHeroGraphic__Right.svg)
+            right center / contain no-repeat scroll padding-box border-box,
+        linear-gradient(60deg, rgb(82, 67, 170), rgb(237, 80, 180)) 0% 0% / auto repeat scroll padding-box border-box
+            rgb(82, 67, 170);
+    color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+    .signup-content {
+        display: flex;
+        flex-direction: column;
+        padding: rem(80px) rem(16px);
+        justify-content: center;
+        align-items: center;
+        h2 {
+            margin: 0 0 rem(8px);
+            font-weight: 500;
+            font-size: rem(36px);
+            // font-family: 'charlie-semibold';
+        }
+        form {
+            display: flex;
+            gap: 20px;
+            height: 70px;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+
+            .email-input {
+                font-size: 1rem;
+                padding: 0.7rem 0.75rem 0.8rem;
+                border: 1px solid rgb(223, 225, 230);
+                border-radius: 0.3rem;
+                max-width: 376px;
+                transition: all 250ms ease-out 0s;
+                width: 376px;
+            }
+        }
+    }
+}

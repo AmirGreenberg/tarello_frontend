@@ -1,0 +1,213 @@
+/* Breakpoint mixins */
+
+@mixin for-mobile-layout {
+    @media (max-width: calc($mobile-breakpoint + 40px)) {
+        @content;
+    }
+}
+
+@mixin for-narrow-layout {
+    @media (min-width: calc($mobile-breakpoint + 40px)) {
+        @content;
+    }
+}
+
+@mixin for-tablet-layout {
+    @media (min-width: calc($tablet-breakpoint + 40px)) {
+        @content;
+    }
+}
+
+@mixin for-normal-layout {
+    @media (min-width: calc($narrow-breakpoint + 40px)) {
+        @content;
+    }
+}
+
+@mixin for-wide-layout {
+    @media (min-width: calc($normal-breakpoint + 40px)) {
+        @content;
+    }
+}
+
+/* Media  Mixins */
+@mixin aspect-ratio($width, $height) {
+    position: relative;
+    overflow: hidden;
+    &::before {
+        display: block;
+        content: "";
+        width: 100%;
+        padding-top: calc(($height / $width) * 100%);
+    }
+    > * {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+
+    > img {
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+// Mixin for removing hover efects on iphone screen
+@mixin hover-supported {
+    @media not all and (pointer: coarse) {
+        &:hover {
+            @content;
+        }
+    }
+}
+
+@mixin task-details-main-grid {
+    display: grid;
+    grid-template-columns: 1.5em 1fr;
+    align-items: center;
+    column-gap: 1rem;
+
+    > svg {
+        grid-column: 1;
+        justify-self: center;
+    }
+
+    > :not(svg) {
+        grid-column: 2;
+    }
+}
+
+@mixin action-btn {
+    // font-family: "CharlieText-regular", sans-serif;
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    color: var(--clr7);
+    margin-inline-end: 6px;
+    height: rem(50px);
+    background-color: var(--btn-bg-clr-1);
+    border: rem(1px) solid var(--btn-bg-clr-1);
+    border-radius: rem(3px);
+    font-size: rem(16px);
+    transition: 0.2s ease-in-out;
+    padding: rem(11.2px) rem(16px) rem(12.8px);
+
+    &:hover {
+        background: var(--btn-bg-clr-hoverd-1);
+    }
+}
+
+@mixin input-task-feature {
+    padding: 8px 12px;
+    border-radius: 3px;
+    font-size: rem(14px);
+    border: none;
+    line-height: 20px;
+    outline: none;
+    box-shadow: inset 0 0 0 2px var(--task-details-input);
+    width: 100%;
+
+    &::placeholder {
+        color: var(--clr8);
+    }
+
+    &:focus {
+        box-shadow: inset 0 0 0 2px var(--focusFrameClr);
+    }
+}
+
+@mixin blue-action-btn {
+    width: 53px;
+    height: 32px;
+    background-color: var(--btn-bg-clr-1);
+    border-color: var(--btn-bg-clr-1);
+    color: white;
+    border-radius: 3px;
+    font-size: rem(14px);
+
+    &:hover {
+        background-color: var(--btn-bg-clr-6);
+        border-color: var(--btn-bg-clr-6);
+    }
+}
+
+@mixin red-action-btn {
+    width: 53px;
+    height: 32px;
+    background-color: var(--task-details-delete-btn);
+    border-color: var(--task-details-delete-btn);
+    color: white;
+    border-radius: 3px;
+    font-size: rem(14px);
+
+    &:hover {
+        background-color: var(--task-details-delete-btn-hover);
+        border-color: var(--task-details-delete-btn-hover);
+    }
+}
+
+@mixin back-and-exit-btns {
+    position: absolute;
+    cursor: pointer;
+    padding: 5px 7px;
+
+    &:hover {
+        background-color: var(--clr4) Hover;
+        border-radius: 8px;
+    }
+}
+
+@mixin btn-gray-bgc {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--task-details-btn-bg-clr);
+    height: 32px;
+    border-radius: 3px;
+    transition: all 0.1s;
+    color: var(--txtClrDark);
+    cursor: pointer;
+    margin: 15px 0 0 0;
+    font-size: rem(14px);
+    font-weight: 500;
+
+    &:hover {
+        background-color: var(--clr4) Hover;
+    }
+}
+
+@mixin custom-checkbox {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    -o-appearance: none;
+    display: flex;
+    align-items: center;
+    margin-inline-end: -7px;
+    cursor: pointer;
+
+    &:before {
+        content: url('data:image/svg+xml;utf8,<svg width="16px" height="16px" viewBox="-3 -4 16 16" fill="white" xmlns="http://www.w3.org/2000/svg" focusable="false" role="presentation"><path d="M1.49022 3.21486C1.2407 2.94412 0.818938 2.92692 0.548195 3.17644C0.277453 3.42597 0.260252 3.84773 0.509776 4.11847L2.91785 6.73131C3.2762 7.08204 3.80964 7.08204 4.14076 6.75092C4.18159 6.71082 4.18159 6.71082 4.38359 6.51218C4.57995 6.31903 4.79875 6.1037 5.03438 5.87167C5.70762 5.20868 6.38087 4.54459 7.00931 3.92318L7.0362 3.89659C8.15272 2.79246 9.00025 1.9491 9.47463 1.46815C9.73318 1.20602 9.73029 0.783922 9.46815 0.525367C9.20602 0.266812 8.78392 0.269712 8.52537 0.531843C8.05616 1.00754 7.21125 1.84829 6.09866 2.94854L6.07182 2.97508C5.4441 3.59578 4.77147 4.25926 4.09883 4.92165C3.90522 5.11231 3.72299 5.29168 3.55525 5.4567L1.49022 3.21486Z"></path></svg>');
+        font-size: 15px;
+        color: transparent !important;
+        width: 16px;
+        height: 16px;
+        margin-right: 7px;
+        box-shadow: inset 0 0 0 2px #091e4224;
+        border-radius: 2px;
+        box-sizing: border-box;
+        background-color: white;
+        transition: all 0.2s;
+    }
+
+    &:checked::before {
+        background: var(--btn-bg-clr-1);
+        color: white !important;
+    }
+}
+
+@mixin fixed-img-url() {
+    background-position: center center;
+    background-size: cover;
+}

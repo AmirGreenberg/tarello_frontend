@@ -1,0 +1,155 @@
+:root {
+    --clear: rgba(0, 0, 0, 0);
+    --darken10Percent: rgba(0, 0, 0, 0.1);
+    --darken15Percent: rgba(0, 0, 0, 0.15);
+    --darken20Percent: rgba(0, 0, 0, 0.2);
+    --darken25Percent: rgba(0, 0, 0, 0.25);
+    --darken50Percent: rgba(0, 0, 0, 0.4);
+
+    --brighten10Percent: rgba(255, 255, 255, 0.1);
+    --brighten15Percent: rgba(255, 255, 255, 0.15);
+    --brighten20Percent: rgba(255, 255, 255, 0.2);
+    --brighten25Percent: rgba(255, 255, 255, 0.25);
+    --brighten40Percent: rgba(255, 255, 255, 0.4); // var(--brighten40Percent): rgba(255, 255, 255, 0.4);
+    --brighten60Percent: rgba(255, 255, 255, 0.6); // var(--brighten40Percent): rgba(255, 255, 255, 0.4);
+
+    --test: #e7c00f; //for testing
+    --txtClrDark: #172b4d;
+    --txtClrLight: #ffffff;
+    --focusFrameClr: #388bff;
+    --hoverOnClr: #dcdfe4;
+    // --themeBGcolor: #697ea1;
+    --themeBGcolor: #fff;
+    --warning: #ff8b00;
+    --emptyTxt: #ae2a19;
+    --error: #e2483d;
+
+    // Colors greys
+    --clr0: rgba(0, 0, 0, 0.639);
+    --clr1: #000000;
+    --clr2: #404040;
+    --clr3: #42526e;
+    --clr4: #626f86;
+    --clr5: #8590a2;
+    --clr6: #f1f2f4;
+    --clr7: #ffffff;
+    --clr8: #172b4d; // header starred/recently in workspace page
+    --clr9: #44546f; // header "your workspace" in workspace page
+    --clr10: #091e42;
+    --clr11: rgba(255, 255, 255, 0.4);
+    --clr12: #5e6c84;
+    --clr13: #fafbfc;
+    --clr14: #a5adba;
+    --clr15: #808080;
+    --clr16: #00c7e5;
+    --clr17: #f7f8f9;
+
+    //buttons
+    --btn-bg-clr-1: #0c66e4;
+    --btn-bg-clr-hoverd-1: #0a5699;
+    --btn-bg-clr-2: #e4e6ea;
+    --btn-bg-clr-3: #373546;
+    --btn-bg-clr-4: #d0d4db;
+    --btn-bg-clr-5: #091e4214;
+    --btn-bg-clr-6: #0747a6;
+
+    //TaskDetails
+    --task-details-container-bg-clr: #000000a3;
+    --task-details-opaque-bg-clr: #f1f2f4;
+    --task-details-btn-bg-clr: #091e420f;
+    --task-details-btn-hover-bg-clr: #091e4224;
+    --task-details-btn-txt-clr: #172b4d;
+    --btn-confirm-bg-clr: #0c66e4;
+    --btn-confirm-hover-bg-clr: #0055cc;
+    --task-details-not-allowed-txt: #091e424f;
+    --task-details-not-allowed-bgc: #091e4208;
+    --task-details-scroll-bar: #c5c9d1;
+    --task-details-delete-btn: #ca3521;
+    --task-details-delete-btn-hover: #ae2a19;
+    --task-details-input: #dfe1e6;
+
+    //Modals
+    --page-bg-clr-1: rgb(9, 30, 66, 0.06);
+    --page-bg-clr-2: #091e420a;
+
+    // label-colors:
+    //--labelBoldTxt: #FFFFFF;
+
+    --greenSubtleBg: #baf3db;
+    --greenSubtleTxt: #164b35;
+    --greenBg: #4bce97;
+    --greenTxt: #164b35;
+    --greenBoldBg: #1f845a;
+    --greenBoldTxt: #ffffff;
+
+    --yellowSubtleBg: #f8e6a0;
+    --yellowSubtleTxt: #533f04;
+    --yellowBg: #f5cd47;
+    --yellowTxt: #533f04;
+    --yellowBoldBg: #946f00;
+    --yellowBoldTxt: #ffffff;
+
+    --orangeSubtleBg: #fedec8;
+    --orangeSubtleTxt: #702e00;
+    --orangeBg: #fea362;
+    --orangeTxt: #702e00;
+    --orangeBoldBg: #c25100;
+    --orangeBoldTxt: #ffffff;
+
+    --redSubtleBg: #ffd5d2;
+    --redSubtleTxt: #5d1f1a;
+    --redBg: #f87168;
+    --redTxt: #5d1f1a;
+    --redBoldBg: #c9372c;
+    --redBoldTxt: #ffffff;
+
+    --purpleSubtleBg: #dfd8fd;
+    --purpleSubtleTxt: #352c63;
+    --purpleBg: #9f8fef;
+    --purpleTxt: #352c63;
+    --purpleBoldBg: #6e5dc6;
+    --purpleBoldTxt: #ffffff;
+
+    --blueSubtleBg: #cce0ff;
+    --blueSubtleTxt: #09326c;
+    --blueBg: #579dff;
+    --blueTxt: #09326c;
+    --blueBoldBg: #0c66e4;
+    --blueBoldTxt: #ffffff;
+
+    --skySubtleBg: #c6edfb;
+    --skySubtleTxt: #164555;
+    --skyBg: #6cc3e0;
+    --skyTxt: #164555;
+    --skyBoldBg: #227d9b;
+    --skyBoldTxt: #ffffff;
+
+    --limeSubtleBg: #d3f1a7;
+    --limeSubtleTxt: #37471f;
+    --limeBg: #94c748;
+    --limeTxt: #37471f;
+    --limeBoldBg: #5b7f24;
+    --limeBoldTxt: #ffffff;
+
+    --pinkSubtleBg: #fdd0ec;
+    --pinkSubtleTxt: #50253f;
+    --pinkBg: #e774bb;
+    --pinkTxt: #50253f;
+    --pinkBoldBg: #ae4787;
+    --pinkBoldTxt: var(--clr7);
+
+    --blackSubtleBg: #dcdfe4;
+    --blackSubtleTxt: #091e42;
+    --blackBg: #8590a2;
+    --blackTxt: #091e42;
+    --blackBoldBg: #626f86;
+    --blackBoldTxt: var(--clr7);
+
+    --taskPreviewWidth: em(262px, 16px);
+}
+
+// Breakpoints
+$mobile-breakpoint: 460px;
+$tablet-breakpoint: 585px;
+$narrow-breakpoint: 720px;
+$normal-breakpoint: 960px;

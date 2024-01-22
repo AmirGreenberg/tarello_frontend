@@ -1,0 +1,156 @@
+.productivity-slider-container {
+  grid-column: 2/3;
+
+  margin: 40px 0 40px 0;
+  width: 100%;
+  display: flex;
+
+  .slider-layout {
+    min-height: rem(510px);
+    display: flex;
+    justify-content: start;
+    gap: 20px;
+  }
+
+  .cards {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    h4 {
+      text-align: left;
+    }
+
+    .card {
+      padding: 1rem 1rem 1rem 1.5rem;
+      width: 347px;
+      position: relative;
+      text-align: start;
+      line-height: 1.5;
+      border: none;
+      background-color: transparent;
+      display: inline-block;
+      cursor: pointer;
+    }
+
+    .card.active {
+      background-color: rgb(255, 255, 255);
+      box-shadow: var(--clr10);
+      border-radius: 0.3rem;
+      border: 0;
+      padding: 1rem 1rem 1rem 1.5rem;
+      color: rgb(9, 30, 66);
+      position: relative;
+      box-shadow: rgba(9, 30, 66, 0.15) 0px 0.5rem 1rem 0px;
+    }
+
+    .card.active::after {
+      background-color: var(--clr16);
+      border-radius: 0.3rem 0px 0px 0.3rem;
+      bottom: 0px;
+      content: "";
+      left: 0px;
+      position: absolute;
+      top: 0px;
+      width: 0.5rem;
+    }
+  }
+
+  .images-slider {
+    img {
+      border-radius: rem(8px);
+    }
+  }
+
+  .productivity-card {
+    color: var(--clr10);
+    background-color: white;
+    font-size: rem(16px);
+    padding: rem(16px) rem(16px) rem(16px) rem(24px);
+
+    h3 {
+      // font-family: "charlie-Display-regular", sans-serif;
+      margin: 0px 0px rem(8px);
+    }
+
+    p {
+      // font-family: "charlie-regular", sans-serif;
+    }
+  }
+}
+
+//carousel
+.carousel {
+  overflow: hidden;
+  width: 700px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.inner {
+  white-space: nowrap;
+  transition: transform 0.3s;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.carousel-item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 490px;
+  background-color: #fff;
+}
+
+.carousel-item-text {
+  font-size: 1.15rem;
+  margin: 40px 0 40px 0;
+  padding: 0 20px 0 20px;
+  white-space: normal;
+  color: #617d98;
+}
+
+.carousel-img {
+  width: 60%;
+  padding: 0 20px 0 20px;
+}
+
+/* final stage */
+
+.carousel-buttons {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.button-arrow {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.indicators {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.indicator-buttons {
+  border: none;
+  cursor: pointer;
+}
+
+.indicators > button {
+  margin: 5px;
+  background: none;
+}
+
+.indicator-symbol {
+  color: #26343f;
+}
+
+.indicator-symbol-active {
+  color: var(--clr7);
+}

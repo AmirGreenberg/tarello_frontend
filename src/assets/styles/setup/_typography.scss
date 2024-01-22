@@ -1,0 +1,42 @@
+// Note:
+// Main font is "Segoe UI"
+// - there is no font-face for it since it a defalt font
+
+/* Roboto */
+@font-face {
+    font-family: "Roboto";
+    src: url("../../fonts/Roboto/") format("truetype");
+}
+
+/* Ubuntu */
+@font-face {
+    font-family: "Ubuntu";
+    src: url("../../fonts/Ubuntu/") format("truetype");
+}
+
+/* Charlie */
+@font-face {
+    font-family: "charlieBold";
+    src: url(../../fonts/Charlie/CharlieDisplay-Bold.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: "charlieRegular";
+    src: url(../../fonts/Charlie/CharlieDisplay-Regular.ttf) format("truetype");
+}
+@font-face {
+    font-family: "charlieSemibold";
+    src: url(../../fonts/Charlie/CharlieDisplay-Semibold.ttf) format("truetype");
+}
+@font-face {
+    font-family: "charlieSemiboldwoff2";
+    src: url(../../fonts/Charlie/CharlieDisplay-Semibold.woff2) format("woff2");
+}
+@font-face {
+    font-family: "charlieTextRegular";
+    src: url(../../fonts/Charlie/CharlieText-Regular.ttf) format("truetype");
+}
+@font-face {
+    font-family: "charlieTextSemibold";
+    src: url(../../fonts/Charlie/CharlieText-Semibold.ttf) format("truetype");
+}

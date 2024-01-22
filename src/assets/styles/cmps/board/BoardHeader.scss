@@ -1,0 +1,122 @@
+.board-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    backdrop-filter: blur(5px);
+    background-color: var(--imgBgModifier);
+
+    height: em(56px);
+    padding: em(12px);
+
+    .icon {
+        width: em(16px);
+
+        &.round {
+            width: em(16px);
+            padding: em(5px);
+            background-color: transparent;
+        }
+    }
+
+    .btns-container {
+        display: grid;
+        grid-auto-flow: column;
+        align-items: center;
+        gap: em(10px);
+
+        .header-btn {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: transparent;
+            text-align: center;
+            gap: em(5px);
+            border-radius: em(5px);
+            font-weight: 500;
+
+            height: 100%;
+
+            &:hover {
+                background-color: var(--hoverClr);
+                transition: 0.2s;
+            }
+
+            &.cta-btn {
+                background-color: var(--btn-bg-clr-2);
+                color: var(--txtClrDark);
+                height: 100%;
+
+                &:hover {
+                    background-color: var(--hoverClr);
+                    transition: 0.2s;
+                }
+            }
+        }
+
+
+        .board-title {
+            font-size: em(18px,14px);
+            line-height: 14px;
+            font-weight: 500;
+            color: var(--txtClr);
+            border-radius: em(5px);
+            padding: em(5px) em(10px);
+            margin: 0 em(5px);
+            max-width: em(400px);
+            min-width: em(100px);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: inline-block;
+            height: 100%;
+
+            &:hover {
+                background-color: var(--hoverClr);
+                transition: 0.2s;
+            }
+        }
+
+        .header-icon-btn {
+            padding: 0 em(5px);
+            width: em(30px);
+            border-radius: em(5px);
+            gap: 10px;
+
+            height: 100%;
+
+            &:hover {
+                background-color: var(--hoverClr);
+                transition: 0.2s;
+            }
+
+            
+        }
+
+        .search-box {
+            padding-left: em(10px);
+            margin-right: em(5px);
+            display: flex;
+            align-items: center;
+            gap: em(5px);
+            height: em(32px);
+            background-color: var(--btnBg);
+            border-radius: em(5px);
+            &:hover {
+                background-color: var(--hoverClr);
+            }
+
+            .search-input {
+                color: var(--txtClr);
+            }
+
+            ::placeholder {
+                color: var(--txtClr);
+            }
+
+            .search-box-icon {
+                margin-left: em(7px);
+                width: em(16px);
+            }
+        }
+    }
+}

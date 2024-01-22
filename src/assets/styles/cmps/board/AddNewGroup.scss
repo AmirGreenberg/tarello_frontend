@@ -1,0 +1,49 @@
+.add-new-group-btn {
+    min-width: 17em;
+    max-width: 17em;
+    padding: 0.75em;
+    border-radius: em(12px);
+    display: flex;
+    gap: 0.5em;
+    background-color: var(--brighten25Percent);
+    font-size: em(14px);
+    
+    &:hover {
+        background-color: var(--brighten10Percent);
+    }
+}
+
+.add-group-form {
+    padding: 0.5rem;
+
+    .group-title-input {
+        color: var(--txtClrDark);
+        font-size: em(14px);
+        font-weight: 500;
+        width: 100%;
+        border-radius: em(5px);
+        overflow-y: hidden;
+        padding: em(6px,14px) em(12px,14px);
+        
+    }
+    
+    .btn-container {
+        display: flex;
+    }
+
+    .btn-type-1{
+        margin: 0;
+    }
+
+    .x-btn {
+        margin-left: em(5px);
+        display: flex;
+        justify-content: center;
+        align-items: center; 
+ 
+        .icon {
+            width: em(23px);
+        }
+    }
+}
+

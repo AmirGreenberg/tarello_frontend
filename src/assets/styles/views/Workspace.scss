@@ -1,0 +1,122 @@
+.workspace-page {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    .title-header {
+        display: flex;
+        margin: 0 0 0 40px;
+        padding: 0 0 11px;
+        position: relative;
+
+        .title-header-icon-container {
+            left: -40px;
+            position: absolute;
+            top: 0;
+            padding: 4px;
+
+            .header-icon {
+                height: 24px;
+                width: 24px;
+                color: var(--clr9);
+            }
+        }
+
+        h3 {
+            display: inline-block;
+            color: var(--clr8);
+            flex: 1;
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 24px;
+            margin: 6px 0 0;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+    }
+
+    .primary-boards-container-section {
+        .board-list {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+
+        .add-board-preview {
+            height: 80px;
+            width: 194px;
+            border: none;
+            box-shadow: none;
+            color: var(--txtClrDark);
+            background-color: var(--page-bg-clr-2);
+            font-size: 14px;
+            cursor: pointer;
+            transition-duration: 85ms;
+            transition-property: background-color, border-color, box-shadow;
+            border-radius: 3px;
+
+            &:hover {
+                background-color: var(--btn-bg-clr-5);
+            }
+        }
+
+        .board-preview {
+            border-radius: 3px;
+            padding: 10px 0 0 10px;
+            height: 96px;
+            width: 152px;
+
+            @include for-narrow-layout {
+                width: 156px;
+            }
+            @include for-normal-layout {
+                width: 170px;
+            }
+            @include for-wide-layout {
+                width: 194px;
+            }
+
+            .board-preview-details {
+                display: flex;
+                flex-direction: column;
+                h3 {
+                    position: absolute;
+                    font-size: 16px;
+                    font-weight: 500;
+                    color: var(--clr7);
+                    line-height: 20px;
+                    text-transform: capitalize;
+                    z-index: 90;
+                }
+
+                .starred-container {
+                }
+            }
+        }
+    }
+
+    .all-boards {
+        margin: 60px 16px 0;
+        max-width: 825px;
+        min-width: 288px;
+        width: 100%;
+
+        @include for-normal-layout {
+            margin-bottom: 16px;
+            margin: 40px 16px 0;
+        }
+        @include for-narrow-layout {
+            margin-bottom: 16px;
+        }
+
+        .content-all-boards {
+            position: relative;
+            top: 0;
+
+            .stared-boards-section {
+                padding: 0 0 em(100px);
+            }
+        }
+    }
+}

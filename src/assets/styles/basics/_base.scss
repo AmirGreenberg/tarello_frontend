@@ -1,0 +1,129 @@
+* {
+   font-family:
+        Segoe UI,
+        Roboto,
+        Noto Sans,
+        Ubuntu,
+        Droid Sans,
+        Helvetica Neue,
+        sans-serif;
+}
+
+
+* {
+    box-sizing: border-box;
+    // font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-family: Segoe UI,Roboto,Noto Sans,Ubuntu,Droid Sans,Helvetica Neue,sans-serif;
+}
+
+::selection {
+    background-color: var(--clr1);
+    color: var(--clr6);
+}
+
+html {
+    line-height: 1.6;
+    color: var(--clr2);
+}
+
+body {
+    height: 100dvh;
+    font-size: rem(16px);
+    margin: 0;
+    margin: auto;
+    --hoverClr: var(--darken20Percent);
+    --txtClr: var(--txtClrDark);
+    --txtClrReverse: var(--txtClrLight);
+    --btnBg: var(--darken10Percent);
+    --imgBgModifier: var(--brighten25Percent);
+
+    &.dark-mode {
+        --hoverClr: var(--brighten20Percent);
+        --txtClr: var(--txtClrLight);
+        --txtClrReverse: var(--txtClrDark);
+        --btnBg: var(--brighten10Percent);
+        --imgBgModifier: var(--darken25Percent);
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0 0 0.6em;
+    line-height: 1;
+}
+
+img {
+    width: 100%;
+}
+
+button {
+    border: 0;
+    color: var(--txtClr);
+    padding: em(5px) em(10px);
+    cursor: pointer;
+}
+
+.icon {
+    width: em(16px);
+}
+
+.blue-focus {
+    border: 2px solid transparent;
+    &:focus {
+        border: 2px solid var(--btn-bg-clr-1);
+        background-color: var(--txtClrLight);
+    }
+}
+
+.btn-action {
+    font-family:
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Oxygen,
+        Ubuntu,
+        Cantarell,
+        "Open Sans",
+        "Helvetica Neue",
+        sans-serif;
+    font-size: rem(14px);
+    @include action-btn;
+    &.modal-btn {
+        width: rem(85px);
+        height: rem(31px);
+        font-size: rem(14px);
+        font-family:
+            system-ui,
+            -apple-system,
+            BlinkMacSystemFont,
+            "Segoe UI",
+            Roboto,
+            Oxygen,
+            Ubuntu,
+            Cantarell,
+            "Open Sans",
+            "Helvetica Neue",
+            sans-serif;
+            font-weight: 500;
+    }
+
+    a {
+        text-decoration: none;
+        color: #fff;
+    }
+
+    @include for-wide-layout {
+        font-size: rem(14px);
+        width: 300px;
+    }
+    @include for-narrow-layout {
+        font-size: rem(14px);
+        width: fit-content;
+    }
+}

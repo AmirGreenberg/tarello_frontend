@@ -1,0 +1,86 @@
+.board-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(235px, 1fr));
+    grid-auto-rows: 140px;
+    gap: 16px;
+    .board-preview {
+        cursor: pointer;
+        height: 100%;
+        border-radius: 5px;
+        position: relative;
+        :not(.board-title-container > *, .starred-container, .create-new-board-btn > *)::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--darken15Percent);
+            border-radius: em(5px);
+        }
+
+        &:hover::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--darken15Percent);
+            border-radius: em(5px);
+        }
+        &:hover {
+            background-color: blue;
+
+            .starred-container .star-icon {
+                opacity: 1;
+                stroke-width: 20px;
+            }
+        }
+    }
+
+    .board-title-container {
+        // z-index: 90;
+    }
+
+    .starred-container {
+        transition: 0.3s ease-in-out;
+        position: absolute;
+        padding: 3px;
+        border-radius: 7px;
+        // opacity: 0;
+        bottom: 0px;
+        right: 5px;
+        z-index: 91;
+        .star-icon {
+            height: 17px;
+            width: 17px;
+            opacity: 0;
+            font-size: 1.3rem;
+            opacity: 1;
+            color: white;
+            stroke-width: 20px;
+            @include for-normal-layout {
+                opacity: 0;
+            }
+
+            &:hover {
+                // content: url("/src/assets/icons/8_star_yellow_unfilled.svg");
+                opacity: 1;
+                scale: 115%;
+                transition: 0.15s;
+            }
+
+            &.starred {
+                opacity: 1;
+
+                &:hover {
+                    content: url("/src/assets/icons/8_star_yellow_unfilled.svg");
+                    opacity: 1;
+                    scale: 115%;
+                    transition: 0.15s;
+                }
+            }
+        }
+    }
+}

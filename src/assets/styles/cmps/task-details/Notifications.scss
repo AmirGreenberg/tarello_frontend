@@ -1,0 +1,20 @@
+.task-details .notifications {
+    .icon-v-container {
+        position: relative;
+        align-self: center;
+        border-radius: 0.25rem;
+        width: 1.5rem;
+        height: 1.5rem;
+
+        svg {
+            position: absolute;
+            left: 0;
+            height: 1.5rem;
+            background-color: var(--clr4);
+            border-radius: 0.25rem;
+
+            path {
+            }
+        }
+    }
+}

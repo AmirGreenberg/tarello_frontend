@@ -1,0 +1,307 @@
+// Font Sizes
+.fs12 {
+    font-size: rem(12px);
+}
+
+.fs14 {
+    font-size: rem(14px);
+}
+
+.fs18 {
+    font-size: rem(18px);
+}
+
+.fs20 {
+    font-size: rem(20px);
+}
+
+.fs24 {
+    font-size: rem(24px);
+}
+
+.fs28 {
+    font-size: rem(28px);
+}
+
+.fs30 {
+    font-size: rem(30px);
+}
+
+// FLEX HELPERS
+
+.flex {
+    display: flex;
+
+    > *.full {
+        flex: 1;
+    }
+
+    &.column {
+        flex-direction: column;
+    }
+
+    &.center{
+        justify-content: center;
+        align-items: center;
+    }
+
+    &.justify-center {
+        justify-content: center;
+    }
+   
+    &.justify-start {
+        justify-content: flex-start;
+    }
+   
+    &.justify-end {
+        justify-content: flex-end;
+    }
+
+    &.justify-between {
+        justify-content: space-between;
+    }
+
+    &.align-center {
+        align-items: center;
+    }
+
+    &.align-start {
+        align-items: start;
+    }
+
+    &.align-end {
+        align-items: end;
+    }
+    &.gap{
+        gap: em(10px)
+    }
+
+    
+    
+
+}
+
+// GRID HELPERS
+
+.grid {
+    display: grid;
+
+    &.center{
+        justify-content: center;
+        align-items: center;
+    }
+    &.align-center {
+        align-items: center;
+    }
+
+    &.align-start {
+        align-items: start;
+    }
+    &.align-end {
+        align-items: end;
+    }
+
+    &.justify-center {
+        justify-content: center;
+    }
+
+    &.space-between {
+        justify-content: space-between;
+    }
+
+    &.grid-auto-column {
+        grid-auto-flow: column;
+    }
+}
+
+.width100 {
+    width: 100%;
+}
+
+.height-100vh {
+    height: 100vh;
+}
+
+.pad-left-0{
+    padding-left: 0;
+}
+.h100{
+    height: 100%;
+}
+
+/* HIDE ITEMS */
+.hidden {
+    display: none;
+}
+
+.visibility-hidden {
+    visibility: hidden;
+}
+
+/* LIST HELPERS */
+
+.clean-list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+/* INPUT CLEANER */
+.input-cleaner {
+    background: transparent;
+    border: none;
+    outline: none;
+    font-family: unset;
+}
+
+/*A REF CLEANER */
+.clean-ref {
+    all: unset;
+}
+
+/*TEXT AREA CLEANER*/
+.clean-textarea {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    outline: none;
+    box-shadow: none;
+    font-family: inherit;
+    color: inherit;
+    line-height: inherit;
+    resize: none;
+    overflow-y: hidden;
+    // font-size: em(14px,16px);
+    // overflow: auto;
+    // height: auto;
+}
+
+.custom-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+/*BUTTONS HELPERS*/
+
+.clean-btn {
+    outline: none;
+    border: none;
+    background: none;
+    font-family: unset;
+}
+
+.btn {
+    cursor: pointer;
+}
+
+.btn:hover {
+    filter: brightness(50%);
+    scale: 1.15;
+}
+
+.content-editable-placeholder:empty::before {
+    content: attr(data-placeholder);
+
+    color: gray;
+}
+
+.txt-center{
+    text-align: center;
+}
+
+// Media helpers
+
+.square-ratio {
+    @include aspect-ratio(1, 1);
+}
+
+.video-ratio {
+    @include aspect-ratio(16, 9);
+}
+
+.portrait-ratio {
+    @include aspect-ratio(9, 16);
+}
+
+
+.bold {
+font-weight: 500;
+}
+
+
+.truncate {
+    max-width: em(160px);          
+    overflow: hidden;     
+    white-space: nowrap;  
+    text-overflow: ellipsis;
+}
+
+
+.btn-type-1 {
+    background-color: var(--btn-bg-clr-1);
+    color: var(--txtClrLight);
+    font-size: em(14px);
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: em(5px);
+    height: 32px;
+    padding: em(6px, 14px) em(12px, 14px);
+
+    &:hover {
+        filter: brightness(90%);
+    }
+}
+
+.btn-type-2 {
+    background-color: transparent;
+    font-size: em(14px);
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: em(5px);
+    height: 32px;
+    width: 32px;
+
+    &:hover {
+        background-color: var(--darken10Percent);
+    }
+}
+
+.btn-type-3 {
+    background-color: transparent;
+    color: var(--txtClrDark);
+    font-size: em(14px);
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: em(5px);
+    height: 32px;
+    padding: em(6px, 14px) em(12px, 14px);
+
+    &:hover {
+        background-color: var(--darken10Percent);
+    }
+}
+
+.menu-type-1 {
+    position: absolute;
+    padding: em(8px);
+    border-radius: em(12px);
+    background-color: var(--clr7);
+}
+
+.header-font {
+    color: var(--txtClrDark);
+    font-weight: 500;
+}
+
+.round-btn {
+    width: em(30px);
+    height: em(30px);
+    padding: em(5px);
+    background-color: transparent;
+    border-radius: 50%;
+
+    &:hover {
+        background-color: var(--darken10Percent);
+    }
+}

@@ -1,0 +1,61 @@
+.root {
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+// /* Style the horizontal scrollbar */
+// ::-webkit-scrollbar:horizontal {
+//     height: 2px;
+//     background-color: #f9f9f9;
+//     border-radius: 3px;
+// }
+// /* Track for horizontal scrollbar */
+// ::-webkit-scrollbar-track:horizontal {
+//     background-color: var(--darken15Percent);
+//     border-radius: 5px;
+// }
+
+// /* Thumb for horizontal scrollbar */
+// ::-webkit-scrollbar-thumb:horizontal {
+//     border-radius: 5px;
+//     background: var(--darken10Percent);
+// }
+
+
+::-webkit-scrollbar {
+    width: 9px; /* Width of the vertical scrollbar */
+    background-color: #f9f9f9;
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: var(--darken15Percent);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: var(--darken10Percent);
+}
+
+
+
+// /* Horizontal Scrollbar */
+// ::-webkit-scrollbar-horizontal {
+//     height: 20px; /* Height of the horizontal scrollbar */
+//     background-color: #f9f9f9;
+//     border-radius: 3px;
+// }
+
+// ::-webkit-scrollbar-track-horizontal {
+//     background-color: #e4e6ea;
+//     border-radius: 10px;
+// }
+
+// ::-webkit-scrollbar-thumb-horizontal {
+//     border-radius: 10px;
+//     background: #c5c9d1;
+// }

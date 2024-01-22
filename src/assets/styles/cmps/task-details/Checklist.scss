@@ -1,0 +1,201 @@
+.task-details .checklist {
+    .checklist-title {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .checklist-todos {
+        grid-column: 1 / -1;
+
+        .todo {
+            display: grid;
+            grid-template-columns: 1.5rem 1fr;
+            column-gap: em(5px);
+            align-items: center;
+
+            input[type="checkbox"] {
+                height: 1rem;
+                width: 1rem;
+                justify-self: center;
+            }
+
+            .todo-item {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                font-size: em(14px);
+                min-height: em(12px, 14px);
+                padding: em(6px, 14px) em(8px, 14px);
+                border-radius: em(12px, 14px);
+
+                .btn-delete-todo {
+                    height: 1.25rem;
+                    width: 1.25rem;
+                    display: none;
+                    border-radius: 50%;
+                }
+
+                &:hover {
+                    cursor: pointer;
+                    background-color: var(--task-details-btn-bg-clr);
+
+                    .btn-delete-todo {
+                        display: grid;
+                        align-content: center;
+                        justify-content: center;
+                    }
+                }
+            }
+        }
+    }
+
+    .todo-title-input {
+        height: auto;
+        padding: 0.5rem 0.75rem;
+    }
+}
+
+.check-list-container {
+    margin-top: 10px;
+
+    .header {
+        margin-bottom: 15px;
+
+        .checklist-title {
+            color: var(--txtClrDark);
+            font-size: rem(16px);
+            font-weight: 500;
+            border: none;
+            background-color: var(--clr6);
+        }
+
+        .delete-checklist {
+            @include btn-gray-bgc;
+            width: 65px;
+            margin: 0;
+        }
+
+        .delete-checklist.focused {
+            display: none;
+        }
+    }
+
+    .update-btns {
+        display: none;
+        gap: 8px;
+
+        svg {
+            margin-top: 5px;
+        }
+    }
+
+    .update-btns.focused {
+        display: flex;
+    }
+
+    .todo {
+        margin-bottom: 0px;
+
+        input[type="checkbox"] {
+            @include custom-checkbox;
+            margin-inline-end: 5px;
+        }
+
+        .todo-title {
+            color: var(--txtClrDark);
+            border: none;
+            background-color: var(--clr6);
+            outline: none;
+            width: 100%;
+            padding: 10px 8px;
+            cursor: pointer;
+        }
+
+        .todo-title.isDone {
+            text-decoration: line-through;
+        }
+
+        .todo-title:hover {
+            background-color: var(--task-details-btn-bg-clr);
+            border-radius: 12px;
+        }
+
+        .remove-todo {
+            @include btn-gray-bgc;
+            height: fit-content;
+            border-radius: 50%;
+            padding: 8px;
+            margin: 0;
+            background-color: transparent;
+        }
+    }
+
+    .checklist-title:focus,
+    .todo-title:focus,
+    .add-item:focus {
+        @include input-task-feature;
+        font-size: rem(16px);
+        height: 54px;
+        background-color: white;
+
+        &:hover {
+            border-radius: 0;
+        }
+
+        &:focus {
+            text-decoration: none;
+        }
+    }
+
+    .add-item {
+        @include btn-gray-bgc;
+        transition: none;
+        width: 102px;
+        padding-inline: 12px;
+        border: none;
+        outline: none;
+        margin-bottom: 5px;
+    }
+
+    .add-item::placeholder {
+        color: var(--clr8);
+    }
+
+    .add-item:focus::placeholder {
+        font-weight: 400;
+    }
+
+    .update-btns.todo {
+        margin-top: 5px;
+    }
+
+    .update-btns.todo.flex {
+        display: flex;
+        margin-inline-start: 28px;
+    }
+
+    .save-title {
+        @include blue-action-btn;
+        margin: 0 0 18px 0;
+    }
+
+    .exit-title {
+        background-color: transparent;
+        margin: 0 0 18px 0;
+
+        svg {
+            width: 24px;
+            height: 24px;
+            color: var(--clr9);
+        }
+    }
+
+    .update-btns-add-item {
+        gap: 8px;
+
+        svg {
+            margin-top: 3px;
+        }
+    }
+}

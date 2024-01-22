@@ -1,0 +1,16 @@
+.feature-checklist {
+    .checklist-title {
+        font-size: 12px;
+        font-weight: 500;
+        margin: 4px 0;
+    }
+
+    .title-input {
+        @include input-task-feature;
+    }
+
+    button {
+        @include blue-action-btn;
+        margin-top: 12px;
+    }
+}

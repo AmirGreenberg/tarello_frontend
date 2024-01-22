@@ -1,0 +1,58 @@
+// Setup
+@import "setup/variables";
+@import "setup/functions";
+@import "setup/mixins";
+@import "setup/typography";
+
+// Basics
+@import "basics/helpers";
+@import "basics/layout";
+@import "basics/base";
+@import "basics/links";
+
+// Views
+@import "views/RootCmp";
+@import "views/BoardApp";
+@import "views/Workspace";
+@import "views/HomePage";
+@import "views/TaskDetails";
+@import "views/LoginSignUp";
+
+//Board Components
+@import "cmps/board/AddNewGroup";
+@import "cmps/board/AddNewTask";
+@import "cmps/board/BoardHeader";
+@import "cmps/board/GroupList";
+@import "cmps/board/GroupPreview";
+@import "cmps/board/TaskList";
+@import "cmps/board/TaskPreview";
+@import "cmps/board/Users";
+@import "cmps/board/GroupMenu";
+@import "cmps/board/SideBarRight";
+@import "cmps/BoardList";
+
+//TaskDetails Components
+@import "cmps/task-details/Title";
+@import "cmps/task-details/Description";
+@import "cmps/task-details/Checklist";
+@import "cmps/task-details/DataPanel";
+@import "cmps/task-details/Activity";
+@import "cmps/task-details/Notifications";
+@import "cmps/task-details/AddMembers";
+@import "cmps/task-details/AddChecklist";
+@import "cmps/task-details/AddLabel";
+
+@import "cmps/task-details/Cover";
+
+//Homepage Components
+@import "cmps/homepage/HomePageFooter";
+@import "cmps/homepage/HomePageSignUp";
+@import "cmps/homepage/ProductivitySlider";
+
+//Other Components
+@import "cmps/AppHeader";
+@import "cmps/UserMsg";
+@import "cmps/CreateBoardContent";
+@import "cmps/DynamicActionModal";
+@import "cmps/SideBarLeft";
+@import "cmps/MenuBoardList";

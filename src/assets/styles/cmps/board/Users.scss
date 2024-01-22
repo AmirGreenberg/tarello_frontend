@@ -1,0 +1,52 @@
+.users-container {
+    display: grid;
+    grid-template-rows: repeat(auto-fill 24px);
+    grid-auto-flow: row;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+   
+    
+
+}
+
+.user-img-wrapper {
+    position: relative;
+    
+
+    &:hover::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: var(--brighten25Percent);
+        border-radius: 50%;
+    }
+}
+
+.user-img {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 1px solid var(--darken20Percent);
+    aspect-ratio: 1 / 1;
+    
+}
+
+.member-initials{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 10px;
+    font-weight: 500;
+    color: var(--txtClrLight);
+    background-color: var(--txtClrDark);
+    border-radius: 50%;
+    aspect-ratio: 1 / 1;
+}

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            margin: 0;
+            height: 100dvh;
+        }
+
+        .app {
+            background-color: lightsalmon;
+            height: 100%;
+            padding: 0.5em;
+            display: grid;
+            grid-template-rows: auto 1fr;
+
+            /* display: flex;
+            flex-direction: column; */
+            gap: 0.5em;
+        }
+
+        .app-header {
+            background-color: lightgreen;
+            height: 48px;
+        }
+
+        .app-body {
+    background-color: lightskyblue;
+    padding: 0.5em;
+    display: grid; /* Use grid layout */
+    grid-auto-flow: column; /* Place items in a column flow */
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); /* Define column sizes */
+    gap: 0.5em;
+    overflow-x: auto; /* Horizontal scrolling for the container */
+}
+
+.group {
+    background-color: lightgoldenrodyellow;
+    padding: 0.5em;
+    display: grid; /* Use grid layout */
+    grid-template-rows: auto 1fr auto; /* Header, content, footer */
+    gap: 0.5em;
+    border-radius: 0.5em;
+    overflow: hidden;
+    width: 400px; /* Set a fixed width for each group */
+}
+
+.task-container {
+    background-color: lightpink;
+    overflow-y: auto; /* Enable vertical scrolling */
+    max-height: 80vh; /* Set a maximum height for scrolling */
+}
+
+
+        .app-body>.group>.group-header {
+            background-color: lightseagreen;
+            /* overflow: auto; */
+        }
+
+        .app-body>.group>.group-footer {
+            background-color: lightslategrey;
+            /* overflow: auto; */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="app">
+        <header class="app-header">
+            <h1>This is the app header</h1>
+        </header>
+        <main class="app-body">
+            <article class="group">
+                <header class="group-header">
+                    <h2>This is the group header</h2>
+                </header>
+                <section class="task-container">
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                </section>
+                <header class="group-footer">
+                    <h2>This is the group footer</h2>
+                </header>
+            </article>
+            <article class="group">
+                <header class="group-header">
+                    <h2>This is the group header</h2>
+                </header>
+                <section class="task-container">
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                </section>
+                <header class="group-footer">
+                    <h2>This is the group footer</h2>
+                </header>
+            </article>
+            <article class="group">
+                <header class="group-header">
+                    <h2>This is the group header</h2>
+                </header>
+                <section class="task-container">
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                </section>
+                <header class="group-footer">
+                    <h2>This is the group footer</h2>
+                </header>
+            </article>
+            <article class="group">
+                <header class="group-header">
+                    <h2>This is the group header</h2>
+                </header>
+                <section class="task-container">
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                </section>
+                <header class="group-footer">
+                    <h2>This is the group footer</h2>
+                </header>
+            </article>
+            <article class="group">
+                <header class="group-header">
+                    <h2>This is the group header</h2>
+                </header>
+                <section class="task-container">
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                    <h2>Task</h2>
+                </section>
+                <header class="group-footer">
+                    <h2>This is the group footer</h2>
+                </header>
+            </article>
+        </main>
+    </div>
+</body>
+
+</html>
