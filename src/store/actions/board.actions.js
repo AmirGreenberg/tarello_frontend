@@ -94,6 +94,13 @@ function getTaskIdx(group, task) {
     return group.tasks.findIndex(t => t.id === task.id)
 }
 
+export function getActionUpdateBoard(board) {
+    return {
+        type: UPDATE_BOARD,
+        board
+    }
+}
+
 export async function updatePhotoBackground(board, group, task, photo) {
     try {
         const gIdx = getGroupIdx(board, group)

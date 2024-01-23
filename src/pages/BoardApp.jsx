@@ -2,12 +2,14 @@ import { useSelector } from 'react-redux'
 
 import { BoardHeader } from '../cmps/board/BoardHeader.jsx'
 import { GroupList } from '../cmps/board/GroupList.jsx'
-import { loadBoard, loadBoards, updateBoard } from '../store/actions/board.actions.js'
+import { getActionUpdateBoard, loadBoard, loadBoards, updateBoard } from '../store/actions/board.actions.js'
 import { useEffect, useRef, useState } from 'react'
 import { Outlet, useParams } from 'react-router'
 import { utilService } from '../services/util.service.js'
 import { boardService } from '../services/board.service.js'
-import { SOCKET_EVENT_BOARD_UPDATED, socketService } from '../services/socket.service.js'
+import { SOCKET_EMIT_JOINED_BOARD, SOCKET_EVENT_BOARD_UPDATED, socketService } from '../services/socket.service.js'
+import { useDispatch } from 'react-redux'
+
 
 export function BoardApp() {
     const { boardId } = useParams()
@@ -17,22 +19,35 @@ export function BoardApp() {
     const [isTagOpen, setIsTagOpen] = useState(false)
     const [filter, setFilter] = useState(boardService.getDefaultFilter())
 
+    
     useEffect(() => {
         loadBoards()
             .then(() => loadBoard(boardId))
             .catch(() => setErrorMessage(`No such board id='${boardId}'`))
 
-        socketService.on(SOCKET_EVENT_BOARD_UPDATED, (board) => {
-            console.log('socket is working')
-            dispatch(updateBoard(board))
-
-            return () => {
-                socketService.off(SOCKET_EVENT_BOARD_UPDATED)
-
-            }
-
-        })
     }, [])
+
+
+    useEffect(() => {
+        socketService.emit(SOCKET_EMIT_JOINED_BOARD, boardId)
+            console.log('socketService.emit')
+            console.log('boardId', boardId)
+    }, [boardId])
+  
+
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        socketService.on(SOCKET_EVENT_BOARD_UPDATED, board => {
+            dispatch(getActionUpdateBoard(board))
+        })
+
+        return () => {
+            socketService.off(SOCKET_EVENT_BOARD_UPDATED)
+        }
+    }, [])
+
+
 
     function onToggleLabel() {
         setIsTagOpen(prevState => !prevState)
