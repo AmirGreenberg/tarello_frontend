@@ -3,18 +3,18 @@ import { MemberImg } from "./MemberImg"
 import { AddMembers } from "./AddMembers"
 import { useState } from "react"
 
-export function Members({ members, onClickMembers }) {
-    if (!members?.length) return
+export function Members({ task, board, onClickMembers }) {
+    if (!task.memberIds?.length) return
     const [modalProps, setModalProps] = useState({})
-
+    const members = board.members
 
     return (
         <div className="members">
             <p className="title">Members</p>
-            <div className="members-img flex align-center">
-                {members.filter(member => member.isActive).map((member, index) =>
+            <div className="members-img flex align-center clean-list">
+                {members.map((member, index) =>
                     <li className="" key={index} onClick={onClickMembers}>
-                        {members && <MemberImg member={member} size={32} />}
+                        {task.memberIds.includes(member._id) && <MemberImg member={member} size={32} />}
                     </li>
 
                 )}
