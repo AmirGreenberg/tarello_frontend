@@ -1,5 +1,7 @@
 export const SET_BOARDS = 'SET_BOARDS'
 export const SET_BOARD = 'SET_BOARD'
+export const SET_GROUP = 'SET_GROUP'
+export const SET_TASK = 'SET_TASK'
 export const ADD_BOARD = 'ADD_BOARD'
 export const UPDATE_BOARD = 'UPDATE_BOARD'
 export const REMOVE_BOARD = 'REMOVE_BOARD'
@@ -8,6 +10,8 @@ export const UNDO_REMOVE_BOARD = 'UNDO_REMOVE_BOARD'
 const initialState = {
     boards: [],
     board: null,
+    group: null,
+    task: null,
     lastRemovedBoard: null,
 }
 
@@ -23,6 +27,14 @@ export function boardReducer(state = initialState, action) {
 
         case SET_BOARD:
             newState = { ...state, board: action.board }
+            break
+
+        case SET_GROUP:
+            newState = { ...state, group: action.group }
+            break
+
+        case SET_TASK:
+            newState = { ...state, task: action.task }
             break
 
         case REMOVE_BOARD:

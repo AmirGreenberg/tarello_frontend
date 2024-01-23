@@ -6,6 +6,8 @@ import { userService } from './user.service.js';
 export const boardService = {
   query,
   getBoardById,
+  getGroupById,
+  getListById,
   add,
   update,
   remove,
@@ -19,6 +21,7 @@ export const boardService = {
   getEmptyComment,
   getEmptyActivity,
   addGroup,
+  getBoardGroupTask,
   // getGroupById,
   // getTaskById,
 }
@@ -30,12 +33,38 @@ async function query() {
   return boards;
 }
 
+async function getBoardGroupTask(boardId, groupId, taskId) {
+  const board = await httpService.get(`board/${boardId}`)
+  const group = board.groups.find(group => group.id === groupId)
+  const task = group.tasks.find(task => task.id === taskId)
+  console.log(board, group, task)
+  return { board, group, task }
+}
+
 async function getBoardById(boardId) {
   try {
     const board = await httpService.get(`board/${boardId}`);
     return board;
   } catch (err) {
     console.log('Cannot get board by id', err);
+  }
+}
+
+async function getGroupById(boardId, groupId) {
+  try {
+    const group = await httpService.get(`board/${boardId}/${groupId}`);
+    return group;
+  } catch (err) {
+    console.log('Cannot get group by id', err);
+  }
+}
+
+async function getListById(boardId, groupId, listId) {
+  try {
+    const list = await httpService.get(`board/${boardId}/${groupId}/${listId}`);
+    return list;
+  } catch (err) {
+    console.log('Cannot get list by id', err);
   }
 }
 

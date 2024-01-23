@@ -23,46 +23,49 @@ import useOutsideClick from '../cmps/customHooks/useOutsideClick'
 import { IconArrow, IconAttachment, IconCheckList, IconChecked, IconClock, IconCover, IconDescription, IconDuplicate, IconLabel, IconMan, IconShare, IconShareSocial, IconTaskDetails, IconV, IconWatch, IconX, IconXDetails, IconXLarge, IconXSmall } from '../services/icons.service'
 import { DynamicActionModal, TO_RIGHT } from '../cmps/dynamic-cmps/DynamicActionModal'
 import { TO_BOTTOM } from '../cmps/dynamic-cmps/DynamicActionModal'
+import { boardService } from '../services/board.service';
+import { updateBoardGroupTaskType } from '../store/actions/board.actions';
 
 const ICON_SIZE = 21
 const ICON_SIZE_BUTTON = 16
 const ICON_COLOR = 'var(--clr9)'
 
 export function TaskDetails() {
-    const board = useSelector(state => state.boardModule.board)
+    const boards = useSelector(storeState => storeState.boardModule.boards);
+    const [task, setTask] = useState(null)
+    const [group, setGroup] = useState(null)
+    const [board, setBoard] = useState(null)
     const { boardId, groupId, taskId } = useParams()
     const [errorMessage, setErrorMessage] = useState('')
-    const [group, setGroup] = useState(undefined)
-    const [task, setTask] = useState(undefined)
     const [isWatching, setIsWatching] = useState(false)
     const [modalProps, setModalProps] = useState({})
     const refTaskDetails = useRef()
     const navigate = useNavigate()
 
     useEffect(() => {
-        if (!board) {
-            loadBoards()
-                .then(() => loadBoard(boardId))
-                .catch(() => setErrorMessage(`No such board id='${boardId}'`))
-        } else {
-            const group = board.groups?.find(group => group.id === groupId)
-            if (!group) {
-                setErrorMessage(`No such group id=${groupId}`)
-                return
-            }
-            const task = group.tasks?.find(task => task.id === taskId)
-            if (!task) {
-                setErrorMessage(`No such task id=${taskId}`)
-                return
-            }
-            setGroup(group)
+        loadTask()
+    }, [taskId, boards])
+
+    async function loadTask() {
+        try {
+            const { board, group, task } = await boardService.getBoardGroupTask(boardId, groupId, taskId)
             setTask(task)
+            setGroup(group)
+            setBoard(board)
+            updateBoardGroupTaskType(boardId, groupId, taskId)
+            console.log("🚀  board:", board)
+            console.log("🚀  group:", group)
+            console.log("🚀  task:", task)
+        } catch (err) {
+            console.log('Cant load task')
         }
-    }, [board])
+    }
 
     function onCloseTaskDetails(ev) {
         navigate(`/board/${boardId}`)
     }
+
+
 
     function onChangeTask(ev) {
         const name = ev.target.name
@@ -99,7 +102,7 @@ export function TaskDetails() {
     }
 
     const modalContent = {
-        addMembers: <AddMembers {...{ taskMembers: task.members, boardMembers: board.members, board, task, onUpdateTask, onCloseModal }} />,
+        addMembers: <AddMembers {...{ onCloseModal }} />,
         addLabels: <AddLabels {...{ board, task, onUpdateTask, onCloseModal }} />,
         addChecklist: <AddChecklist {...{ checklists: task.checklists, onUpdateTask, onCloseModal }} />,
         addDates: <AddDates {...{ dates: task.dates, onUpdateTask, onCloseModal }} />,
@@ -134,7 +137,7 @@ export function TaskDetails() {
 
                         <section className="features-data flex">
 
-                            <Members        {...{ members: task.members, onClickMembers: event => setModalProps({ event, content: modalContent.addMembers }) }} />
+                            <Members        {...{ task, board, onClickMembers: event => setModalProps({ event, content: modalContent.addMembers }) }} />
 
                             <Labels         {...{ labels: task.labels, onClickLabel: event => setModalProps({ event, content: modalContent.addLabels }) }} />
 

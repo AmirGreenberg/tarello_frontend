@@ -1,7 +1,7 @@
 import { boardService } from '../../services/board.service.js'
 import { store } from '../store.js'
 import { showSuccessMsg, showErrorMsg } from '../../services/event-bus.service.js'
-import { SET_BOARDS, SET_BOARD, ADD_BOARD, UPDATE_BOARD, REMOVE_BOARD, UNDO_REMOVE_BOARD } from '../reducers/board.reducer.js'
+import { SET_BOARDS, SET_BOARD, SET_GROUP, SET_TASK, ADD_BOARD, UPDATE_BOARD, REMOVE_BOARD, UNDO_REMOVE_BOARD } from '../reducers/board.reducer.js'
 
 export async function loadBoards() {
     try {
@@ -23,6 +23,30 @@ export async function loadBoard(boardId) {
         throw err
     }
 }
+
+export async function loadGroup(boardId, groupId) {
+    try {
+        const group = await boardService.getGroupById(boardId, groupId)
+        store.dispatch({ type: SET_GROUP, group })
+        return group
+    } catch (err) {
+        console.log('Cannot load group', err)
+        throw err
+    }
+}
+
+export async function loadTask(boardId, groupId, taskId) {
+    try {
+        const task = await boardService.getTaskById(boardId, groupId, taskId)
+        store.dispatch({ type: SET_TASK, task })
+        return task
+    } catch (err) {
+        console.log('Cannot load task', err)
+        throw err
+    }
+}
+
+
 export async function loadEmptyBoard() {
     try {
         const board = {}
@@ -73,15 +97,51 @@ export async function updateBoard(board) {
 
 export async function removeAttachment(board, group, task, attachIdx) {
     try {
-        const gIdx = getGroupIdx(board, group)
-        const tIdx = getTaskIdx(group, task)
+        const groupId = getGroupIdx(board, group)
+        const taskId = getTaskIdx(group, task)
 
-        board.groups[gIdx].tasks[tIdx].attachment.splice(attachIdx, 1)
+        board.groups[groupId].tasks[taskId].attachment.splice(attachIdx, 1)
 
         await updateBoard(board)
 
     } catch (err) {
         console.log('Cannot delete attachment', err)
+        throw err
+    }
+}
+
+export async function updateBoardGroupTaskType(boardId, groupId, taskId) {
+    if (boardId === null) {
+        store.dispatch({ type: SET_BOARD, board: null })
+        store.dispatch({ type: SET_GROUP, group: null })
+        store.dispatch({ type: SET_TASK, task: null })
+    }
+    else {
+        const board = await boardService.getBoardById(boardId)
+        const group = board.groups.find(group => group.id === groupId)
+        const task = group.tasks.find(task => task.id === taskId)
+        store.dispatch({ type: SET_BOARD, board: board })
+        store.dispatch({ type: SET_GROUP, group: group })
+        store.dispatch({ type: SET_TASK, task: task })
+    }
+}
+
+export async function EditTaskMember(board, group, task, memberId) {
+    try {
+        const gIdx = getGroupIdx(board, group)
+        const tIdx = getTaskIdx(group, task)
+
+        if (board.groups[gIdx].tasks[tIdx].memberIds.includes(memberId)) {
+            const memberIdx = task.memberIds.findIndex(mId => mId === memberId)
+            board.groups[gIdx].tasks[tIdx].memberIds.splice(memberIdx, 1)
+        }
+        else {
+            board.groups[gIdx].tasks[tIdx].memberIds.push(memberId)
+        }
+        await updateBoard(board)
+
+    } catch (err) {
+        console.log('Cannot edit member', err)
         throw err
     }
 }
@@ -96,11 +156,11 @@ function getTaskIdx(group, task) {
 
 export async function updatePhotoBackground(board, group, task, photo) {
     try {
-        const gIdx = getGroupIdx(board, group)
-        const tIdx = getTaskIdx(group, task)
+        const groupId = getGroupIdx(board, group)
+        const taskId = getTaskIdx(group, task)
 
-        board.groups[gIdx].tasks[tIdx].cover.img.imgBgClr = ''
-        board.groups[gIdx].tasks[tIdx].cover.img.url = photo
+        board.groups[groupId].tasks[taskId].cover.img.imgBgClr = ''
+        board.groups[groupId].tasks[taskId].cover.img.url = photo
 
         await updateBoard(board)
 
