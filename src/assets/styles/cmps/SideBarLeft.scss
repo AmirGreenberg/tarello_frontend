@@ -23,6 +23,7 @@
 
     &.side-bar-on-open {
         min-width: em(260px);
+        z-index: 30;
     }
 
     &.side-bar-on-close {
@@ -35,7 +36,6 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        z-index: 6;
         margin-top: 9px;
 
         position: fixed;
