@@ -119,7 +119,7 @@ export function TaskDetails() {
         <div className="overlay flex justify-center" >
 
             <section className="task-details-container" ref={refTaskDetails} onClick={(ev) => ev.stopPropagation()} >
-                <Cover {...{ cover: task.cover }} />
+                <Cover {...{ task }} />
 
                 <header className="task-header flex align-start">
                     <div className="title-img">
