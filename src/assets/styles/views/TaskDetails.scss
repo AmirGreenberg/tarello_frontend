@@ -29,6 +29,7 @@
         .cover {
             grid-column: 1/-1;
             height: 116px;
+            max-height: 15dvh;
             width: calc(100% + 32px);
             margin: -21px -16px 21px -16px;
             border-top-left-radius: 8px;
@@ -37,6 +38,7 @@
 
         .cover.img {
             height: 160px;
+            max-height: 15dvh;
             background-size: contain;
             background-position: center center;
             background-repeat: no-repeat;
@@ -44,6 +46,7 @@
 
         .task-title p {
             height: 23px;
+            margin: 0;
         }
 
         .task-details-content {
@@ -107,16 +110,24 @@
 .task-header {
     font-size: 0.875rem;
     gap: 12px;
-    // grid-column: 1/3;
+    grid-column: 1/3;
 
     .task-title {
-        textarea {
+        h1 {
             margin-bottom: 6px;
             font-size: rem(20px);
             color: var(--clr8);
             font-weight: 600;
             word-break: break-word;
         }
+
+        // textarea {
+        //     margin-bottom: 6px;
+        //     font-size: rem(20px);
+        //     color: var(--clr8);
+        //     font-weight: 600;
+        //     word-break: break-word;
+        // }
 
         p {
             color: var(--clr9);

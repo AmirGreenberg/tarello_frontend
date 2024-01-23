@@ -1,120 +1,57 @@
-import { useState } from 'react'
-import { boardService } from '../../services/board.service'
-// import { IconPencail, IconSuggestionSvg } from "../../services/icons.service"
+import { IconPencilLabels, IconSuggestionSvg, IconX } from "../../services/icons.service"
 import * as React from 'react'
 import { FormGroup } from '@mui/material'
 import FormControlLabel from '@mui/material/FormControlLabel'
 import Checkbox from '@mui/material/Checkbox'
-import { IconPencail, IconPencilLabels, IconSuggestionSvg, IconX } from '../../services/icons.service'
-// import { setLabelChecked, setLabelNotChecked, updateCmp } from "../../store/actions/board.actions"
-// import { useSelector } from 'react-redux'
+import { setLabelChecked, setLabelNotChecked } from "../../store/actions/board.actions"
+import { useSelector } from 'react-redux'
+import { useState } from 'react'
+import { boardService } from "../../services/board.service"
+import { EditLabel } from "./EditLabel"
 
-const bgColors = {
-    greenSubtle: 'var(--greenSubtleBg)',
-    green: 'var(--greenBg)',
-    greenBold: 'var(--greenBoldBg)',
-    yellowSubtle: 'var(--yellowSubtleBg)',
-    yellow: 'var(--yellowBg)',
-    yellowBold: 'var(--yellowBoldBg)',
-    orangeSubtle: 'var(--orangeSubtleBg)',
-    orange: 'var(--orangeBg)',
-    orangeBold: 'var(--orangeBoldBg)',
-    redSubtle: 'var(--redSubtleBg)',
-    red: 'var(--redBg)',
-    redBold: 'var(--redBoldBg)',
-    purpleSubtle: 'var(--purpleSubtleBg)',
-    purple: 'var(--purpleBg)',
-    purpleBold: 'var(--purpleBoldBg)',
-    blueSubtle: 'var(--blueSubtleBg)',
-    blue: 'var(--blueBg)',
-    blueBold: 'var(--blueBoldBg)',
-    skySubtle: 'var(--skySubtleBg)',
-    sky: 'var(--skyBg)',
-    skyBold: 'var(--skyBoldBg)',
-    limeSubtle: 'var(--limeSubtleBg)',
-    lime: 'var(--limeBg)',
-    limeBold: 'var(--limeBoldBg)',
-    pinkSubtle: 'var(--pinkSubtleBg)',
-    pink: 'var(--pinkBg)',
-    pinkBold: 'var(--pinkBoldBg)',
-    blackSubtle: 'var(--blackSubtleBg)',
-    black: 'var(--blackBg)',
-    blackBold: 'var(--blackBoldBg)',
-}
+export function AddLabels({ onCloseModal, onSetLabelIdToEdit, onSetModalProps }) {
 
-const txtColors = {
-    greenSubtle: 'var(--greenSubtleTxt)',
-    green: 'var(--greenTxt)',
-    greenBold: 'var(--greenBoldTxt)',
-    yellowSubtle: 'var(--yellowSubtleTxt)',
-    yellow: 'var(--yellowTxt)',
-    yellowBold: 'var(--yellowBoldTxt)',
-    orangeSubtle: 'var(--orangeSubtleTxt)',
-    orange: 'var(--orangeTxt)',
-    orangeBold: 'var(--orangeBoldTxt)',
-    redSubtle: 'var(--redSubtleTxt)',
-    red: 'var(--redTxt)',
-    redBold: 'var(--redBoldTxt)',
-    purpleSubtle: 'var(--purpleSubtleTxt)',
-    purple: 'var(--purpleTxt)',
-    purpleBold: 'var(--purpleBoldTxt)',
-    blueSubtle: 'var(--blueSubtleTxt)',
-    blue: 'var(--blueTxt)',
-    blueBold: 'var(--blueBoldTxt)',
-    skySubtle: 'var(--skySubtleTxt)',
-    sky: 'var(--skyTxt)',
-    skyBold: 'var(--skyBoldTxt)',
-    limeSubtle: 'var(--limeSubtleTxt)',
-    lime: 'var(--limeTxt)',
-    limeBold: 'var(--limeBoldTxt)',
-    pinkSubtle: 'var(--pinkSubtleTxt)',
-    pink: 'var(--pinkTxt)',
-    pinkBold: 'var(--pinkBoldTxt)',
-    blackSubtle: 'var(--blackSubtleTxt)',
-    black: 'var(--blackTxt)',
-    blackBold: 'var(--blackBoldTxt)',
-}
+    const board = useSelector(storeState => storeState.boardModule.board)
+    const group = useSelector(storeState => storeState.boardModule.group)
+    const task = useSelector(storeState => storeState.boardModule.task)
 
-export function AddLabels({ board, task, onUpdateTask, onCloseModal }) {
-
-    const [isCreateNewLabel, setIsCreateNewLabel] = useState(false)
-    const [newLabelTitle, setNewLabelTitle] = useState('')
-    const [newLabelColor, setNewLabelColor] = useState('')
+    const [labels, setLabels] = useState(board.labels)
     const [searchTxt, setSearchTxt] = useState('')
-    const [boardLabels, setLabels] = useState(board.labels)
-    const [taskLabels, setTaskLabels] = useState(task.labels)
+    const [labelIdToEdit, setLabelIdToEdit] = useState('')
 
-    function handleChange({ target }) {
+    function onSetLabelIdToEdit(labelId) {
+        setLabelIdToEdit(labelId)
+    }
+
+    async function handleChange(event, labelId) {
+        const { target } = event
+        try {
+            if (target.checked) {
+                await setLabelChecked(board, group, task, labelId)
+            }
+            else {
+                await setLabelNotChecked(board, group, task, labelId)
+            }
+        } catch (err) {
+            console.log('cannot add/remove label, error: ', err);
+        }
+    }
+
+    async function handleSearchChange({ target }) {
         setSearchTxt(target.value)
+        const filterLabels = await boardService.getLabels(board._id, target.value)
+        setLabels(filterLabels)
     }
 
-    function onToggleLabel(label) {
-        if (!label.isActive) label.isActive = true
-        else label.isActive = !label.isActive
-
-        setTaskLabels(task.labels)
-        onUpdateTask('labels', task.labels, false)
+    function onEditLabel(ev, labelId) {
+        ev.stopPropagation()
+        onSetLabelIdToEdit(labelId)
     }
-
-    // function onCreateLabel(ev) {
-    //     ev.preventDefault()
-    //     const newLabel = boardService.createLabel(
-    //         newLabelTitle,
-    //         bgColors[newLabelColor]
-    //     )
-    //     const boardLabels = board.labels
-    //         ? [newLabel, ...board.labels]
-    //         : [newLabel]
-    //     const taskLabels = task.labels ? [newLabel, ...task.labels] : [newLabel]
-    //     board.labels = boardLabels
-    //     onUpdateTask('labels', taskLabels, false)
-    //     setIsCreateNewLabel(false)
-    // }
 
     return (
         <section className="feature-labels scroll">
             <section className="modal-header">
-                <h6 className="modal-header-txt" title="Labels">
+                <h6 className="modal-header-txt" title="Create board">
                     Labels
                 </h6>
 
@@ -125,49 +62,42 @@ export function AddLabels({ board, task, onUpdateTask, onCloseModal }) {
                     data-testid="popover-close"
                 >
                     <span aria-hidden="true" className="span-close align-center">
-                        <IconX size={10} color={'var(--txtClrDark)'} />
-
+                        <IconX size={10} color={'var(--clr4)'} />
                     </span>
                 </button>
             </section>
-            <section className="feature-labels scroll">
 
-                <input className="search-lables" value={searchTxt} type="text" placeholder="Search labels..." onChange={handleChange} />
+            <section className="modal-details">
+                <div className="board-preview-wrapper">
+                    <input className="search-lables" value={searchTxt} type="text" placeholder="Search labels..." onChange={handleSearchChange} />
+                </div>
+
                 <div className="labels-suggestions flex align-center">
                     <p className="labels-title">Labels</p>
                 </div>
 
-                <ul className="label-options">
-                    {taskLabels.map((label, idx) => (
-                        label.title?.toLowerCase().includes(searchTxt.toLowerCase()) &&
-                        <li className="flex align-center" key={idx}>
+                <div className="label-options">
+                    {labels.map(label => (
+                        <li className="flex align-center" key={label.id}>
                             <FormGroup className="checkbox-item">
                                 <FormControlLabel control={<Checkbox
                                     className="mui-check-box"
-                                    checked={label.isActive}
-                                    onChange={(e) => onToggleLabel(label)} />}
+                                    checked={task.labelIds ? task.labelIds.includes(label.id) : false}
+                                    onChange={(ev) => handleChange(ev, label.id)} />}
                                     label={<div className="color-display"
-                                        style={{ backgroundColor: label.bgColor, color: label.txtColor }}>
+                                        style={{ backgroundColor: label.color }}>
                                         {label.title}
                                     </div>}
                                     sx={{ '& .MuiSvgIcon-root': { height: '23px' } }} />
                             </FormGroup>
-                            {/* <div className="edit-label" onClick={(ev) => onEditLabel(ev, label.id, "Edit")}> */}
-                            <div className="edit-label" >
+                            <div className="edit-label" onClick={() => onSetModalProps('', <EditLabel {...{ onCloseModal, labelIdToEdit: label.id }} />)}>
                                 <IconPencilLabels />
                             </div>
                         </li>
                     ))}
-                    <div>
-                        <button
-                            className={`create-btn create-new-label`}
-                        // onClick={onAddBoard}
-                        >
-                            Create a new label
-                        </button>
-                    </div>
-                </ul>
-                {/* <p className="new-label" onClick={(ev) => onEditLabel(ev, null, 'Add')}>Create a new label</p> */}
+                </div>
+
+                <p className="create-new-label" onClick={() => onSetModalProps('', <EditLabel {...{ onCloseModal, labelIdToEdit }} />)}>Create a new label</p>
 
             </section>
         </section>

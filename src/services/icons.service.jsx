@@ -1670,6 +1670,14 @@ export function IconExit() {
     )
 }
 
+export function IconBackBtnSvg() {
+    return (
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M7.29289 11.2929L14.364 4.22185C14.7545 3.83132 15.3876 3.83132 15.7782 4.22185C16.1687 4.61237 16.1687 5.24554 15.7782 5.63606L9.41421 12L15.7782 18.364C16.1687 18.7545 16.1687 19.3877 15.7782 19.7782C15.3877 20.1687 14.7545 20.1687 14.364 19.7782L7.29289 12.7071C6.90237 12.3166 6.90237 11.6834 7.29289 11.2929Z" fill="currentColor"></path>
+        </svg>
+    )
+}
+
 export function IconCard() {
     return (
         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" id="Layer_2" data-name="Layer 2" viewBox="0 0 20.41 15.8">

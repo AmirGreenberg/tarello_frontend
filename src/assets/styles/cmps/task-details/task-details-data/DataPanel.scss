@@ -65,6 +65,11 @@
         }
     }
 
+    .plus-btn-members {
+        width: em(32px, 13px);
+        height: em(32px, 13px);
+    }
+
     .watch {
         .notifications {
             @include btn-gray-bgc;
@@ -91,6 +96,7 @@
         font-size: rem(12px);
         font-weight: 600;
         margin-bottom: 4px;
+        margin-top: 0px;
     }
 
     p.txt {

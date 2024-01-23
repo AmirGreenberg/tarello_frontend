@@ -1,11 +1,24 @@
 import { Link } from 'react-router-dom'
+import { DynamicActionModal, TO_RIGHT } from '../dynamic-cmps/DynamicActionModal'
+import { useState } from 'react'
+import { CreateBoardContent } from '../dynamic-cmps/CreateBoardContent'
 
 export function BoardList({
     boards,
     onToggleStarred,
-    toggleModal,
     isStarred = false,
 }) {
+    const [modal, setModal] = useState({ isModalOpen: false, type: null })
+
+    function toggleModal({ event, type }) {
+        if (modal.isModalOpen) {
+            setModal({ ...modal, isModalOpen: false })
+            return
+        }
+
+        setModal({ isModalOpen: true, type, event })
+    }
+
     if (!boards?.length) return <></>
     return (
         <div className="board-list">
@@ -21,7 +34,7 @@ export function BoardList({
                             style={{
                                 background: board.style.backgroundColor
                                     ? `url("${board.style.background}") center center / cover`
-                                    : `url("${board.style.backgroundImage}${board.style.backgroundImage.includes('unsplash') ? '&w=400' : ''}") center center / cover`,
+                                    : `url("${board.style.backgroundImage}${board.style.backgroundImage?.includes('unsplash') ? '&w=400' : ''}") center center / cover`,
                             }}
                         >
                             <div className="board-preview-details">
@@ -74,6 +87,14 @@ export function BoardList({
                 >
                     <span>Create new board</span>
                 </div>
+            )}
+            {modal.isModalOpen && (
+                <DynamicActionModal
+                    event={modal.event}
+                    content={<CreateBoardContent onToggleModal={toggleModal} />}
+                    modalPosition={TO_RIGHT}
+                    onOutsideClick={() => setModal(prev => ({ ...prev, isModalOpen: false }))}
+                />
             )}
         </div>
     )

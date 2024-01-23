@@ -20,54 +20,55 @@ import { AddDates } from '../cmps/task-details/AddDates'
 import { Dates } from '../cmps/task-details/Dates'
 import { AddMembers } from '../cmps/task-details/AddMembers'
 import useOutsideClick from '../cmps/customHooks/useOutsideClick'
-import { IconArrow, IconAttachment, IconCheckList, IconChecked, IconClock, IconCover, IconDescription, IconDuplicate, IconLabel, IconMan, IconShare, IconShareSocial, IconTaskDetails, IconV, IconWatch, IconX, IconXDetails, IconXLarge, IconXSmall } from '../services/icons.service'
+import { IconArrow, IconAttachment, IconCheckList, IconChecked, IconClock, IconCover, IconDescription, IconDuplicate, IconEye, IconLabel, IconMan, IconShare, IconShareSocial, IconTaskDetails, IconV, IconWatch, IconX, IconXDetails, IconXLarge, IconXSmall } from '../services/icons.service'
 import { DynamicActionModal, TO_RIGHT } from '../cmps/dynamic-cmps/DynamicActionModal'
 import { TO_BOTTOM } from '../cmps/dynamic-cmps/DynamicActionModal'
+import { boardService } from '../services/board.service';
+import { updateBoardGroupTaskType } from '../store/actions/board.actions';
+import { EditLabel } from '../cmps/task-details/EditLabel';
+import { DeleteLabel } from '../cmps/task-details/DeleteLabel';
 
 const ICON_SIZE = 21
 const ICON_SIZE_BUTTON = 16
 const ICON_COLOR = 'var(--clr9)'
 
 export function TaskDetails() {
-    const board = useSelector(state => state.boardModule.board)
+    const boards = useSelector(storeState => storeState.boardModule.boards);
+    const [task, setTask] = useState(null)
+    const [group, setGroup] = useState(null)
+    const [board, setBoard] = useState(null)
     const { boardId, groupId, taskId } = useParams()
     const [errorMessage, setErrorMessage] = useState('')
-    const [group, setGroup] = useState(undefined)
-    const [task, setTask] = useState(undefined)
     const [isWatching, setIsWatching] = useState(false)
     const [modalProps, setModalProps] = useState({})
+    const [labelIdToEdit, setLabelIdToEdit] = useState('')
+    const [labelModalEvent, setLabelModalEvent] = useState('')
+
     const refTaskDetails = useRef()
     const navigate = useNavigate()
 
     useEffect(() => {
-        if (!board) {
-            loadBoards()
-                .then(() => loadBoard(boardId))
-                .catch(() => setErrorMessage(`No such board id='${boardId}'`))
-        } else {
-            const group = board.groups?.find(group => group.id === groupId)
-            if (!group) {
-                setErrorMessage(`No such group id=${groupId}`)
-                return
-            }
-            const task = group.tasks?.find(task => task.id === taskId)
-            if (!task) {
-                setErrorMessage(`No such task id=${taskId}`)
-                return
-            }
-            setGroup(group)
+        loadTask()
+    }, [taskId, boards])
+
+    async function loadTask() {
+        try {
+            const { board, group, task } = await boardService.getBoardGroupTask(boardId, groupId, taskId)
             setTask(task)
+            setGroup(group)
+            setBoard(board)
+            updateBoardGroupTaskType(boardId, groupId, taskId)
+        } catch (err) {
+            console.log('Cant load task')
         }
-    }, [board])
+    }
 
     function onCloseTaskDetails(ev) {
         navigate(`/board/${boardId}`)
     }
 
-    function onChangeTask(ev) {
-        const name = ev.target.name
-        const value = ev.target.value
-        setTask(prev => ({ ...prev, [name]: value }))
+    function onSetLabelIdToEdit(labelId) {
+        setLabelIdToEdit(labelId)
     }
 
     function onUpdateTask(name, value, isCloseModal = true) {
@@ -92,15 +93,21 @@ export function TaskDetails() {
         setModalProps({})
     }
 
+    function onSetModalProps(event, content) {
+        setModalProps({ event, content })
+    }
+
     if (!task) {
         if (!errorMessage)
-            return <section className="loading">Loading...</section>
+            return <></>
         else return <section className="error-message">{errorMessage}</section>
     }
 
     const modalContent = {
-        addMembers: <AddMembers {...{ taskMembers: task.members, boardMembers: board.members, board, task, onUpdateTask, onCloseModal }} />,
-        addLabels: <AddLabels {...{ board, task, onUpdateTask, onCloseModal }} />,
+        addMembers: <AddMembers {...{ onCloseModal }} />,
+        editLabel: <EditLabel {...{ onCloseModal, labelIdToEdit, onSetModalProps }} />,
+        deleteLabel: <DeleteLabel {...{ onCloseModal, labelIdToEdit }} />,
+        addLabels: <AddLabels {...{ onCloseModal, onSetLabelIdToEdit, onSetModalProps, labelModalEvent }} />,
         addChecklist: <AddChecklist {...{ checklists: task.checklists, onUpdateTask, onCloseModal }} />,
         addDates: <AddDates {...{ dates: task.dates, onUpdateTask, onCloseModal }} />,
     }
@@ -119,13 +126,21 @@ export function TaskDetails() {
         <div className="overlay flex justify-center" >
 
             <section className="task-details-container" ref={refTaskDetails} onClick={(ev) => ev.stopPropagation()} >
-                <Cover {...{ cover: task.cover }} />
+                <Cover {...{ task }} />
 
                 <header className="task-header flex align-start">
                     <div className="title-img">
                         <IconTaskDetails {...iconProps} />
                     </div>
-                    <Title {...{ iconProps, task, taskTitle: task.title, groupTitle: group.title, onChangeTask, onUpdateBoard }} />
+                    {/* <Title {...{ iconProps, task, taskTitle: task.title, groupTitle: group.title, onChangeTask, onUpdateBoard }} />
+                </header> */}
+                    <div className="task-title">
+                        <h1>{task.title}</h1>
+                        <p className="flex align-center">in list
+                            <a href="#">{group.title}</a>
+                            {task.isWatch && <IconEye />}
+                        </p>
+                    </div>
                 </header>
 
 
@@ -134,9 +149,15 @@ export function TaskDetails() {
 
                         <section className="features-data flex">
 
-                            <Members        {...{ members: task.members, onClickMembers: event => setModalProps({ event, content: modalContent.addMembers }) }} />
+                            <Members        {...{ task, board, onClickMembers: event => setModalProps({ event, content: modalContent.addMembers }) }} />
 
-                            <Labels         {...{ labels: task.labels, onClickLabel: event => setModalProps({ event, content: modalContent.addLabels }) }} />
+                            <Labels         {...{
+                                task, board, onClickLabel: event => {
+                                    setLabelModalEvent(event)
+
+                                    setModalProps({ event, content: modalContent.addLabels })
+                                }
+                            }} />
 
                             <div className="watch">
                                 <p className="title">Notifications</p>
@@ -201,7 +222,10 @@ export function TaskDetails() {
                             <p>Members</p>
                         </div>
 
-                        <div onClick={event => setModalProps({ event, content: modalContent.addLabels })}>
+                        <div onClick={event => {
+                            setLabelModalEvent(event)
+                            setModalProps({ event, content: modalContent.addLabels })
+                        }}>
                             <IconLabel {...buttonIconProps} size={12} />
                             <p>Labels</p>
                         </div>

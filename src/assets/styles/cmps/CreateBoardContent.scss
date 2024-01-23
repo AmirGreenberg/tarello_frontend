@@ -3,11 +3,12 @@
     overflow-x: hidden;
     overflow-y: auto;
     padding: 12px;
+    padding-top: 0px;
 
     .board-preview-wrapper {
         display: flex;
         justify-content: center;
-        padding-bottom: 8px;
+        // padding-bottom: 8px;
 
         .board-preview-container {
             width: 200px;

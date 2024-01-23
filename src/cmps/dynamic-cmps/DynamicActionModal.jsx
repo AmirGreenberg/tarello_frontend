@@ -1,51 +1,57 @@
 import { useRef, useEffect, useState } from 'react'
 import useOutsideClick from '../customHooks/useOutsideClick'
+import React from 'react';
+import { useLocation } from 'react-router-dom';
 
 const HEADER_HEIGHT = 48
 const MARGIN = 10
+const WIDTH = 304
 
 export const TO_RIGHT = 'TO_RIGHT'
 export const TO_BOTTOM = 'TO_BOTTOM'
 
 export function DynamicActionModal({ content, event, onOutsideClick, modalPosition }) {
-    if (!event || !content) return
+    console.log("🚀  event:", event)
+    if (!content) return
+    const [lastEvent, setLastEvent] = useState(event)
+    if (!event) event = lastEvent
+    const location = useLocation();
 
-    const [width, setWidth] = useState(window.innerWidth)
+
     const [height, setHeight] = useState(window.innerHeight)
-    const [modalWidth, setModalWidth] = useState()
     const [modalHeight, setModalHeight] = useState()
     const refModal = useRef(null)
+    const parentElement = (event.target.parentElement.tagName === 'DIV' && location.pathname !== '/workspace') ? event.target.parentElement : event.target
 
     function updateDimensions() {
-        setWidth(window.innerWidth)
         setHeight(window.innerHeight)
     }
 
     useEffect(() => {
-        setModalWidth(refModal.current.offsetWidth)
+        setLastEvent(event)
         setModalHeight(refModal.current.offsetHeight)
         window.addEventListener('resize', updateDimensions)
         return () => window.removeEventListener('resize', updateDimensions)
-    }, [])
+    }, [content])
 
     if (onOutsideClick) useOutsideClick(refModal, onOutsideClick)
 
     function getModalPosition() {
-        if (!modalWidth || !modalHeight) return { opacity: 0, pointerEvents: 'none' }
+        if (!modalHeight) return { opacity: 0, pointerEvents: 'none' }
 
         const {
             top: topEv,
             right: rightEv,
             bottom: bottomEv,
             left: leftEv,
-        } = event.target.getBoundingClientRect()
+        } = parentElement.getBoundingClientRect()
 
         let positionStyle = {}
 
-        const positionTop = { top: topEv - modalHeight - MARGIN }
-        const positionRight = { left: rightEv + MARGIN }
+        const positionTop = { top: window.innerHeight - modalHeight - MARGIN }
+        const positionRight = { left: rightEv }
         const positionBottom = { top: bottomEv + MARGIN }
-        const positionLeft = { left: leftEv - modalWidth - MARGIN }
+        const positionLeft = { left: leftEv }
 
         const spaceToTop = topEv
         const spaceToRight = window.innerWidth - rightEv
@@ -54,15 +60,19 @@ export function DynamicActionModal({ content, event, onOutsideClick, modalPositi
 
         switch (modalPosition) {
             case TO_BOTTOM:
-                if (modalHeight + 2 * MARGIN <= spaceToBottom ||
-                    spaceToTop < modalHeight + 2 * MARGIN) positionStyle = positionBottom
+                if (modalHeight + 2 * MARGIN <= spaceToBottom
+                ) positionStyle = positionBottom
                 else positionStyle = positionTop
-                if (leftEv + modalWidth + MARGIN <= window.innerWidth) positionStyle.left = leftEv
-                else positionStyle.left = window.innerWidth - modalWidth - MARGIN
+                if (leftEv + WIDTH + MARGIN <= window.innerWidth) positionStyle.left = leftEv
+                else positionStyle.left = window.innerWidth - WIDTH - MARGIN
                 break
             case TO_RIGHT:
-                if (modalWidth + 2 * MARGIN <= spaceToRight ||
-                    spaceToLeft < modalWidth + 2 * MARGIN) positionStyle = positionRight
+                if (WIDTH + 2 * MARGIN <= spaceToRight ||
+                    spaceToLeft < WIDTH + 2 * MARGIN) {
+                    console.log('check')
+
+                    positionStyle = positionRight
+                }
                 else positionStyle = positionLeft
                 if (topEv + modalHeight + MARGIN <= window.innerHeight) positionStyle.top = topEv
                 else positionStyle.top = window.innerHeight - modalHeight - MARGIN
@@ -86,3 +96,4 @@ export function DynamicActionModal({ content, event, onOutsideClick, modalPositi
         </section>
     )
 }
+

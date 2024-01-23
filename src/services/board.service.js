@@ -6,6 +6,8 @@ import { userService } from './user.service.js';
 export const boardService = {
   query,
   getBoardById,
+  getGroupById,
+  getListById,
   add,
   update,
   remove,
@@ -19,6 +21,10 @@ export const boardService = {
   getEmptyComment,
   getEmptyActivity,
   addGroup,
+  getBoardGroupTask,
+  getLabel,
+  getLabels,
+  getTaskLabelsColors,
   // getGroupById,
   // getTaskById,
 }
@@ -30,12 +36,68 @@ async function query() {
   return boards;
 }
 
+async function getBoardGroupTask(boardId, groupId, taskId) {
+  const board = await httpService.get(`board/${boardId}`)
+  const group = board.groups.find(group => group.id === groupId)
+  const task = group.tasks.find(task => task.id === taskId)
+  return { board, group, task }
+}
+
 async function getBoardById(boardId) {
   try {
     const board = await httpService.get(`board/${boardId}`);
     return board;
   } catch (err) {
     console.log('Cannot get board by id', err);
+  }
+}
+
+async function getLabel(boardId, labelId) {
+  const board = await httpService.get(`board/${boardId}`)
+  // const board = await storageService.get(STORAGE_KEY, boardId)
+  const label = board.labels.find(label => label.id === labelId)
+  return label
+}
+
+async function getLabels(boardId, txt) {
+  const newTxt = txt.toLowerCase()
+  const board = await httpService.get(`board/${boardId}`)
+  // const board = await storageService.get(STORAGE_KEY, boardId)
+
+  const labels = board.labels.filter(label => {
+    return label.shade.toLowerCase().includes(newTxt) ||
+      label.title.toLowerCase().includes(newTxt) ||
+      label.colorName.toLowerCase().includes(newTxt)
+  })
+  return labels
+}
+
+function getTaskLabelsColors(board, task) {
+  var labelsColors = []
+  task.labelIds.forEach(labelId => {
+    board.labels.forEach(label => {
+      if (label.id === labelId) labelsColors.push({ color: label.color, title: label.title })
+    })
+  })
+
+  return labelsColors
+}
+
+async function getGroupById(boardId, groupId) {
+  try {
+    const group = await httpService.get(`board/${boardId}/${groupId}`);
+    return group;
+  } catch (err) {
+    console.log('Cannot get group by id', err);
+  }
+}
+
+async function getListById(boardId, groupId, listId) {
+  try {
+    const list = await httpService.get(`board/${boardId}/${groupId}/${listId}`);
+    return list;
+  } catch (err) {
+    console.log('Cannot get list by id', err);
   }
 }
 
@@ -88,7 +150,57 @@ function createBoard(background) {
     title: '',
     isStarred: false,
     style: { background },
-    labels: [],
+    labels: [
+      {
+        "id": "l101",
+        "title": "",
+        "color": "#4bce97",
+        "colorName": "green",
+        "shade": ""
+      },
+      {
+        "id": "l102",
+        "title": "",
+        "color": "#e2b203",
+        "colorName": "yellow",
+        "shade": ""
+      },
+      {
+        "id": "l103",
+        "title": "",
+        "color": "#faa53d",
+        "colorName": "orange",
+        "shade": ""
+      },
+      {
+        "id": "l104",
+        "title": "",
+        "color": "#f87462",
+        "colorName": "red",
+        "shade": ""
+      },
+      {
+        "id": "l107",
+        "title": "",
+        "color": "#e774bb",
+        "colorName": "pink",
+        "shade": ""
+      },
+      {
+        "id": "l105",
+        "title": "",
+        "color": "#9f8fef",
+        "colorName": "purple",
+        "shade": ""
+      },
+      {
+        "id": "l106",
+        "title": "",
+        "color": "#579dff",
+        "colorName": "blue",
+        "shade": ""
+      }
+    ],
     members: [],
     groups: [],
     activities: [],
@@ -107,149 +219,27 @@ function createGroup(title) {
   }
 }
 
-function createTask(title) {
+function createTask(title = '') {
   return {
     id: utilService.makeId(),
     title,
-    cover: {
-      "imgUrl": "",
-      "bgClr": "--yellowSubtleBg"
-    },
+    status: null, // monday
+    priority: null,
     description: '',
-    checklists: [],
     comments: [],
-    members: [
-      {
-        "_id": "u101",
-        "username": "David",
-        "fullname": "David Tal Rivlin",
-        "imgUrl": "https://res.cloudinary.com/dtty3yxsg/image/upload/v1704892372/david_ei7bic.png",
-        "isActive": false
-      },
-      {
-        "_id": "u102",
-        "username": "Michael",
-        "fullname": "Micahel Lulav",
-        "imgUrl": "https://res.cloudinary.com/dtty3yxsg/image/upload/v1704892372/michael_twqbry.png",
-        "isActive": false
-      },
-      {
-        "_id": "u103",
-        "username": "Amir",
-        "fullname": "Amir Greenberg",
-        "imgUrl": "https://res.cloudinary.com/dtty3yxsg/image/upload/v1704892372/amir_kunfyq.png",
-        "isActive": false
-      },
-      {
-        "_id": "u104",
-        "username": "Daniel",
-        "fullname": "Daniel Shaked",
-        "imgUrl": "https://res.cloudinary.com/dtty3yxsg/image/upload/v1704892372/daniel_zexxsd.png",
-        "isActive": false
-      },
-      {
-        "_id": "u105",
-        "username": "Bat-El",
-        "fullname": "Batel Katiei",
-        "imgUrl": "https://res.cloudinary.com/dtty3yxsg/image/upload/v1704892372/batel_dgkuq6.png",
-        "isActive": false
-      },
-      {
-        "_id": "u106",
-        "username": "Tommy",
-        "fullname": "Tommy Irmia",
-        "imgUrl": "https://res.cloudinary.com/dtty3yxsg/image/upload/v1704892372/tommy_pnvi1n.png",
-        "isActive": false
-      },
-      {
-        "_id": "u107",
-        "username": "Netta",
-        "fullname": "Netta Lev",
-        "imgUrl": "",
-        "isActive": false
-      },
-      {
-        "_id": "u108",
-        "username": "Dan",
-        "fullname": "Dan Haschan",
-        "imgUrl": "",
-        "isActive": false
-      }
-    ],
-    labels: [
-      {
-        "id": "l102",
-        "title": "Minor",
-        "bgColor": "var(--greenBg)",
-        "txtColor": "var(--greenTxt)",
-        "isDark": false
-      },
-      {
-        "id": "l104",
-        "title": "QA 1st phase",
-        "bgColor": "var(--yellowSubtleBg)",
-        "txtColor": "var(--yellowSubtleTxt)",
-        "isDark": false
-      },
-      {
-        "id": "l105",
-        "title": "QA 2nd phase",
-        "bgColor": "var(--yellowBg)",
-        "txtColor": "var(--yellowTxt)",
-        "isDark": false
-      },
-      {
-        "id": "l108",
-        "title": "Potential risk",
-        "bgColor": "var(--orangeBg)",
-        "txtColor": "var(--orangeTxt)",
-        "isDark": false
-      },
-      {
-        "id": "l111",
-        "title": "Urgent",
-        "bgColor": "var(--redBg)",
-        "txtColor": "var(--redTxt)",
-        "isDark": false
-      },
-      {
-        "id": "l114",
-        "title": "Pre-production",
-        "bgColor": "var(--purpleBg)",
-        "txtColor": "var(--purpleTxt)",
-        "isDark": false
-      },
-      {
-        "id": "l117",
-        "title": "Q4",
-        "bgColor": "var(--blueBg)",
-        "txtColor": "var(--blueTxt)",
-        "isDark": false
-      },
-      {
-        "id": "l120",
-        "title": "Q3",
-        "bgColor": "var(--skyBg)",
-        "txtColor": "var(--skyTxt)",
-        "isDark": false
-      },
-      {
-        "id": "l123",
-        "title": "Finance",
-        "bgColor": "var(--limeBg)",
-        "txtColor": "var(--limeTxt)",
-        "isDark": false
-      },
-      {
-        "id": "l126",
-        "title": "HR",
-        "bgColor": "var(--pinkBg)",
-        "txtColor": "var(--pinkTxt)",
-        "isDark": false
-      }
-    ],
-    date: null,
-    archivedAt: NaN,
+    checklists: [],
+    memberIds: [],
+    labelIds: [],
+    dueDate: null,
+    byMember: null,
+    style: {
+      backgroundColor: '',
+      cover: ''
+    },
+    startDate: null,
+    dueDate: null,
+    attachment: [],
+    createdAt: Date.now()
   }
 }
 

@@ -13,7 +13,12 @@
         }
 
         .labels-title {
-            font-size: rem(12px);
+            color: var(--clr12);
+            font-size: 12px;
+            line-height: 16px;
+            font-weight: 500;
+            margin: 0;
+            padding: 0;
         }
     }
 
