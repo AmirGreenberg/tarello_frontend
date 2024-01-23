@@ -1,5 +1,7 @@
 import { useRef, useEffect, useState } from 'react'
 import useOutsideClick from '../customHooks/useOutsideClick'
+import React from 'react';
+import { useLocation } from 'react-router-dom';
 
 const HEADER_HEIGHT = 48
 const MARGIN = 10
@@ -9,15 +11,17 @@ export const TO_RIGHT = 'TO_RIGHT'
 export const TO_BOTTOM = 'TO_BOTTOM'
 
 export function DynamicActionModal({ content, event, onOutsideClick, modalPosition }) {
+    console.log("🚀  event:", event)
     if (!content) return
     const [lastEvent, setLastEvent] = useState(event)
     if (!event) event = lastEvent
+    const location = useLocation();
 
 
     const [height, setHeight] = useState(window.innerHeight)
     const [modalHeight, setModalHeight] = useState()
     const refModal = useRef(null)
-    const parentElement = event.target.parentElement.tagName === 'DIV' ? event.target.parentElement : event.target
+    const parentElement = (event.target.parentElement.tagName === 'DIV' && location.pathname !== '/workspace') ? event.target.parentElement : event.target
 
     function updateDimensions() {
         setHeight(window.innerHeight)
@@ -64,7 +68,11 @@ export function DynamicActionModal({ content, event, onOutsideClick, modalPositi
                 break
             case TO_RIGHT:
                 if (WIDTH + 2 * MARGIN <= spaceToRight ||
-                    spaceToLeft < WIDTH + 2 * MARGIN) positionStyle = positionRight
+                    spaceToLeft < WIDTH + 2 * MARGIN) {
+                    console.log('check')
+
+                    positionStyle = positionRight
+                }
                 else positionStyle = positionLeft
                 if (topEv + modalHeight + MARGIN <= window.innerHeight) positionStyle.top = topEv
                 else positionStyle.top = window.innerHeight - modalHeight - MARGIN
