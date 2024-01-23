@@ -37,7 +37,6 @@ async function getBoardGroupTask(boardId, groupId, taskId) {
   const board = await httpService.get(`board/${boardId}`)
   const group = board.groups.find(group => group.id === groupId)
   const task = group.tasks.find(task => task.id === taskId)
-  console.log(board, group, task)
   return { board, group, task }
 }
 

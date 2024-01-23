@@ -16,7 +16,6 @@ import { CreateBoardContent } from '../cmps/dynamic-cmps/CreateBoardContent.jsx'
 
 export function Workspace() {
     const boards = useSelector((state) => state.boardModule.boards)
-    console.log('boards:', boards)
     const [modal, setModal] = useState({ isModalOpen: false, type: null })
 
     useEffect(() => {

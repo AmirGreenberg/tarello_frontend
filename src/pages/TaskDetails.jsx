@@ -53,9 +53,6 @@ export function TaskDetails() {
             setGroup(group)
             setBoard(board)
             updateBoardGroupTaskType(boardId, groupId, taskId)
-            console.log("🚀  board:", board)
-            console.log("🚀  group:", group)
-            console.log("🚀  task:", task)
         } catch (err) {
             console.log('Cant load task')
         }
