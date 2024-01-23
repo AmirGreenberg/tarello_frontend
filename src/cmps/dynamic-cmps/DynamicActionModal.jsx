@@ -14,6 +14,7 @@ export function DynamicActionModal({ content, event, onOutsideClick, modalPositi
     const [height, setHeight] = useState(window.innerHeight)
     const [modalHeight, setModalHeight] = useState()
     const refModal = useRef(null)
+    const parentElement = event.target.parentElement.tagName === 'DIV' ? event.target.parentElement : event.target
 
     function updateDimensions() {
         setHeight(window.innerHeight)
@@ -35,14 +36,14 @@ export function DynamicActionModal({ content, event, onOutsideClick, modalPositi
             right: rightEv,
             bottom: bottomEv,
             left: leftEv,
-        } = event.target.getBoundingClientRect()
+        } = parentElement.getBoundingClientRect()
 
         let positionStyle = {}
 
-        const positionTop = { top: topEv - modalHeight - MARGIN }
-        const positionRight = { left: rightEv + MARGIN }
+        const positionTop = { top: window.innerHeight - modalHeight - MARGIN }
+        const positionRight = { left: rightEv }
         const positionBottom = { top: bottomEv + MARGIN }
-        const positionLeft = { left: leftEv - WIDTH - MARGIN }
+        const positionLeft = { left: leftEv }
 
         const spaceToTop = topEv
         const spaceToRight = window.innerWidth - rightEv
@@ -51,8 +52,8 @@ export function DynamicActionModal({ content, event, onOutsideClick, modalPositi
 
         switch (modalPosition) {
             case TO_BOTTOM:
-                if (modalHeight + 2 * MARGIN <= spaceToBottom ||
-                    spaceToTop < modalHeight + 2 * MARGIN) positionStyle = positionBottom
+                if (modalHeight + 2 * MARGIN <= spaceToBottom
+                ) positionStyle = positionBottom
                 else positionStyle = positionTop
                 if (leftEv + WIDTH + MARGIN <= window.innerWidth) positionStyle.left = leftEv
                 else positionStyle.left = window.innerWidth - WIDTH - MARGIN
