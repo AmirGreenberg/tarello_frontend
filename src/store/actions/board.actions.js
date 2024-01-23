@@ -2,6 +2,7 @@ import { boardService } from '../../services/board.service.js'
 import { store } from '../store.js'
 import { showSuccessMsg, showErrorMsg } from '../../services/event-bus.service.js'
 import { SET_BOARDS, SET_BOARD, SET_GROUP, SET_TASK, ADD_BOARD, UPDATE_BOARD, REMOVE_BOARD, UNDO_REMOVE_BOARD } from '../reducers/board.reducer.js'
+import { utilService } from '../../services/util.service.js'
 
 export async function loadBoards() {
     try {
@@ -224,6 +225,10 @@ export async function removeLabel(board, group, task, labelId) {
     board.groups[gIdx].tasks[tIdx].labelIds.splice(lTaskIdx, 1)
 
     await updateBoard(board)
+}
+
+function getLabelIdsIndex(task, labelId) {
+    return task.labelIds.findIndex(lId => lId === labelId)
 }
 
 

@@ -9,7 +9,10 @@ export const TO_RIGHT = 'TO_RIGHT'
 export const TO_BOTTOM = 'TO_BOTTOM'
 
 export function DynamicActionModal({ content, event, onOutsideClick, modalPosition }) {
-    if (!event || !content) return
+    if (!content) return
+    const [lastEvent, setLastEvent] = useState(event)
+    if (!event) event = lastEvent
+
 
     const [height, setHeight] = useState(window.innerHeight)
     const [modalHeight, setModalHeight] = useState()
@@ -21,10 +24,11 @@ export function DynamicActionModal({ content, event, onOutsideClick, modalPositi
     }
 
     useEffect(() => {
+        setLastEvent(event)
         setModalHeight(refModal.current.offsetHeight)
         window.addEventListener('resize', updateDimensions)
         return () => window.removeEventListener('resize', updateDimensions)
-    }, [])
+    }, [content])
 
     if (onOutsideClick) useOutsideClick(refModal, onOutsideClick)
 
@@ -84,3 +88,4 @@ export function DynamicActionModal({ content, event, onOutsideClick, modalPositi
         </section>
     )
 }
+

@@ -7,16 +7,21 @@ import { setLabelChecked, setLabelNotChecked } from "../../store/actions/board.a
 import { useSelector } from 'react-redux'
 import { useState } from 'react'
 import { boardService } from "../../services/board.service"
+import { EditLabel } from "./EditLabel"
 
-export function AddLabels({ onCloseModal, onSetLabelIdToEdit }) {
+export function AddLabels({ onCloseModal, onSetLabelIdToEdit, onSetModalProps }) {
 
     const board = useSelector(storeState => storeState.boardModule.board)
     const group = useSelector(storeState => storeState.boardModule.group)
     const task = useSelector(storeState => storeState.boardModule.task)
 
     const [labels, setLabels] = useState(board.labels)
-    console.log("🚀  labels:", labels)
     const [searchTxt, setSearchTxt] = useState('')
+    const [labelIdToEdit, setLabelIdToEdit] = useState('')
+
+    function onSetLabelIdToEdit(labelId) {
+        setLabelIdToEdit(labelId)
+    }
 
     async function handleChange(event, labelId) {
         const { target } = event
@@ -85,14 +90,14 @@ export function AddLabels({ onCloseModal, onSetLabelIdToEdit }) {
                                     </div>}
                                     sx={{ '& .MuiSvgIcon-root': { height: '23px' } }} />
                             </FormGroup>
-                            <div className="edit-label" onClick={(ev) => onEditLabel(ev, label.id, "Edit")}>
+                            <div className="edit-label" onClick={() => onSetModalProps('', <EditLabel {...{ onCloseModal, labelIdToEdit: label.id }} />)}>
                                 <IconPencilLabels />
                             </div>
                         </li>
                     ))}
                 </div>
 
-                <p className="create-new-label" onClick={(ev) => onEditLabel(ev, null, 'Add')}>Create a new label</p>
+                <p className="create-new-label" onClick={() => onSetModalProps('', <EditLabel {...{ onCloseModal, labelIdToEdit }} />)}>Create a new label</p>
 
             </section>
         </section>

@@ -25,6 +25,8 @@ import { DynamicActionModal, TO_RIGHT } from '../cmps/dynamic-cmps/DynamicAction
 import { TO_BOTTOM } from '../cmps/dynamic-cmps/DynamicActionModal'
 import { boardService } from '../services/board.service';
 import { updateBoardGroupTaskType } from '../store/actions/board.actions';
+import { EditLabel } from '../cmps/task-details/EditLabel';
+import { DeleteLabel } from '../cmps/task-details/DeleteLabel';
 
 const ICON_SIZE = 21
 const ICON_SIZE_BUTTON = 16
@@ -39,6 +41,9 @@ export function TaskDetails() {
     const [errorMessage, setErrorMessage] = useState('')
     const [isWatching, setIsWatching] = useState(false)
     const [modalProps, setModalProps] = useState({})
+    const [labelIdToEdit, setLabelIdToEdit] = useState('')
+    const [labelModalEvent, setLabelModalEvent] = useState('')
+
     const refTaskDetails = useRef()
     const navigate = useNavigate()
 
@@ -62,12 +67,8 @@ export function TaskDetails() {
         navigate(`/board/${boardId}`)
     }
 
-
-
-    function onChangeTask(ev) {
-        const name = ev.target.name
-        const value = ev.target.value
-        setTask(prev => ({ ...prev, [name]: value }))
+    function onSetLabelIdToEdit(labelId) {
+        setLabelIdToEdit(labelId)
     }
 
     function onUpdateTask(name, value, isCloseModal = true) {
@@ -92,6 +93,10 @@ export function TaskDetails() {
         setModalProps({})
     }
 
+    function onSetModalProps(event, content) {
+        setModalProps({ event, content })
+    }
+
     if (!task) {
         if (!errorMessage)
             return <section className="loading">Loading...</section>
@@ -100,7 +105,9 @@ export function TaskDetails() {
 
     const modalContent = {
         addMembers: <AddMembers {...{ onCloseModal }} />,
-        addLabels: <AddLabels {...{ onCloseModal }} />,
+        editLabel: <EditLabel {...{ onCloseModal, labelIdToEdit, onSetModalProps }} />,
+        deleteLabel: <DeleteLabel {...{ onCloseModal, labelIdToEdit }} />,
+        addLabels: <AddLabels {...{ onCloseModal, onSetLabelIdToEdit, onSetModalProps, labelModalEvent }} />,
         addChecklist: <AddChecklist {...{ checklists: task.checklists, onUpdateTask, onCloseModal }} />,
         addDates: <AddDates {...{ dates: task.dates, onUpdateTask, onCloseModal }} />,
     }
@@ -144,7 +151,13 @@ export function TaskDetails() {
 
                             <Members        {...{ task, board, onClickMembers: event => setModalProps({ event, content: modalContent.addMembers }) }} />
 
-                            <Labels         {...{ task, board, onClickLabel: event => setModalProps({ event, content: modalContent.addLabels }) }} />
+                            <Labels         {...{
+                                task, board, onClickLabel: event => {
+                                    setLabelModalEvent(event)
+
+                                    setModalProps({ event, content: modalContent.addLabels })
+                                }
+                            }} />
 
                             <div className="watch">
                                 <p className="title">Notifications</p>
@@ -209,7 +222,10 @@ export function TaskDetails() {
                             <p>Members</p>
                         </div>
 
-                        <div onClick={event => setModalProps({ event, content: modalContent.addLabels })}>
+                        <div onClick={event => {
+                            setLabelModalEvent(event)
+                            setModalProps({ event, content: modalContent.addLabels })
+                        }}>
                             <IconLabel {...buttonIconProps} size={12} />
                             <p>Labels</p>
                         </div>
