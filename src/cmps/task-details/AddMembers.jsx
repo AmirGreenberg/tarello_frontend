@@ -43,8 +43,7 @@ export function AddMembers({ onCloseModal }) {
                     data-testid="popover-close"
                 >
                     <span aria-hidden="true" className="span-close align-center">
-                        <IconX size={10} color={'var(--txtClrDark)'} />
-
+                        <IconX size={10} color={'var(--clr4)'} />
                     </span>
                 </button>
             </section>

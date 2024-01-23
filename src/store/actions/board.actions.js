@@ -146,6 +146,87 @@ export async function EditTaskMember(board, group, task, memberId) {
     }
 }
 
+
+export async function setLabelNotChecked(board, group, task, labelId) {
+    try {
+        const newLabelIds = task.labelIds.filter(lId => lId !== labelId)
+
+        const gIdx = getGroupIdx(board, group)
+        const tIdx = getTaskIdx(group, task)
+
+        board.groups[gIdx].tasks[tIdx].labelIds = newLabelIds
+
+        await updateBoard(board)
+
+    } catch (err) {
+        console.log('Cannot remove label from task', err)
+        throw err
+    }
+}
+
+export async function setLabelChecked(board, group, task, labelId) {
+    try {
+        const gIdx = getGroupIdx(board, group)
+        const tIdx = getTaskIdx(group, task)
+
+        board.groups[gIdx].tasks[tIdx].labelIds.push(labelId)
+
+        await updateBoard(board)
+
+    } catch (err) {
+        console.log('Cannot remove label from task', err)
+        throw err
+    }
+}
+
+export async function editLabel(board, group, task, labelId, color, title) {
+    try {
+        const newLabel = {
+            id: utilService.makeId(),
+            title,
+            color: color.color,
+            colorName: color.colorName,
+            shade: color.shade
+        }
+
+        const gIdx = getGroupIdx(board, group)
+        const tIdx = getTaskIdx(group, task)
+
+        if (task.labelIds.includes(labelId)) { //edit
+            const labelIdx = board.labels.findIndex(label => label.id === labelId)
+            board.labels[labelIdx].title = title
+            board.labels[labelIdx].color = color.color
+            board.labels[labelIdx].colorName = color.colorName
+            board.labels[labelIdx].shade = color.shade
+
+        }
+        else { //add
+            board.labels.push(newLabel)
+            board.groups[gIdx].tasks[tIdx].labelIds.push(newLabel.id)
+        }
+
+        await updateBoard(board)
+
+    } catch (err) {
+        console.log('Cannot add label', err)
+        throw err
+    }
+}
+
+export async function removeLabel(board, group, task, labelId) {
+    const gIdx = getGroupIdx(board, group)
+    const tIdx = getTaskIdx(group, task)
+    const lTaskIdx = getLabelIdsIndex(task, labelId)
+
+    const lBoardIdx = board.labels.findIndex(label => label.id === labelId)
+    board.labels.splice(lBoardIdx, 1)
+
+    board.groups[gIdx].tasks[tIdx].labelIds.splice(lTaskIdx, 1)
+
+    await updateBoard(board)
+}
+
+
 function getGroupIdx(board, group) {
     return board.groups.findIndex(g => g.id === group.id)
 }

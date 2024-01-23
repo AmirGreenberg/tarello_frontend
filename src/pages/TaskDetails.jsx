@@ -20,7 +20,7 @@ import { AddDates } from '../cmps/task-details/AddDates'
 import { Dates } from '../cmps/task-details/Dates'
 import { AddMembers } from '../cmps/task-details/AddMembers'
 import useOutsideClick from '../cmps/customHooks/useOutsideClick'
-import { IconArrow, IconAttachment, IconCheckList, IconChecked, IconClock, IconCover, IconDescription, IconDuplicate, IconLabel, IconMan, IconShare, IconShareSocial, IconTaskDetails, IconV, IconWatch, IconX, IconXDetails, IconXLarge, IconXSmall } from '../services/icons.service'
+import { IconArrow, IconAttachment, IconCheckList, IconChecked, IconClock, IconCover, IconDescription, IconDuplicate, IconEye, IconLabel, IconMan, IconShare, IconShareSocial, IconTaskDetails, IconV, IconWatch, IconX, IconXDetails, IconXLarge, IconXSmall } from '../services/icons.service'
 import { DynamicActionModal, TO_RIGHT } from '../cmps/dynamic-cmps/DynamicActionModal'
 import { TO_BOTTOM } from '../cmps/dynamic-cmps/DynamicActionModal'
 import { boardService } from '../services/board.service';
@@ -100,7 +100,7 @@ export function TaskDetails() {
 
     const modalContent = {
         addMembers: <AddMembers {...{ onCloseModal }} />,
-        addLabels: <AddLabels {...{ board, task, onUpdateTask, onCloseModal }} />,
+        addLabels: <AddLabels {...{ onCloseModal }} />,
         addChecklist: <AddChecklist {...{ checklists: task.checklists, onUpdateTask, onCloseModal }} />,
         addDates: <AddDates {...{ dates: task.dates, onUpdateTask, onCloseModal }} />,
     }
@@ -125,7 +125,15 @@ export function TaskDetails() {
                     <div className="title-img">
                         <IconTaskDetails {...iconProps} />
                     </div>
-                    <Title {...{ iconProps, task, taskTitle: task.title, groupTitle: group.title, onChangeTask, onUpdateBoard }} />
+                    {/* <Title {...{ iconProps, task, taskTitle: task.title, groupTitle: group.title, onChangeTask, onUpdateBoard }} />
+                </header> */}
+                    <div className="task-title">
+                        <h1>{task.title}</h1>
+                        <p className="flex align-center">in list
+                            <a href="#">{group.title}</a>
+                            {task.isWatch && <IconEye />}
+                        </p>
+                    </div>
                 </header>
 
 
@@ -136,7 +144,7 @@ export function TaskDetails() {
 
                             <Members        {...{ task, board, onClickMembers: event => setModalProps({ event, content: modalContent.addMembers }) }} />
 
-                            <Labels         {...{ labels: task.labels, onClickLabel: event => setModalProps({ event, content: modalContent.addLabels }) }} />
+                            <Labels         {...{ task, board, onClickLabel: event => setModalProps({ event, content: modalContent.addLabels }) }} />
 
                             <div className="watch">
                                 <p className="title">Notifications</p>

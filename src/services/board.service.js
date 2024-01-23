@@ -22,6 +22,9 @@ export const boardService = {
   getEmptyActivity,
   addGroup,
   getBoardGroupTask,
+  getLabel,
+  getLabels,
+  getTaskLabelsColors,
   // getGroupById,
   // getTaskById,
 }
@@ -47,6 +50,37 @@ async function getBoardById(boardId) {
   } catch (err) {
     console.log('Cannot get board by id', err);
   }
+}
+
+async function getLabel(boardId, labelId) {
+  const board = await httpService.get(`board/${boardId}`)
+  // const board = await storageService.get(STORAGE_KEY, boardId)
+  const label = board.labels.find(label => label.id === labelId)
+  return label
+}
+
+async function getLabels(boardId, txt) {
+  const newTxt = txt.toLowerCase()
+  const board = await httpService.get(`board/${boardId}`)
+  // const board = await storageService.get(STORAGE_KEY, boardId)
+
+  const labels = board.labels.filter(label => {
+    return label.shade.toLowerCase().includes(newTxt) ||
+      label.title.toLowerCase().includes(newTxt) ||
+      label.colorName.toLowerCase().includes(newTxt)
+  })
+  return labels
+}
+
+function getTaskLabelsColors(board, task) {
+  var labelsColors = []
+  task.labelIds.forEach(labelId => {
+    board.labels.forEach(label => {
+      if (label.id === labelId) labelsColors.push({ color: label.color, title: label.title })
+    })
+  })
+
+  return labelsColors
 }
 
 async function getGroupById(boardId, groupId) {
