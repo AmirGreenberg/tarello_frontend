@@ -11,6 +11,8 @@ export const utilService = {
     getInitials,
     generateUsername,
     checkLight,
+    getDate,
+    getTime,
 }
 
 function makeId(length = 8) {
@@ -108,4 +110,23 @@ function checkLight(color) {
     const b = color[2]
     const hsp = Math.sqrt(0.299 * r ** 2 + 0.587 * g ** 2 + 0.114 * b ** 2)
     return hsp > 127.5
+}
+
+function getDate(timestamp) {
+    const date = new Date(timestamp * 1000);
+    const year = date.getFullYear() % 100;
+    const month = date.getMonth() + 1;
+    const day = date.getDate();
+
+    return `${year}/${month}/${day}`
+}
+
+function getTime(timestamp) {
+    const date = new Date(timestamp * 1000);
+    const hours = date.getHours();
+    const minutes = date.getMinutes();
+    const amPm = hours >= 12 ? 'PM' : 'AM';
+    const formattedHours = hours % 12 || 12;
+    const formattedTime = `${formattedHours}:${minutes < 10 ? '0' : ''}${minutes} ${amPm}`;
+    return formattedTime
 }

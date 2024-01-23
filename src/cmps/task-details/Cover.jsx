@@ -3,7 +3,6 @@
 import { useState } from "react"
 
 export function Cover({ task }) {
-    console.log("🚀  task:", task)
     const isCover = task.style.backgroundColor || task.style.cover
     if (!isCover) return
 

@@ -27,6 +27,7 @@ import { boardService } from '../services/board.service';
 import { updateBoardGroupTaskType } from '../store/actions/board.actions';
 import { EditLabel } from '../cmps/task-details/EditLabel';
 import { DeleteLabel } from '../cmps/task-details/DeleteLabel';
+import { DatesData } from '../cmps/task-details/DatesData';
 
 const ICON_SIZE = 21
 const ICON_SIZE_BUTTON = 16
@@ -49,7 +50,7 @@ export function TaskDetails() {
 
     useEffect(() => {
         loadTask()
-    }, [taskId, boards])
+    }, [boards])
 
     async function loadTask() {
         try {
@@ -109,7 +110,7 @@ export function TaskDetails() {
         deleteLabel: <DeleteLabel {...{ onCloseModal, labelIdToEdit }} />,
         addLabels: <AddLabels {...{ onCloseModal, onSetLabelIdToEdit, onSetModalProps, labelModalEvent }} />,
         addChecklist: <AddChecklist {...{ checklists: task.checklists, onUpdateTask, onCloseModal }} />,
-        addDates: <AddDates {...{ dates: task.dates, onUpdateTask, onCloseModal }} />,
+        addDates: <AddDates {...{ onCloseModal }} />,
     }
 
     const iconProps = {
@@ -170,17 +171,11 @@ export function TaskDetails() {
                                 </div>
                             </div>
 
-                            {task.dates &&
-                                <div className="dates-data" >
-                                    <p className="dates-title">Dates</p>
-                                    <div className="flex checkbox-and-dates">
-                                        <div className="dates-txt">
-                                            <p className="class-Done">{task.dates.longString}</p>
-
-                                            {/* <IconClock color={'var(--txtClrDark)'} /> */}
-                                        </div>
-                                    </div>
-                                </div>}
+                            {(task.startDate !== null || task.dueDate !== null) &&
+                                <DatesData
+                                    board={board}
+                                    group={group}
+                                    task={task} />}
 
                         </section>
 

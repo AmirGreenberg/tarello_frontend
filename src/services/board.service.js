@@ -25,6 +25,8 @@ export const boardService = {
   getLabel,
   getLabels,
   getTaskLabelsColors,
+  getFormattedDate,
+
   // getGroupById,
   // getTaskById,
 }
@@ -290,6 +292,24 @@ function getEmptyActivity() {
     task: null,
   }
 }
+
+function getFormattedDate(timestamp) {
+  const currentDate = new Date()
+
+  const monthNames = [
+    'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+    'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec',
+  ]
+  const dateInMilliseconds = timestamp * 1000
+  const date = new Date(dateInMilliseconds)
+  const month = monthNames[date.getMonth()]
+  const day = date.getDate()
+  const year = date.getFullYear()
+  var formattedDate = `${month} ${day}${currentDate.getFullYear() !== year ? ', ' + year : ''}`
+
+  return { date, formattedDate }
+}
+
 
 //Not in use:
 

@@ -11,7 +11,6 @@ export const TO_RIGHT = 'TO_RIGHT'
 export const TO_BOTTOM = 'TO_BOTTOM'
 
 export function DynamicActionModal({ content, event, onOutsideClick, modalPosition }) {
-    console.log("🚀  event:", event)
     if (!content) return
     const [lastEvent, setLastEvent] = useState(event)
     if (!event) event = lastEvent
@@ -69,8 +68,6 @@ export function DynamicActionModal({ content, event, onOutsideClick, modalPositi
             case TO_RIGHT:
                 if (WIDTH + 2 * MARGIN <= spaceToRight ||
                     spaceToLeft < WIDTH + 2 * MARGIN) {
-                    console.log('check')
-
                     positionStyle = positionRight
                 }
                 else positionStyle = positionLeft

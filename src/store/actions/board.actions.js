@@ -84,6 +84,7 @@ export async function addBoard(board) {
 
 export async function updateBoard(board) {
     const prevBoard = store.getState().boardModule.board
+
     try {
         store.dispatch({ type: UPDATE_BOARD, board: board })
         let updatedBoard = await boardService.update(board)
@@ -126,6 +127,19 @@ export async function updateBoardGroupTaskType(boardId, groupId, taskId) {
         store.dispatch({ type: SET_TASK, task: task })
     }
 }
+
+export async function setIsCheckDate(board, group, task) {
+    try {
+        const gIdx = getGroupIdx(board, group)
+        const tIdx = getTaskIdx(group, task)
+        board.groups[gIdx].tasks[tIdx].dueDate.isDone = !board.groups[gIdx].tasks[tIdx].dueDate.isDone
+        await updateBoard(board)
+    } catch (err) {
+        console.log('Cannot remove label from task', err)
+        throw err
+    }
+}
+
 
 export async function EditTaskMember(board, group, task, memberId) {
     try {
@@ -259,6 +273,37 @@ export async function updatePhotoBackground(board, group, task, photo) {
 
     } catch (err) {
         console.log('Cannot update background photo', err)
+        throw err
+    }
+}
+
+export async function removeDate(board, group, task) {
+    try {
+        const gIdx = getGroupIdx(board, group)
+        const tIdx = getTaskIdx(group, task)
+
+        board.groups[gIdx].tasks[tIdx].startDate = null
+        board.groups[gIdx].tasks[tIdx].dueDate = null
+
+        await updateBoard(board)
+    } catch (err) {
+        console.log('Cannot remove date', err)
+        throw err
+    }
+}
+
+export async function saveDate(board, group, task, startDate, dueDate) {
+    try {
+        const gIdx = getGroupIdx(board, group)
+        const tIdx = getTaskIdx(group, task)
+
+        board.groups[gIdx].tasks[tIdx].startDate = startDate
+        if (task.dueDate && dueDate) board.groups[gIdx].tasks[tIdx].dueDate = { timeStamp: dueDate.timeStamp, isDone: task.dueDate.isDone }
+        else board.groups[gIdx].tasks[tIdx].dueDate = dueDate
+
+        await updateBoard(board)
+    } catch (err) {
+        console.log('Cannot save date', err)
         throw err
     }
 }
