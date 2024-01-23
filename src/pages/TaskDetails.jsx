@@ -99,7 +99,7 @@ export function TaskDetails() {
 
     if (!task) {
         if (!errorMessage)
-            return <section className="loading">Loading...</section>
+            return <></>
         else return <section className="error-message">{errorMessage}</section>
     }
 

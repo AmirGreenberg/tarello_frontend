@@ -52,7 +52,7 @@ export function BoardApp() {
         return (
             <div className="loader-container flex justify-center align-center height-100vh">
                 <section className="loader flex justify-center align-center column">
-                    <h2>Loading...</h2>
+                    <></>
                     <img src="https://res.cloudinary.com/dtty3yxsg/image/upload/v1705387866/logo-gif5_ac1nlh.gif" />
                     <img
                         src="https://res.cloudinary.com/dtty3yxsg/image/upload/v1705388374/Tarello_logo_mvrvlk.svg"
