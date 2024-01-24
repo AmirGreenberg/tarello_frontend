@@ -111,6 +111,7 @@
     color: white;
     border-radius: 3px;
     font-size: rem(14px);
+    text-align: center;
 
     &:hover {
         background-color: var(--btn-bg-clr-6);
@@ -144,7 +145,7 @@
     font-weight: 500;
 
     &:hover {
-        background-color: var(--clr4) Hover;
+        // background-color: var(--clr4) Hover;
     }
 }
 

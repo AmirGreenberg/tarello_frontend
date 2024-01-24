@@ -113,7 +113,7 @@ export function EditLabel({ onCloseModal, labelIdToEdit = null, onSetModalProps 
                     </div>
                     <hr />
 
-                    <div className="save-delete-btns flex justify-space-b">
+                    <div className="save-delete-btns flex justify-between">
                         <button onClick={onSaveLabel}>Save</button>
                         <button onClick={onRemoveLabel}
                             style={{ display: labelIdToEdit ? 'inline' : 'none' }}

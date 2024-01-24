@@ -44,6 +44,7 @@ export function TaskDetails() {
     const [modalProps, setModalProps] = useState({})
     const [labelIdToEdit, setLabelIdToEdit] = useState('')
     const [labelModalEvent, setLabelModalEvent] = useState('')
+    const [checklistIdToEdit, setChecklistIdToEdit] = useState('')
 
     const refTaskDetails = useRef()
     const navigate = useNavigate()
@@ -66,6 +67,10 @@ export function TaskDetails() {
 
     function onCloseTaskDetails(ev) {
         navigate(`/board/${boardId}`)
+    }
+
+    function onSetChecklistIdToEdit(checklistId) {
+        setChecklistIdToEdit(checklistId)
     }
 
     function onSetLabelIdToEdit(labelId) {
@@ -202,7 +207,7 @@ export function TaskDetails() {
                                         <IconChecked {...iconProps} />
                                     </div>
                                     <div className="checklist-item">
-                                        <Checklists     {...{ i, iconProps, checklist, checklists: task.checklists, onUpdateTask, refTaskDetails }} />
+                                        <Checklists     {...{ board, group, task, checklist, onSetChecklistIdToEdit, checklistIdToEdit }} />
                                     </div>
                                 </React.Fragment>)}
 

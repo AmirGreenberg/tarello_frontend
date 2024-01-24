@@ -2,6 +2,26 @@
     grid-template-columns: 2/3;
     margin: 10px 0 23px 0;
 
+    pre {
+        background-color: var(--btn-bg-clr-2);
+        box-shadow: none;
+        border: none;
+        color: var(--clr8);
+        text-decoration: none;
+        height: max-content;
+        min-height: 56px;
+        resize: vertical;
+        font-weight: 500;
+        border-radius: 3px;
+        display: block;
+        padding: 8px 12px;
+        text-wrap: nowrap;
+
+        &:hover {
+            background-color: var(--btn-bg-clr-4);
+        }
+    }
+
     h2 {
         color: var(--txtClrDark);
         font-weight: 600;
@@ -10,23 +30,27 @@
 
     textarea {
         width: 100%;
-        height: 56px;
-        resize: none;
+        min-height: 56px;
+        resize: vertical;
         outline: none;
-        background-color: var(--task-details-btn-bg-clr);
+        background-color: var(--btn-bg-clr-2);
         font-weight: 500;
 
         padding: 8px 12px;
         border: none;
         border-radius: 3px;
+        padding: 8px 12px;
+        text-wrap: nowrap;
+
         cursor: pointer;
 
         &::placeholder {
             color: var(--clr8);
         }
 
-        &:hover {
-            background-color: var(--clr4) Hover;
+        &:focus {
+            @include input-task-feature;
+            background-color: white;
         }
     }
 

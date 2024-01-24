@@ -77,12 +77,13 @@
     .todo-title:focus,
     .add-item:focus {
         @include input-task-feature;
-        font-size: rem(16px);
-        height: 54px;
+        font-size: rem(14px);
+        // height: 54px;
         background-color: white;
 
         &:hover {
             border-radius: 0;
+            background-color: white;
         }
 
         &:focus {
@@ -119,7 +120,6 @@
 
     .save-title {
         @include blue-action-btn;
-        margin: 0 0 18px 0;
     }
 
     .exit-title {
@@ -135,6 +135,8 @@
 
     .update-btns-add-item {
         gap: 8px;
+        text-align: center;
+        align-items: center;
 
         svg {
             margin-top: 3px;
