@@ -76,8 +76,8 @@ async function getLabels(boardId, txt) {
 
 function getTaskLabelsColors(board, task) {
   var labelsColors = []
-  task.labelIds.forEach(labelId => {
-    board.labels.forEach(label => {
+  task?.labelIds?.forEach(labelId => {
+    board?.labels?.forEach(label => {
       if (label.id === labelId) labelsColors.push({ color: label.color, title: label.title })
     })
   })

@@ -17,6 +17,7 @@ import {
 } from '../../services/icons.service'
 import { useEffect, useRef, useState } from 'react'
 import useOutsideClick from '../customHooks/useOutsideClick'
+import { MemberImg } from '../task-details/MemberImg'
 
 export function BoardHeader({ onSetFilter, onUpdateBoard }) {
     const storeBoradTitle = useSelector(state => state.boardModule.board.title)
@@ -97,7 +98,15 @@ export function BoardHeader({ onSetFilter, onUpdateBoard }) {
                     <IconFilter size={18} />
                     Filters
                 </button> */}
-                <Users members={members} size={28} className="members" />
+                <div className="members flex">
+                    {
+                        members.map((member, index) => {
+                            return (
+                                <MemberImg key={index} member={member} size={28} gap={-2} />
+                            )
+                        })
+                    }
+                </div>
                 {/* <button className="header-btn cta-btn">
                     <IconShare color={"var(--txtClrDark)"}/>
                     Share

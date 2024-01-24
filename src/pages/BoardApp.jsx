@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux'
 
 import { BoardHeader } from '../cmps/board/BoardHeader.jsx'
 import { GroupList } from '../cmps/board/GroupList.jsx'
-import { getActionUpdateBoard, loadBoard, loadBoards, updateBoard } from '../store/actions/board.actions.js'
+import { setIsCheckDate, getActionUpdateBoard, loadBoard, loadBoards, updateBoard } from '../store/actions/board.actions.js'
 import { useEffect, useRef, useState } from 'react'
 import { Outlet, useParams } from 'react-router'
 import { utilService } from '../services/util.service.js'
@@ -19,7 +19,7 @@ export function BoardApp() {
     const [isTagOpen, setIsTagOpen] = useState(false)
     const [filter, setFilter] = useState(boardService.getDefaultFilter())
 
-    
+
     useEffect(() => {
         loadBoards()
             .then(() => loadBoard(boardId))
@@ -30,10 +30,9 @@ export function BoardApp() {
 
     useEffect(() => {
         socketService.emit(SOCKET_EMIT_JOINED_BOARD, boardId)
-            console.log('socketService.emit')
-            console.log('boardId', boardId)
+        console.log('socketService.emit')
     }, [boardId])
-  
+
 
     const dispatch = useDispatch()
 
@@ -47,7 +46,13 @@ export function BoardApp() {
         }
     }, [])
 
-
+    async function onIsCheckDate(group, task) {
+        try {
+            setIsCheckDate(board, group, task)
+        } catch (err) {
+            console.log('err')
+        }
+    }
 
     function onToggleLabel() {
         setIsTagOpen(prevState => !prevState)
@@ -81,11 +86,11 @@ export function BoardApp() {
         <>
             <section
                 className="board-app"
-            // style={{ backgroundImage: `url(${board.style.backgroundImage})` }}
+                style={{ backgroundImage: `url(${board.style.backgroundImage})` }}
             >
                 <BoardHeader {...{ onSetFilter, onUpdateBoard }} />
                 <GroupList
-                    {...{ filter, groups: board.groups, boardId, onUpdateBoard, onToggleLabel, isTagOpen, board }}
+                    {...{ filter, groups: board.groups, boardId, onUpdateBoard, onToggleLabel, isTagOpen, board, onIsCheckDate }}
                 />
             </section>
             <Outlet />

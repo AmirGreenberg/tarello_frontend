@@ -15,6 +15,8 @@ export function GroupPreview({
     onUpdateBoard,
     onToggleLabel,
     provided,
+    board,
+    onIsCheckDate,
 }) {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
     const [groupTitle, setGroupTitle] = useState(group.title)
@@ -157,7 +159,9 @@ export function GroupPreview({
                     topGroup,
                     group,
                     onToggleLabel,
-                    isTagOpen
+                    isTagOpen,
+                    board,
+                    onIsCheckDate,
                 }}
             />
             {!isCreateTopCard && !isCreateBottomCard && (

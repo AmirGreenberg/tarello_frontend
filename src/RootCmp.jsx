@@ -32,7 +32,7 @@ export function RootCmp() {
                     if (utilService.checkLight(c)) document.body.classList.remove('dark-mode')
                     else document.body.classList.add('dark-mode')
                     const color = `rgba(${c[0]}, ${c[1]}, ${c[2]}, 0.9)`
-                    document.body.style.setProperty('--themeBGcolor', color);
+                    // document.body.style.setProperty('--themeBGcolor', color);
                 }}
             />
             {!isHomepage && <AppHeader />}

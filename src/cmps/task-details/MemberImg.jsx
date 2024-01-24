@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { utilService } from "../../services/util.service";
 
-export function MemberImg({ member, size }) {
+export function MemberImg({ member, size, gap = 4 }) {
 
     const [isAvatarClicked, setIsAvatarClicked] = useState(false)
     const [imgSize, setImgSize] = useState(null)
@@ -22,9 +22,9 @@ export function MemberImg({ member, size }) {
 
     return (
         <div key={member._id} className="user-img-wrapper">
-            {member.imgUrl ? <img src={member.imgUrl} className="user-img" style={{ width: size + 'px', marginInlineEnd: '7px' }} />
+            {member.imgUrl ? <img src={member.imgUrl} className="user-img" style={{ width: size + 'px', marginInlineEnd: gap + 'px' }} />
                 :
-                <div className="member-initials" style={{ width: size + 'px', backgroundColor: `#717d92`, marginInlineEnd: '7px' }}>
+                <div className="member-initials" style={{ width: size + 'px', backgroundColor: `#717d92`, marginInlineEnd: gap + 'px' }}>
                     {utilService.getInitials(member.fullname)}
                 </div>}
         </div>)

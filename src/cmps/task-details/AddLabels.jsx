@@ -90,14 +90,14 @@ export function AddLabels({ onCloseModal, onSetLabelIdToEdit, onSetModalProps })
                                     </div>}
                                     sx={{ '& .MuiSvgIcon-root': { height: '23px' } }} />
                             </FormGroup>
-                            <div className="edit-label" onClick={() => onSetModalProps('', <EditLabel {...{ onCloseModal, labelIdToEdit: label.id }} />)}>
+                            <div className="edit-label" onClick={() => onSetModalProps('', <EditLabel {...{ onCloseModal, labelIdToEdit: label.id, onSetLabelIdToEdit, onSetModalProps }} />)}>
                                 <IconPencilLabels />
                             </div>
                         </li>
                     ))}
                 </div>
 
-                <p className="create-new-label" onClick={() => onSetModalProps('', <EditLabel {...{ onCloseModal, labelIdToEdit }} />)}>Create a new label</p>
+                <p className="create-new-label" onClick={() => onSetModalProps('', <EditLabel {...{ onCloseModal, labelIdToEdit, onSetLabelIdToEdit, onSetModalProps }} />)}>Create a new label</p>
 
             </section>
         </section>

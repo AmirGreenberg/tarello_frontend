@@ -6,7 +6,7 @@ import { dragAndDropService } from '../../services/drag-and-drop.service.js'
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
 import { useSelector } from 'react-redux'
 
-export function GroupList({ filter, groups, boardId, onToggleLabel, onUpdateBoard, isTagOpen, board }) {
+export function GroupList({ onIsCheckDate, filter, groups, boardId, onToggleLabel, onUpdateBoard, isTagOpen, board }) {
     function onAddGroup(newGroup) {
         onUpdateBoard('groups', [...groups, newGroup])
     }
@@ -33,43 +33,44 @@ export function GroupList({ filter, groups, boardId, onToggleLabel, onUpdateBoar
                             >
                                 {groups.length > 0 &&
                                     groups?.filter(group => RegExp(filter.keyword, 'i').test(group.title))
-                                    .map((group, i) => (
-                                        <Draggable
-                                            key={group.id}
-                                            draggableId={group.id}
-                                            index={i}
-                                        >
-                                            {(provided, snapshot) => (
-                                                <li
-                                                    className={
-                                                        `group-preview-container ${
-                                                        snapshot.isDragging
-                                                            ? 'dragged'
-                                                            : ''
-                                                        }
+                                        .map((group, i) => (
+                                            <Draggable
+                                                key={group.id}
+                                                draggableId={group.id}
+                                                index={i}
+                                            >
+                                                {(provided, snapshot) => (
+                                                    <li
+                                                        className={
+                                                            `group-preview-container ${snapshot.isDragging
+                                                                ? 'dragged'
+                                                                : ''
+                                                            }
                                                     `}
-                                                    key={group.id}
-                                                    {...provided.draggableProps}
-                                                    {...provided.dragHandleProps}
-                                                    ref={provided.innerRef}
-                                                >
-                                                    <GroupPreview
-                                                        key={i}
-                                                        {...{
-                                                            filter,
-                                                            group,
-                                                            groups,
-                                                            boardId,
-                                                            isTagOpen,
-                                                            onUpdateBoard,
-                                                            onToggleLabel,
-                                                            provided,
-                                                        }}
-                                                    />
-                                                </li>
-                                            )}
-                                        </Draggable>
-                                    ))}
+                                                        key={group.id}
+                                                        {...provided.draggableProps}
+                                                        {...provided.dragHandleProps}
+                                                        ref={provided.innerRef}
+                                                    >
+                                                        <GroupPreview
+                                                            key={i}
+                                                            {...{
+                                                                filter,
+                                                                group,
+                                                                groups,
+                                                                boardId,
+                                                                isTagOpen,
+                                                                onUpdateBoard,
+                                                                onToggleLabel,
+                                                                provided,
+                                                                board,
+                                                                onIsCheckDate,
+                                                            }}
+                                                        />
+                                                    </li>
+                                                )}
+                                            </Draggable>
+                                        ))}
                                 <AddNewGroup onAddGroup={onAddGroup} />
                                 {provided.placeholder}
                             </section>

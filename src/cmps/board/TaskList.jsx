@@ -2,7 +2,7 @@ import { AddNewTask } from './AddNewTask'
 import { TaskPreview } from './TaskPreview'
 import { Droppable, Draggable } from 'react-beautiful-dnd'
 
-export function TaskList({ filter, boardId, onAddTask, onCancelAddTask, onToggleLabel, isTagOpen, isCreateTopCard, isCreateBottomCard, topGroup, group }) {
+export function TaskList({ onIsCheckDate, boardId, onAddTask, onCancelAddTask, onToggleLabel, isTagOpen, isCreateTopCard, isCreateBottomCard, topGroup, group }) {
     return (
         <Droppable droppableId={group.id} type="task">
             {(provided) => (
@@ -14,19 +14,19 @@ export function TaskList({ filter, boardId, onAddTask, onCancelAddTask, onToggle
                 >
                     {isCreateTopCard && (
                         <>
-                        {
-                            topGroup.tasks
-                                .map((task, i) =>
-                                    <TaskPreview
-                                        key={i}
-                                        boardId={boardId}
-                                        groupId={group.id}
-                                        task={task}
-                                        isTagOpen={isTagOpen}
-                                        onToggleLabel={onToggleLabel}
-                                    />
-                                )
-                        }
+                            {
+                                topGroup.tasks
+                                    .map((task, i) =>
+                                        <TaskPreview
+                                            key={i}
+                                            boardId={boardId}
+                                            groupId={group.id}
+                                            task={task}
+                                            isTagOpen={isTagOpen}
+                                            onToggleLabel={onToggleLabel}
+                                        />
+                                    )
+                            }
                             <AddNewTask {...{ onAddTask, onCancelAddTask }} />
                         </>
                     )}
@@ -54,9 +54,11 @@ export function TaskList({ filter, boardId, onAddTask, onCancelAddTask, onToggle
                                             key={i}
                                             boardId={boardId}
                                             groupId={group.id}
+                                            group={group}
                                             task={task}
                                             isTagOpen={isTagOpen}
                                             onToggleLabel={onToggleLabel}
+                                            onIsCheckDate={onIsCheckDate}
                                         />
                                     </li>
                                 )}

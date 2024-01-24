@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { boardService } from '../../services/board.service'
 import { useNavigate } from 'react-router-dom'
 import {
     IconAlignText,
@@ -10,8 +11,12 @@ import {
 
 } from '../../services/icons.service'
 import { Users } from './Users'
+import { useSelector } from 'react-redux'
+import { DateTaskBtn } from './DateTaskBtn'
 
-export function TaskPreview({ onToggleLabel, isTagOpen, boardId, groupId, task }) {
+export function TaskPreview({ onToggleLabel, isTagOpen, boardId, groupId, task, onIsCheckDate, group }) {
+
+    const board = useSelector(storeState => storeState.boardModule.board)
     const navigate = useNavigate()
 
     function onTagsClick(ev) {
@@ -22,15 +27,19 @@ export function TaskPreview({ onToggleLabel, isTagOpen, boardId, groupId, task }
 
     const {
         cover,
-        labels,
+        labelIds,
         title,
         dates,
         description,
-        attachments,
+        attachment,
         checklists,
         comments,
-        members
+        memberIds,
+        dueDate,
+        startDate,
     } = task
+
+    const labelsColors = boardService.getTaskLabelsColors(board, task)
 
     function getChecklistsTaskCount() {
         let taskCount = 0
@@ -69,19 +78,19 @@ export function TaskPreview({ onToggleLabel, isTagOpen, boardId, groupId, task }
                     </div>
 
                     <section className='task-main-body'>
-                        {labels && labels.length > 0 &&
+                        {labelIds &&
                             <section className="label-container">
-                                {labels.filter(label => label.isActive).map((label) => (
+                                {labelsColors.map((labelsColor, index) => (
                                     isTagOpen ? (
-                                        <div className="container" key={label.id}>
-                                            <div style={{ backgroundColor: label.bgColor }} className="label-tag expended">
-                                                <div style={{ color: label.txtColor }} className='label-title'>{label.title}</div>
+                                        <div className="container" key={index}>
+                                            <div style={{ backgroundColor: labelsColor.color }} className="label-tag expended">
+                                                <div className='label-title'>{labelsColor.title}</div>
                                                 <div className="on-hover-mask" onClick={onTagsClick}></div>
                                             </div>
                                         </div>
                                     ) : (
-                                        <div className="container" key={label.id}>
-                                            <div style={{ backgroundColor: label.bgColor }} className="label-tag collapsed">
+                                        <div className="container" key={index}>
+                                            <div style={{ backgroundColor: labelsColor.color }} className="label-tag collapsed">
                                                 <div className="on-hover-mask" onClick={onTagsClick}></div>
                                             </div>
                                         </div>
@@ -98,18 +107,21 @@ export function TaskPreview({ onToggleLabel, isTagOpen, boardId, groupId, task }
                         {<div className="icon-container">
                             {/* <IconWatch color={'var(--txtClrDark)'}/> */}
 
-                            {dates && <div className="flex center gap" title="Due date ">
-                                <IconClock color={'var(--txtClrDark)'} />
-                                <span>{dates.shortString}</span>
-                            </div>}
+                            {(dueDate || startDate) &&
+                                <DateTaskBtn
+                                    group={group}
+                                    task={task}
+                                    dueDate={dueDate}
+                                    startDate={startDate}
+                                    onIsCheckDate={onIsCheckDate} />}
 
                             {description && <span title="This card have a description">
                                 <IconAlignText color={'var(--txtClrDark)'} />
                             </span>}
 
-                            {attachments?.length > 0 && <span title="Attachments">
+                            {attachment?.length > 0 && <span title="Attachments">
                                 <IconAttachment color={'var(--txtClrDark)'} />
-                                {attachments.length}
+                                {attachment.length}
                             </span>}
 
                             {isShowTodosCount() && <span title="Checklist items">
@@ -129,9 +141,9 @@ export function TaskPreview({ onToggleLabel, isTagOpen, boardId, groupId, task }
 
                     </section>
 
-                    {members?.length > 0 &&
+                    {memberIds?.length > 0 &&
                         <section className="members-container">
-                            <Users members={members} size={24} gap={1} />
+                            <Users board={board} task={task} taskMemberIds={memberIds} size={24} gap={1} />
                         </section>}
                 </>
             </section>

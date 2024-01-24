@@ -14,7 +14,7 @@ const colors = [
     { color: '#0c66e4', colorName: 'blue', shade: 'bold' }, { color: '#1d7f8c', colorName: 'sky', shade: 'bold' }, { color: '#5b7f24', colorName: 'lime', shade: 'bold' }, { color: '#ae4787', colorName: 'pink', shade: 'bold' }, { color: '#626f86', colorName: 'black', shade: 'bold' }
 ]
 
-export function EditLabel({ onCloseModal, labelIdToEdit = null, onSetModalProps }) {
+export function EditLabel({ onCloseModal, labelIdToEdit = null, onSetModalProps, onSetLabelIdToEdit }) {
 
     const board = useSelector(storeState => storeState.boardModule.board)
     const group = useSelector(storeState => storeState.boardModule.group)
@@ -109,7 +109,7 @@ export function EditLabel({ onCloseModal, labelIdToEdit = null, onSetModalProps 
                     <div className={`remove-color-btn flex ${dynClass}`}
                         onClick={() => onSetColor('#091E420F', '', '')}>
                         <IconExit />
-                        <p className={`create-new-label ${dynClass}`}>Remove Color</p>
+                        <p className={` ${dynClass}`}>Remove Color</p>
                     </div>
                     <hr />
 
@@ -120,7 +120,7 @@ export function EditLabel({ onCloseModal, labelIdToEdit = null, onSetModalProps 
                         >Delete</button>
                     </div>
 
-                    <div className="back-btn" >
+                    <div className="back-btn" onClick={() => onSetModalProps('', <AddLabels {...{ onCloseModal, onSetLabelIdToEdit, onSetModalProps }} />)} >
                         <IconBackBtnSvg />
                     </div>
 

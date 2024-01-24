@@ -9,7 +9,7 @@
     transition: 0.2s;
 
     .task-main-body {
-        padding: em(6px, 16px) em(12px, 16px) em(6px, 16px);
+        padding: em(6px, 16px) em(12px, 16px) em(0px, 16px);
 
         .icon-container {
             display: flex;
@@ -22,6 +22,7 @@
                 align-items: center;
                 gap: em(5px);
                 font-size: 12px;
+                margin-bottom: em(4px);
             }
         }
     }
@@ -106,7 +107,7 @@
                 left: 0;
                 border-radius: em(4px);
                 background-color: transparent;
-                z-index: 5;
+                // z-index: 5;
             }
             .label-title {
                 position: relative;
@@ -117,7 +118,7 @@
                 max-width: 205px;
                 font-size: em(12px);
                 padding: 0 em(8px);
-                z-index: 5;
+                // z-index: 5;
             }
         }
     }

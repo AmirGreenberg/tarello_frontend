@@ -20,7 +20,7 @@ export function DynamicActionModal({ content, event, onOutsideClick, modalPositi
     const [height, setHeight] = useState(window.innerHeight)
     const [modalHeight, setModalHeight] = useState()
     const refModal = useRef(null)
-    const parentElement = (event.target.parentElement.tagName === 'DIV' && location.pathname !== '/workspace') ? event.target.parentElement : event.target
+    const parentElement = (event.target.parentElement.tagName === ('DIV' || null) && location.pathname !== '/workspace') ? event.target.parentElement : event.target
 
     function updateDimensions() {
         setHeight(window.innerHeight)
