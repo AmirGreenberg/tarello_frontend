@@ -24,12 +24,14 @@
     &.side-bar-on-open {
         min-width: em(260px);
         z-index: 30;
+        transition: ease-in-out 0.2s;
     }
 
     &.side-bar-on-close {
         width: em(16px);
         max-width: em(16px);
         min-width: em(16px);
+        transition: ease-in-out 0.1s;
     }
 
     .side-bar-btn {
