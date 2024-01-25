@@ -1,13 +1,15 @@
 import { useSelector } from 'react-redux'
 import { addTaskAttach, updatePhotoBackground } from '../../store/actions/board.actions'
 import { IconX } from '../../services/icons.service'
-import { UPLOAD_PRESET, UPLOAD_URL } from '../../services/apiKeys'
 
 export function AddAttachments({ onCloseModal }) {
 
     const board = useSelector(storeState => storeState.boardModule.board)
     const group = useSelector(storeState => storeState.boardModule.group)
     const task = useSelector(storeState => storeState.boardModule.task)
+
+    const UPLOAD_PRESET = process.env.UPLOAD_PRESET
+    const UPLOAD_URL = process.env.UPLOAD_URL
 
     async function onSaveFile(ev) {
 

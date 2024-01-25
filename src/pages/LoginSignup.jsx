@@ -178,7 +178,7 @@ export function LoginSignup() {
                                         <input
                                             className="email-input "
                                             type="username"
-                                            placeholder="Enter username"
+                                            placeholder="Enter email"
                                             name="username"
                                             value={credentials.username}
                                             onChange={handleChange}

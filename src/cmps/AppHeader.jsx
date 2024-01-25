@@ -24,7 +24,7 @@ export function AppHeader() {
     const [isUserLoggedIn, setIsUserLoggedIn] = useState(false)
     const [loggedUser, setLoggedUser] = useState({
         fullname: 'Guest',
-        imgUrl: '#',
+        imgUrl: '#c76ebe',
     })
     const [isViewUserInfo, setIsViewUserInfo] = useState(false)
     const [userInfoPostion, setUserInfoPostion] = useState({
@@ -47,7 +47,7 @@ export function AppHeader() {
     function handleLogOut() {
         setIsViewUserInfo(!isViewUserInfo)
         setIsUserLoggedIn(false)
-        setLoggedUser({ fullname: 'Guest', imgUrl: '#' })
+        setLoggedUser({ fullname: 'Guest', imgUrl: '#c76ebe' })
     }
 
     function toggleModal({ event, type }) {

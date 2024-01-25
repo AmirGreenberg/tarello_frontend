@@ -1,11 +1,11 @@
 import { useSelector } from 'react-redux'
 import { removeCover, updateColorBackground, updatePhotoBackground } from '../../store/actions/board.actions'
 import { useEffect, useState } from 'react'
-import { UNSPLASH_KEY } from '../../services/apiKeys'
+// import { UNSPLASH_KEY } from '../../services/apiKeys'
 import { IconX } from '../../services/icons.service'
 
 export function AddCover({ onCloseModal }) {
-
+    const UNSPLASH_KEY = process.env.UNSPLASH_KEY
     const [photos, setImgs] = useState([])
 
     const board = useSelector(storeState => storeState.boardModule.board)

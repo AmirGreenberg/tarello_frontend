@@ -5,8 +5,8 @@ export const SET_USER = 'SET_USER'
 export const REMOVE_USER = 'REMOVE_USER'
 
 const initialState = {
+    loggedinUser: userService.getLoggedinUser(),
     users: [],
-    user: userService.getLoggedinUser(),
 }
 
 export function userReducer(state = initialState, action) {
