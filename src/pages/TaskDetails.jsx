@@ -29,6 +29,7 @@ import { EditLabel } from '../cmps/task-details/EditLabel';
 import { DeleteLabel } from '../cmps/task-details/DeleteLabel';
 import { DatesData } from '../cmps/task-details/DatesData';
 import { AddAttachments } from '../cmps/task-details/AddAttachments';
+import { AddCover } from '../cmps/task-details/AddCover';
 
 const ICON_SIZE = 21
 const ICON_SIZE_BUTTON = 16
@@ -119,6 +120,7 @@ export function TaskDetails() {
         addChecklist: <AddChecklist {...{ checklists: task.checklists, onUpdateTask, onCloseModal }} />,
         addDates: <AddDates {...{ onCloseModal }} />,
         addAttachments: <AddAttachments {...{ onCloseModal }} />,
+        addCover: <AddCover {...{ onCloseModal }} />,
     }
 
     const iconProps = {
@@ -248,7 +250,7 @@ export function TaskDetails() {
                             <p>Attachment</p>
                         </div>
 
-                        <div onClick={event => setModalProps({ event, content: modalContent.addDates })}>
+                        <div onClick={event => setModalProps({ event, content: modalContent.addCover })}>
                             <IconCover {...buttonIconProps} />
                             <p>Cover</p>
                         </div>
