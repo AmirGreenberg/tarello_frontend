@@ -104,6 +104,7 @@ export function TaskDetails() {
         setModalProps({ event, content })
     }
 
+
     if (!task) {
         if (!errorMessage)
             return <></>

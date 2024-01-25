@@ -30,8 +30,16 @@
     .task-cover {
         padding: 0;
 
+        * {
+            border-radius: em(8px) em(8px) 0 0;
+        }
+
+        div {
+            height: em(36px);
+        }
+
         img {
-            border-radius: em(10px) em(10px) 0 0;
+            max-height: 225px;
         }
     }
 

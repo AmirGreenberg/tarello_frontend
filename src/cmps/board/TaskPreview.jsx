@@ -26,10 +26,8 @@ export function TaskPreview({ onToggleLabel, isTagOpen, boardId, groupId, task, 
     }
 
     const {
-        cover,
         labelIds,
         title,
-        dates,
         description,
         attachment,
         checklists,
@@ -37,6 +35,7 @@ export function TaskPreview({ onToggleLabel, isTagOpen, boardId, groupId, task, 
         memberIds,
         dueDate,
         startDate,
+        style,
     } = task
 
     const labelsColors = boardService.getTaskLabelsColors(board, task)
@@ -72,8 +71,8 @@ export function TaskPreview({ onToggleLabel, isTagOpen, boardId, groupId, task, 
                 <>
 
                     <div className="task-cover">
-                        {cover && cover.imgUrl && <img src={cover.imgUrl} alt="" />}
-                        {cover && !cover.imgUrl && cover.bgClr && <div style={{ backgroundImage: `var(${cover.bgClr})` }} className="task-cover">
+                        {style && style.cover && <img src={style.cover} alt="" />}
+                        {style && !style.cover && style.backgroundColor && <div style={{ backgroundColor: `${style.backgroundColor}` }} className="task-cover">
                         </div>}
                     </div>
 
