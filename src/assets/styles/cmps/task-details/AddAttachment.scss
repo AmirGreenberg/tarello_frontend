@@ -1,17 +1,21 @@
-.feature-attachment{
+.feature-attachment {
+    .modal-header-txt {
+        padding: 0 0px;
+    }
 
-    .attach-file{
+    .attach-file {
         margin-top: 7px;
     }
-    
-    .upload-btn{
+
+    .upload-btn {
         @include btn-gray-bgc;
 
         width: 100%;
-        margin: 12px 0;
+        margin: 14px 0;
+        font-size: rem(14px) !important;
     }
 
-    input{
+    input {
         display: none;
     }
 }
