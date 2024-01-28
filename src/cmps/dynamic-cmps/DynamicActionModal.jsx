@@ -14,6 +14,7 @@ export function DynamicActionModal({ content, event, onOutsideClick, modalPositi
     const [lastEvent, setLastEvent] = useState(event)
     if (!event) event = lastEvent
     const location = useLocation();
+    console.log("🚀  content:", content)
 
 
     const [height, setHeight] = useState(window.innerHeight)
