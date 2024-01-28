@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom'
 import { addBoard, loadBoard } from '../../store/actions/board.actions'
 import { boardService } from '../../services/board.service'
 
-export function CreateBoardContent({ onToggleModal }) {
+export function CreateBoardContent({ onCloseModal }) {
     const navigate = useNavigate()
 
     const [board, setBoard] = useState(
@@ -43,7 +43,7 @@ export function CreateBoardContent({ onToggleModal }) {
     function onAddBoard(ev) {
         ev.preventDefault()
         if (!board.title) return
-        closeModal(ev)
+        onCloseModal()
         setBoard({ ...board, title: '' })
         addBoard(board)
             .then((addedBoard) => loadBoard(addedBoard._id))
@@ -51,7 +51,7 @@ export function CreateBoardContent({ onToggleModal }) {
     }
 
     function closeModal(event) {
-        onToggleModal({ event, type: 'createBoard' })
+        onCloseModal()
     }
 
     const gColors = [

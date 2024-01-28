@@ -11,7 +11,6 @@ export function Cover({ task }) {
     async function getBgc() {
         const fac = new FastAverageColor();
         const color = await fac.getColorAsync(task.style.cover);
-        console.log("🚀  color:", color)
         setBgColor(color.hex);
     }
 

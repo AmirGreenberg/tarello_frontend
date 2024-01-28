@@ -8,15 +8,13 @@ export function BoardList({
     onToggleStarred,
     isStarred = false,
 }) {
-    const [modal, setModal] = useState({ isModalOpen: false, type: null })
+    const [modalProps, setModalProps] = useState({})
+    const modalContent = {
+        addBoard: <CreateBoardContent {...{ onCloseModal }} />,
+    }
 
-    function toggleModal({ event, type }) {
-        if (modal.isModalOpen) {
-            setModal({ ...modal, isModalOpen: false })
-            return
-        }
-
-        setModal({ isModalOpen: true, type, event })
+    function onCloseModal() {
+        setModalProps({})
     }
 
     if (!boards?.length) return <></>
@@ -78,24 +76,12 @@ export function BoardList({
                 <div
                     className="add-board-preview create-new-board-btn board-preview flex align-center justify-center"
                     style={{ padding: '0' }}
-                    onClick={(event) => {
-                        toggleModal({
-                            event,
-                            type: 'createBoard',
-                        })
-                    }}
+                    onClick={event => setModalProps({ event, content: modalContent.addBoard })}
                 >
                     <span>Create new board</span>
                 </div>
             )}
-            {modal.isModalOpen && (
-                <DynamicActionModal
-                    event={modal.event}
-                    content={<CreateBoardContent onToggleModal={toggleModal} />}
-                    modalPosition={TO_RIGHT}
-                    onOutsideClick={() => setModal(prev => ({ ...prev, isModalOpen: false }))}
-                />
-            )}
+            <DynamicActionModal {...{ ...modalProps, modalPosition: TO_RIGHT, onOutsideClick: onCloseModal }} />
         </div>
     )
 }

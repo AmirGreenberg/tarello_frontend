@@ -1,0 +1,37 @@
+.user-info-modal {
+    .user-info-modal-content {
+        display: flex;
+
+        .user-info-modal-text {
+            display: flex;
+            padding: 4px 6px;
+            flex-direction: column;
+
+            h5 {
+                color: var(--clr8);
+                font-size: 14px;
+                font-weight: 400;
+            }
+
+            p {
+                color: var(--clr9);
+                font-size: 12px;
+            }
+        }
+    }
+
+    .user-info-modal-img {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: rem(24px);
+        width: 40px;
+        height: 40px;
+        border-radius: 100%;
+    }
+
+    hr {
+        border: 0;
+    }
+}

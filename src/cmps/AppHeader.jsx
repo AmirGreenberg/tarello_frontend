@@ -1,15 +1,11 @@
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
 
 // Cmps
 import { DynamicActionModal, TO_BOTTOM } from '../cmps/dynamic-cmps/DynamicActionModal'
 import {
-    IconArrowDown,
     IconBell,
-    IconInfo,
-    IconSearch,
-    IconShare,
     IconWorkspace,
     TarelloLogo,
 
@@ -17,46 +13,51 @@ import {
 
 import { utilService } from '../services/util.service'
 import { CreateBoardContent } from './dynamic-cmps/CreateBoardContent'
+import { UserInfoModal } from './dynamic-cmps/UserInfoModal'
 
 export function AppHeader() {
     const navigate = useNavigate()
-    const [modal, setModal] = useState({ isModalOpen: false, type: null })
+    // const [modal, setModal] = useState({ isModalOpen: false, type: null })
+    const [modalProps, setModalProps] = useState({})
+
     const [isUserLoggedIn, setIsUserLoggedIn] = useState(false)
-    const [loggedUser, setLoggedUser] = useState({
-        fullname: 'Guest',
-        imgUrl: '#c76ebe',
-    })
+    const [loggedUser, setLoggedUser] = useState({ fullname: 'Guest', imgUrl: '#c76ebe' })
     const [isViewUserInfo, setIsViewUserInfo] = useState(false)
-    const [userInfoPostion, setUserInfoPostion] = useState({
-        left: null,
-        top: null,
-    })
+    const user = useSelector(storeState => storeState.userModule.loggedinUser)
     const buttonRef = useRef(null)
-    const user = useSelector((storeState) => storeState.userModule.loggedinUser)
-    const initials = utilService.getInitials(loggedUser.fullname)
+
+    console.log("🚀  user:", user)
+
+    const initials = utilService.getInitials(user?.fullname)
+    console.log("🚀  initials:", initials)
+
+    const modalContent = {
+        addBoard: <CreateBoardContent {...{ onCloseModal }} />,
+        userInfo: <UserInfoModal {...{ onCloseModal, user, initials, handleUserInfo, handleLogOut }} />,
+    }
+
+    useEffect(() => {
+        if (user) {
+            setIsUserLoggedIn(true)
+            setLoggedUser(user)
+        }
+    }, [loggedUser])
+
+    function onCloseModal() {
+        setModalProps({})
+    }
 
     function handleUserInfo() {
-        if (loggedUser.fullname === 'Guest') return
+        if (user.fullname && user.fullname === 'Guest') return
         const buttonRect = buttonRef.current.getBoundingClientRect()
-        setUserInfoPostion({
-            left: buttonRect.left - 265,
-            top: buttonRect.top + 40,
-        })
         setIsViewUserInfo(!isViewUserInfo)
     }
     function handleLogOut() {
+        console.log('check handleLogOut')
+
         setIsViewUserInfo(!isViewUserInfo)
         setIsUserLoggedIn(false)
         setLoggedUser({ fullname: 'Guest', imgUrl: '#c76ebe' })
-    }
-
-    function toggleModal({ event, type }) {
-        if (modal.isModalOpen) {
-            setModal({ ...modal, isModalOpen: false })
-            return
-        }
-
-        setModal({ isModalOpen: true, type, event })
     }
 
     return (
@@ -76,29 +77,8 @@ export function AppHeader() {
                     <IconWorkspace />
 
                 </button>
-                {/* <button className="header-btn">
-                    Recent
-                    <IconArrowDown />
-                </button> */}
-                {/* <button className="header-btn">
-                    Starred
-                    <IconArrowDown />
-                </button> */}
-                {/* <button className="header-btn">
-                    Templates
-                    <IconArrowDown />
-                </button> */}
-                <button
-                    onClick={(event) => {
-                        toggleModal({
-                            event,
-                            type: 'createBoard',
-                        })
-                    }}
-                    className="create-btn header-btn"
-                >
-                    Create
-                </button>
+                <button onClick={event => setModalProps({ event, content: modalContent.addBoard })}>Create</button>
+
             </section>
 
             <section className="btns-container">
@@ -106,51 +86,39 @@ export function AppHeader() {
                     <IconBell size={24} />
                 </div>
 
-                {/* <div className="main-header-icon icon round">
-                    <IconInfo size={24} />
-                </div> */}
+                {/* <button
+                    onClick={() => navigate('/auth')}
+                    className="header-btn login-btn flex center"
+                >
+                    Login
+                </button> */}
 
-                {isUserLoggedIn && user ? (
-                    <button
-                        className="btn-user btn-img-user"
-                        onClick={handleUserInfo}
-                        ref={buttonRef}
-                    >
+                {(user) ?
+                    <button className="btn-user btn-img-user" onClick={event => setModalProps({ event, content: modalContent.userInfo })} ref={buttonRef}>
+                        {/* <button className="btn-user btn-img-user" > */}
                         <div className="center-svg">
-                            {user.imgUrl[0] === '#' ? (
-                                <span style={{ background: user.imgUrl }}>
-                                    {initials}
-                                </span>
-                            ) : (
-                                <img
-                                    style={{
-                                        backgroundImage: `url(${loggedUser.imgUrl})`,
-                                        backgroundSize: 'cover',
-                                        backgroundPosition: 'center center',
-                                        backgroundRepeat: 'no-repeat',
-                                        padding: '12px',
-                                    }}
-                                />
-                            )}
+                            {(!user.imgUrl) ? <span style={{ 'background': user.imgUrl }}>{initials}</span>
+                                :
+                                <img style={{
+                                    backgroundImage: `url(${loggedUser.imgUrl})`,
+                                    backgroundSize: 'cover',
+                                    backgroundPosition: 'center center',
+                                    backgroundRepeat: 'no-repeat',
+                                    padding: '12px'
+                                }} />
+                            }
                         </div>
-                    </button>
-                ) : (
-                    <button
-                        onClick={() => navigate('/auth')}
-                        className="header-btn login-btn flex center"
-                    >
-                        Login
-                    </button>
-                )}
+                    </button> :
+
+                    <div>
+                        <button onClick={() => navigate('/auth')} className='btn-action guest'>Login</button>
+                    </div>
+                }
+
+
             </section>
-            {modal.isModalOpen && (
-                <DynamicActionModal
-                    event={modal.event}
-                    content={<CreateBoardContent onToggleModal={toggleModal} />}
-                    modalPosition={TO_BOTTOM}
-                    onOutsideClick={() => setModal(prev => ({ ...prev, isModalOpen: false }))}
-                />
-            )}
+            <DynamicActionModal {...{ ...modalProps, modalPosition: TO_BOTTOM, onOutsideClick: onCloseModal }} />
         </header>
     )
 }
+

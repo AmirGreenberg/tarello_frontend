@@ -3,7 +3,6 @@ import useOutsideClick from '../customHooks/useOutsideClick'
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 
-const HEADER_HEIGHT = 48
 const MARGIN = 10
 const WIDTH = 304
 
@@ -11,7 +10,6 @@ export const TO_RIGHT = 'TO_RIGHT'
 export const TO_BOTTOM = 'TO_BOTTOM'
 
 export function DynamicActionModal({ content, event, onOutsideClick, modalPosition }) {
-    console.log("🚀  content:", content)
     if (!content) return
     const [lastEvent, setLastEvent] = useState(event)
     if (!event) event = lastEvent

@@ -21,8 +21,10 @@ export const userService = {
 window.userService = userService
 
 async function login(userCred) {
+    console.log('check login')
     try {
         const user = await httpService.post('auth/login', userCred)
+        console.log("🚀  user:", user)
         if (user) {
             return saveLocalUser(user)
         }
@@ -65,8 +67,10 @@ async function signup(userCred) {
 }
 
 async function getUsers() {
+    console.log('check getUsers')
     try {
         const users = await httpService.get('user');
+        console.log("🚀  users:", users)
         if (!users) return [];
         return users;
     } catch (err) {
@@ -75,6 +79,7 @@ async function getUsers() {
 }
 
 async function getUser(userId) {
+    console.log("🚀  getUser:", userId)
     try {
         const user = await httpService.get(`user/${userId}`);
         return user;
@@ -84,6 +89,7 @@ async function getUser(userId) {
 }
 
 async function getUserById(userId) {
+    console.log("🚀  getUserById:", userId)
     try {
         const user = await httpService.get(`user/${userId}`);
         return user;
@@ -93,7 +99,7 @@ async function getUserById(userId) {
 }
 
 function saveLocalUser(user) {
-    user = { _id: user._id, fullname: user.fullname, imgUrl: user.imgUrl, score: user.score }
+    user = { _id: user._id, fullname: user.fullname, imgUrl: user.imgUrl, score: user.score, email: user.username }
     sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
 
     return user
