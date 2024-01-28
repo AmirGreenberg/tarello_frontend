@@ -1,7 +1,5 @@
-import { demo_boards } from '../demo-data/board.js'
 import { utilService } from './util.service.js'
 import { httpService } from './http.service.js';
-import { userService } from './user.service.js';
 
 export const boardService = {
   query,
@@ -26,9 +24,6 @@ export const boardService = {
   getLabels,
   getTaskLabelsColors,
   getFormattedDate,
-
-  // getGroupById,
-  // getTaskById,
 }
 
 window.boardService = boardService
@@ -56,7 +51,6 @@ async function getBoardById(boardId) {
 
 async function getLabel(boardId, labelId) {
   const board = await httpService.get(`board/${boardId}`)
-  // const board = await storageService.get(STORAGE_KEY, boardId)
   const label = board.labels.find(label => label.id === labelId)
   return label
 }
@@ -64,7 +58,6 @@ async function getLabel(boardId, labelId) {
 async function getLabels(boardId, txt) {
   const newTxt = txt.toLowerCase()
   const board = await httpService.get(`board/${boardId}`)
-  // const board = await storageService.get(STORAGE_KEY, boardId)
 
   const labels = board.labels.filter(label => {
     return label.shade.toLowerCase().includes(newTxt) ||
@@ -225,7 +218,7 @@ function createTask(title = '') {
   return {
     id: utilService.makeId(),
     title,
-    status: null, // monday
+    status: null,
     priority: null,
     description: '',
     comments: [],
