@@ -10,9 +10,9 @@ export function AddAttachments({ onCloseModal }) {
 
     // const UPLOAD_PRESET = process.env.UPLOAD_PRESET || 'vt0iqgff'
 
-    const UPLOAD_PRESET = 'vt0iqgff'
-    // const UPLOAD_URL = process.env.UPLOAD_URL || 'https://api.cloudinary.com/v1_1/dqjddwtf4/auto/upload'
-    const UPLOAD_URL = 'https://api.cloudinary.com/v1_1/dqjddwtf4/auto/upload'
+    const CLOUD_NAME = "dqjddwtf4"
+    const UPLOAD_PRESET = "nltccvqa"
+    const UPLOAD_URL = `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`
 
     async function onSaveFile(ev) {
 
