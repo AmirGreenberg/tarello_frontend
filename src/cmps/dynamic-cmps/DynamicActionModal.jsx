@@ -14,8 +14,6 @@ export function DynamicActionModal({ content, event, onOutsideClick, modalPositi
     const [lastEvent, setLastEvent] = useState(event)
     if (!event) event = lastEvent
     const location = useLocation();
-    console.log("🚀  content:", content)
-
 
     const [height, setHeight] = useState(window.innerHeight)
     const [modalHeight, setModalHeight] = useState()
@@ -28,7 +26,7 @@ export function DynamicActionModal({ content, event, onOutsideClick, modalPositi
 
     useEffect(() => {
         setLastEvent(event)
-        content.type.name === 'AddCover' ? setModalHeight(refModal.current.offsetHeight + 110) : setModalHeight(refModal.current.offsetHeight)
+        content.type.name === ('AddCover' || 'u_') ? setModalHeight(refModal.current.offsetHeight + 110) : setModalHeight(refModal.current.offsetHeight)
         window.addEventListener('resize', updateDimensions)
         return () => window.removeEventListener('resize', updateDimensions)
     }, [content])
