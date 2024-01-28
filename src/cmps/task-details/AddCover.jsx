@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react'
 import { IconX } from '../../services/icons.service'
 
 export function AddCover({ onCloseModal }) {
-    const UNSPLASH_KEY = process.env.UNSPLASH_KEY
+    // const UNSPLASH_KEY = process.env.UNSPLASH_KEY
     const [photos, setImgs] = useState([])
 
     const board = useSelector(storeState => storeState.boardModule.board)
@@ -17,7 +17,7 @@ export function AddCover({ onCloseModal }) {
 
     useEffect(() => {
         async function fetchImgs() {
-            const response = await fetch(`https://api.unsplash.com/photos/random?count=6&client_id=${UNSPLASH_KEY}`)
+            const response = await fetch(`https://api.unsplash.com/photos/random?count=6&client_id=iNN2w9RcBzkrKS8xnMAdUfIanLal9CIFfBxpUFTYbpQ`)
             const data = await response.json()
             let photos = data.map(d => d.urls.small)
             setImgs(photos)

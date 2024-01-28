@@ -8,8 +8,10 @@ export function AddAttachments({ onCloseModal }) {
     const group = useSelector(storeState => storeState.boardModule.group)
     const task = useSelector(storeState => storeState.boardModule.task)
 
-    const UPLOAD_PRESET = process.env.UPLOAD_PRESET
-    const UPLOAD_URL = process.env.UPLOAD_URL
+    // const UPLOAD_PRESET = process.env.UPLOAD_PRESET || 'vt0iqgff'
+    const UPLOAD_PRESET = 'vt0iqgff'
+    // const UPLOAD_URL = process.env.UPLOAD_URL || 'https://api.cloudinary.com/v1_1/dcwibf9o5/image/upload'
+    const UPLOAD_URL = 'https://api.cloudinary.com/v1_1/dcwibf9o5/image/upload'
 
     async function onSaveFile(ev) {
 
