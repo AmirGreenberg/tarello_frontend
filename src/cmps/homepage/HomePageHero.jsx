@@ -19,7 +19,7 @@ export function HomePageHero() {
             <div className="homepage-img">
                 <img
                     src={
-                        'http://res.cloudinary.com/dug2dklcy/image/upload/v1699313624/wutd1rrfsjkoyewkdyjc.webp'
+                        'https://res.cloudinary.com/dug2dklcy/image/upload/v1699313624/wutd1rrfsjkoyewkdyjc.webp'
                     }
                     alt="home-image"
                 />
