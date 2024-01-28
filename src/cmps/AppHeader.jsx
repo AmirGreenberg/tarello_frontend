@@ -17,19 +17,14 @@ import { UserInfoModal } from './dynamic-cmps/UserInfoModal'
 
 export function AppHeader() {
     const navigate = useNavigate()
-    // const [modal, setModal] = useState({ isModalOpen: false, type: null })
     const [modalProps, setModalProps] = useState({})
-
     const [isUserLoggedIn, setIsUserLoggedIn] = useState(false)
     const [loggedUser, setLoggedUser] = useState({ fullname: 'Guest', imgUrl: '#c76ebe' })
     const [isViewUserInfo, setIsViewUserInfo] = useState(false)
     const user = useSelector(storeState => storeState.userModule.loggedinUser)
     const buttonRef = useRef(null)
 
-    console.log("🚀  user:", user)
-
     const initials = utilService.getInitials(user?.fullname)
-    console.log("🚀  initials:", initials)
 
     const modalContent = {
         addBoard: <CreateBoardContent {...{ onCloseModal }} />,
@@ -49,12 +44,9 @@ export function AppHeader() {
 
     function handleUserInfo() {
         if (user.fullname && user.fullname === 'Guest') return
-        const buttonRect = buttonRef.current.getBoundingClientRect()
         setIsViewUserInfo(!isViewUserInfo)
     }
     function handleLogOut() {
-        console.log('check handleLogOut')
-
         setIsViewUserInfo(!isViewUserInfo)
         setIsUserLoggedIn(false)
         setLoggedUser({ fullname: 'Guest', imgUrl: '#c76ebe' })
@@ -86,16 +78,8 @@ export function AppHeader() {
                     <IconBell size={24} />
                 </div>
 
-                {/* <button
-                    onClick={() => navigate('/auth')}
-                    className="header-btn login-btn flex center"
-                >
-                    Login
-                </button> */}
-
                 {(user) ?
                     <button className="btn-user btn-img-user" onClick={event => setModalProps({ event, content: modalContent.userInfo })} ref={buttonRef}>
-                        {/* <button className="btn-user btn-img-user" > */}
                         <div className="center-svg">
                             {(!user.imgUrl) ? <span style={{ 'background': user.imgUrl }}>{initials}</span>
                                 :
@@ -114,7 +98,6 @@ export function AppHeader() {
                         <button onClick={() => navigate('/auth')} className='btn-action guest'>Login</button>
                     </div>
                 }
-
 
             </section>
             <DynamicActionModal {...{ ...modalProps, modalPosition: TO_BOTTOM, onOutsideClick: onCloseModal }} />

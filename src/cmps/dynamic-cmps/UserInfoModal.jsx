@@ -1,31 +1,12 @@
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import { logout } from '../../store/actions/user.actions';
 import { useNavigate } from 'react-router-dom'
-import { utilService } from '../../services/util.service';
 import { IconX } from '../../services/icons.service';
 
-export function UserInfoModal({ onCloseModal, user, initials, handleUserInfo, handleLogOut }) {
-    console.log("🚀  user:", user)
-    // const { top, left } = position
+export function UserInfoModal({ onCloseModal, user, initials, handleLogOut }) {
     const navigate = useNavigate()
     const modalRef = useRef(null)
     const isComponentMounted = useRef(false)
-
-    // useEffect(() => {
-    //     const handleClickOutside = (event) => {
-    //         if (modalRef.current && !modalRef.current.contains(event.target)) {
-    //             if (isComponentMounted.current) handleUserInfo()
-    //         }
-    //         isComponentMounted.current = true
-    //     }
-    //     document.addEventListener("click", handleClickOutside)
-
-    //     return () => {
-    //         document.removeEventListener("click", handleClickOutside)
-    //     }
-
-    // }, [handleUserInfo])
-
     const { email, fullname, imgUrl } = user
 
     async function onLogout() {

@@ -4,12 +4,6 @@ import { useRef } from "react"
 export function IconArrowDown({ size = 16, color = 'var(--txtClr)' }) {
     const refPath = useRef()
 
-    // useEffect(() => {
-    // 	const xDiff = (24 - refPath.current.getBBox().width) / 2
-    // 	const yDiff = (24 - refPath.current.getBBox().height) / 2
-    // 	refPath.current.setAttribute('transform', `translate(${xDiff}, ${yDiff})`)
-    // })
-
     return (
         <svg
             width={size}
@@ -30,11 +24,6 @@ export function IconArrowDown({ size = 16, color = 'var(--txtClr)' }) {
 export function IconWorkspace({ size = 16, color = 'var(--txtClr)' }) {
     const refPath = useRef()
 
-    // useEffect(() => {
-    // 	const xDiff = (24 - refPath.current.getBBox().width) / 2
-    // 	const yDiff = (24 - refPath.current.getBBox().height) / 2
-    // 	refPath.current.setAttribute('transform', `translate(${xDiff}, ${yDiff})`)
-    // })
 
     return (
         <svg
@@ -57,12 +46,6 @@ export function IconWorkspace({ size = 16, color = 'var(--txtClr)' }) {
 export function IconStarOutline({ size = 16, color = 'var(--txtClr)' }) {
     const refPath = useRef()
 
-    // useEffect(() => {
-    // 	const xDiff = (24 - refPath.current.getBBox().width) / 2
-    // 	const yDiff = (24 - refPath.current.getBBox().height) / 2
-    // 	refPath.current.setAttribute('transform', `translate(${xDiff}, ${yDiff})`)
-    // })
-
     return (
         <svg
             width={size}
@@ -84,12 +67,6 @@ export function IconStarOutline({ size = 16, color = 'var(--txtClr)' }) {
 export function IconStarFull({ size = 16, color = 'var(--txtClr)' }) {
     const refPath = useRef()
 
-    // useEffect(() => {
-    // 	const xDiff = (24 - refPath.current.getBBox().width) / 2
-    // 	const yDiff = (24 - refPath.current.getBBox().height) / 2
-    // 	refPath.current.setAttribute('transform', `translate(${xDiff}, ${yDiff})`)
-    // })
-
     return (
         <svg
             width={size}
@@ -109,12 +86,6 @@ export function IconStarFull({ size = 16, color = 'var(--txtClr)' }) {
 export function IconBell({ size = 16, color = 'var(--txtClr)' }) {
     const refPath = useRef()
 
-    // useEffect(() => {
-    // 	const xDiff = (24 - refPath.current.getBBox().width) / 2
-    // 	const yDiff = (24 - refPath.current.getBBox().height) / 2
-    // 	refPath.current.setAttribute('transform', `translate(${xDiff}, ${yDiff})`)
-    // })
-
     return (
         <svg width={size} height={size} viewBox="0 0 24 24" role="presentation">
             <path
@@ -128,11 +99,7 @@ export function IconBell({ size = 16, color = 'var(--txtClr)' }) {
 export function IconSearch({ size = 16, color = 'var(--txtClr)' }) {
     const refPath = useRef()
 
-    // useEffect(() => {
-    // 	const xDiff = (24 - refPath.current.getBBox().width) / 2
-    // 	const yDiff = (24 - refPath.current.getBBox().height) / 2
-    // 	refPath.current.setAttribute('transform', `translate(${xDiff}, ${yDiff})`)
-    // })
+
 
     return (
         <svg width={size} height={size} viewBox="0 0 24 24" role="presentation">
@@ -146,12 +113,6 @@ export function IconSearch({ size = 16, color = 'var(--txtClr)' }) {
 }
 export function IconInfo({ size = 16, color = 'var(--txtClr)' }) {
     const refPath = useRef()
-
-    // useEffect(() => {
-    // 	const xDiff = (24 - refPath.current.getBBox().width) / 2
-    // 	const yDiff = (24 - refPath.current.getBBox().height) / 2
-    // 	refPath.current.setAttribute('transform', `translate(${xDiff}, ${yDiff})`)
-    // })
 
     return (
         <svg
@@ -203,11 +164,7 @@ export function IconBoard({ size = 16, color = 'var(--txtClr)' }) {
 export function IconCalender({ size = 16, color = 'var(--txtClr)' }) {
     const refPath = useRef()
 
-    // useEffect(() => {
-    // 	const xDiff = (24 - refPath.current.getBBox().width) / 2
-    // 	const yDiff = (24 - refPath.current.getBBox().height) / 2
-    // 	refPath.current.setAttribute('transform', `translate(${xDiff}, ${yDiff})`)
-    // })
+
 
     return (
         <svg
@@ -250,12 +207,6 @@ export function IconSpaceShip({ size = 16, color = 'var(--txtClr)' }) {
 export function IconFlash({ size = 16, color = 'var(--txtClr)' }) {
     const refPath = useRef()
 
-    // useEffect(() => {
-    // 	const xDiff = (20 - refPath.current.getBBox().width) / 2
-    // 	const yDiff = (20 - refPath.current.getBBox().height) / 2
-    // 	refPath.current.setAttribute('transform', `translate(${xDiff}, ${yDiff})`)
-    // })
-
     return (
         <svg width={size} height={size} viewBox="0 0 20 20" fill="none">
             <path
@@ -269,11 +220,7 @@ export function IconFlash({ size = 16, color = 'var(--txtClr)' }) {
 export function IconFilter({ size = 16, color = 'var(--txtClr)' }) {
     const refPath = useRef()
 
-    // useEffect(() => {
-    // 	const xDiff = (24 - refPath.current.getBBox().width) / 2
-    // 	const yDiff = (24 - refPath.current.getBBox().height) / 2
-    // 	refPath.current.setAttribute('transform', `translate(${xDiff}, ${yDiff})`)
-    // })
+
 
     return (
         <svg
@@ -296,11 +243,7 @@ export function IconFilter({ size = 16, color = 'var(--txtClr)' }) {
 export function Icon3DotsWithSpacing({ size = 16, color = 'var(--txtClr)' }) {
     const refPath = useRef()
 
-    // useEffect(() => {
-    // 	const xDiff = (24 - refPath.current.getBBox().width) / 2
-    // 	const yDiff = (24 - refPath.current.getBBox().height) / 2
-    // 	refPath.current.setAttribute('transform', `translate(${xDiff}, ${yDiff})`)
-    // })
+
 
     return (
         <svg
@@ -345,11 +288,7 @@ export function IconShare({ size = 16, color = 'var(--txtClr)' }) {
 export function IconLargeThinPlus({ size = 16, color = 'var(--txtClr)' }) {
     const refPath = useRef()
 
-    // useEffect(() => {
-    // 	const xDiff = (24 - refPath.current.getBBox().width) / 2
-    // 	const yDiff = (24 - refPath.current.getBBox().height) / 2
-    // 	refPath.current.setAttribute('transform', `translate(${xDiff}, ${yDiff})`)
-    // })
+
 
     return (
         <svg
@@ -393,11 +332,7 @@ export function IconClock({ size = 16, color = 'var(--txtClr)' }) {
 export function Icon3DotsNarrowGap({ size = 16, color = 'var(--txtClr)' }) {
     const refPath = useRef()
 
-    // useEffect(() => {
-    // 	const xDiff = (24 - refPath.current.getBBox().width) / 2
-    // 	const yDiff = (24 - refPath.current.getBBox().height) / 2
-    // 	refPath.current.setAttribute('transform', `translate(${xDiff}, ${yDiff})`)
-    // })
+
 
     return (
         <svg
@@ -420,11 +355,7 @@ export function Icon3DotsNarrowGap({ size = 16, color = 'var(--txtClr)' }) {
 export function IconAlignText({ size = 16, color = 'var(--txtClr)' }) {
     const refPath = useRef()
 
-    // useEffect(() => {
-    // 	const xDiff = (24 - refPath.current.getBBox().width) / 2
-    // 	const yDiff = (24 - refPath.current.getBBox().height) / 2
-    // 	refPath.current.setAttribute('transform', `translate(${xDiff}, ${yDiff})`)
-    // })
+
 
     return (
         <svg
@@ -449,11 +380,7 @@ export function IconAlignText({ size = 16, color = 'var(--txtClr)' }) {
 export function IconArrow({ size = 16, color = 'var(--txtClr)' }) {
     const refPath = useRef()
 
-    // useEffect(() => {
-    // 	const xDiff = (24 - refPath.current.getBBox().width) / 2
-    // 	const yDiff = (24 - refPath.current.getBBox().height) / 2
-    // 	refPath.current.setAttribute('transform', `translate(${xDiff}, ${yDiff})`)
-    // })
+
 
     return (
         <svg
@@ -478,11 +405,7 @@ export function IconArrow({ size = 16, color = 'var(--txtClr)' }) {
 export function IconAttachment({ size = 16, color = 'var(--txtClr)' }) {
     const refPath = useRef()
 
-    // useEffect(() => {
-    // 	const xDiff = (24 - refPath.current.getBBox().width) / 2
-    // 	const yDiff = (24 - refPath.current.getBBox().height) / 2
-    // 	refPath.current.setAttribute('transform', `translate(${xDiff}, ${yDiff})`)
-    // })
+
 
     return (
         <svg
@@ -507,11 +430,7 @@ export function IconAttachment({ size = 16, color = 'var(--txtClr)' }) {
 export function IconBag({ size = 16, color = 'var(--txtClr)' }) {
     const refPath = useRef()
 
-    // useEffect(() => {
-    // 	const xDiff = (24 - refPath.current.getBBox().width) / 2
-    // 	const yDiff = (24 - refPath.current.getBBox().height) / 2
-    // 	refPath.current.setAttribute('transform', `translate(${xDiff}, ${yDiff})`)
-    // })
+
 
     return (
         <svg
@@ -536,11 +455,7 @@ export function IconBag({ size = 16, color = 'var(--txtClr)' }) {
 export function IconBold({ size = 16, color = 'var(--txtClr)' }) {
     const refPath = useRef()
 
-    // useEffect(() => {
-    // 	const xDiff = (24 - refPath.current.getBBox().width) / 2
-    // 	const yDiff = (24 - refPath.current.getBBox().height) / 2
-    // 	refPath.current.setAttribute('transform', `translate(${xDiff}, ${yDiff})`)
-    // })
+
 
     return (
         <svg
@@ -563,11 +478,7 @@ export function IconBold({ size = 16, color = 'var(--txtClr)' }) {
 export function IconChecked({ size = 16, color = 'var(--txtClr)' }) {
     const refPath = useRef()
 
-    // useEffect(() => {
-    // 	const xDiff = (24 - refPath.current.getBBox().width) / 2
-    // 	const yDiff = (24 - refPath.current.getBBox().height) / 2
-    // 	refPath.current.setAttribute('transform', `translate(${xDiff}, ${yDiff})`)
-    // })
+
 
     return (
         <svg
@@ -621,11 +532,7 @@ export function IconArrowTopRightCorner() {
 export function IconCustomField({ size = 16, color = 'var(--txtClr)' }) {
     const refPath = useRef()
 
-    // useEffect(() => {
-    // 	const xDiff = (24 - refPath.current.getBBox().width) / 2
-    // 	const yDiff = (24 - refPath.current.getBBox().height) / 2
-    // 	refPath.current.setAttribute('transform', `translate(${xDiff}, ${yDiff})`)
-    // })
+
 
     return (
         <svg
@@ -650,11 +557,7 @@ export function IconCustomField({ size = 16, color = 'var(--txtClr)' }) {
 export function IconDuplicate({ size = 16, color = 'var(--txtClr)' }) {
     const refPath = useRef()
 
-    // useEffect(() => {
-    // 	const xDiff = (24 - refPath.current.getBBox().width) / 2
-    // 	const yDiff = (24 - refPath.current.getBBox().height) / 2
-    // 	refPath.current.setAttribute('transform', `translate(${xDiff}, ${yDiff})`)
-    // })
+
 
     return (
         <svg
@@ -679,11 +582,7 @@ export function IconDuplicate({ size = 16, color = 'var(--txtClr)' }) {
 export function IconFlag({ size = 16, color = 'var(--txtClr)' }) {
     const refPath = useRef()
 
-    // useEffect(() => {
-    // 	const xDiff = (24 - refPath.current.getBBox().width) / 2
-    // 	const yDiff = (24 - refPath.current.getBBox().height) / 2
-    // 	refPath.current.setAttribute('transform', `translate(${xDiff}, ${yDiff})`)
-    // })
+
 
     return (
         <svg
@@ -706,11 +605,7 @@ export function IconFlag({ size = 16, color = 'var(--txtClr)' }) {
 export function IconTerllo({ size = 16, color = 'var(--txtClr)' }) {
     const refPath = useRef()
 
-    // useEffect(() => {
-    // 	const xDiff = (24 - refPath.current.getBBox().width) / 2
-    // 	const yDiff = (24 - refPath.current.getBBox().height) / 2
-    // 	refPath.current.setAttribute('transform', `translate(${xDiff}, ${yDiff})`)
-    // })
+
 
     return (
         <svg
@@ -733,11 +628,7 @@ export function IconTerllo({ size = 16, color = 'var(--txtClr)' }) {
 export function IconUppp({ size = 16, color = 'var(--txtClr)' }) {
     const refPath = useRef()
 
-    // useEffect(() => {
-    // 	const xDiff = (24 - refPath.current.getBBox().width) / 2
-    // 	const yDiff = (24 - refPath.current.getBBox().height) / 2
-    // 	refPath.current.setAttribute('transform', `translate(${xDiff}, ${yDiff})`)
-    // })
+
 
     return (
         <svg
@@ -787,12 +678,6 @@ export function IconV({ size = 16, color = 'var(--txtClr)' }) {
 export function IconCheckSquare({ size = 16, color = 'var(--txtClr)' }) {
     const refPath = useRef()
 
-    // useEffect(() => {
-    // 	const xDiff = (448 - refPath.current.getBBox().width) / 2
-    // 	const yDiff = (512 - refPath.current.getBBox().height) / 2
-    // 	refPath.current.setAttribute('transform', `translate(${xDiff}, ${yDiff})`)
-    // })
-
     return (
         <svg
             width={size}
@@ -814,11 +699,7 @@ export function IconCheckSquare({ size = 16, color = 'var(--txtClr)' }) {
 export function IconWatch({ size = 16, color = 'var(--txtClr)' }) {
     const refPath = useRef()
 
-    // useEffect(() => {
-    // 	const xDiff = (24 - refPath.current.getBBox().width) / 2
-    // 	const yDiff = (24 - refPath.current.getBBox().height) / 2
-    // 	refPath.current.setAttribute('transform', `translate(${xDiff}, ${yDiff})`)
-    // })
+
 
     return (
         <svg
@@ -841,11 +722,7 @@ export function IconWatch({ size = 16, color = 'var(--txtClr)' }) {
 export function IconX({ size = 16, color = 'var(--txtClr)' }) {
     const refPath = useRef()
 
-    // useEffect(() => {
-    // 	const xDiff = (24 - refPath.current.getBBox().width) / 2
-    // 	const yDiff = (24 - refPath.current.getBBox().height) / 2
-    // 	refPath.current.setAttribute('transform', `translate(${xDiff}, ${yDiff})`)
-    // })
+
 
     return (
         <svg
@@ -868,11 +745,7 @@ export function IconX({ size = 16, color = 'var(--txtClr)' }) {
 export function IconXSmall({ size = 12, color = 'var(--txtClr)' }) {
     const refPath = useRef()
 
-    // useEffect(() => {
-    // 	const xDiff = (24 - refPath.current.getBBox().width) / 2
-    // 	const yDiff = (24 - refPath.current.getBBox().height) / 2
-    // 	refPath.current.setAttribute('transform', `translate(${xDiff}, ${yDiff})`)
-    // })
+
 
     return (
         <svg
@@ -916,11 +789,7 @@ export function IconXLarge({ size = 16, color = 'var(--txtClr)' }) {
 export function IconPrevious({ size = 16, color = 'var(--txtClr)' }) {
     const refPath = useRef()
 
-    // useEffect(() => {
-    // 	const xDiff = (24 - refPath.current.getBBox().width) / 2
-    // 	const yDiff = (24 - refPath.current.getBBox().height) / 2
-    // 	refPath.current.setAttribute('transform', `translate(${xDiff}, ${yDiff})`)
-    // })
+
 
     return (
         <svg
@@ -943,11 +812,7 @@ export function IconPrevious({ size = 16, color = 'var(--txtClr)' }) {
 export function IconQuestion({ size = 16, color = 'var(--txtClr)' }) {
     const refPath = useRef()
 
-    // useEffect(() => {
-    // 	const xDiff = (24 - refPath.current.getBBox().width) / 2
-    // 	const yDiff = (24 - refPath.current.getBBox().height) / 2
-    // 	refPath.current.setAttribute('transform', `translate(${xDiff}, ${yDiff})`)
-    // })
+
 
     return (
         <svg
@@ -1034,11 +899,7 @@ export function IconTaskDetails({ size = 16, color = 'var(--txtClr)' }) {
 export function IconMatrix({ size = 16, color = 'var(--txtClr)' }) {
     const refPath = useRef()
 
-    // useEffect(() => {
-    // 	const xDiff = (24 - refPath.current.getBBox().width) / 2
-    // 	const yDiff = (24 - refPath.current.getBBox().height) / 2
-    // 	refPath.current.setAttribute('transform', `translate(${xDiff}, ${yDiff})`)
-    // })
+
 
     return (
         <svg
@@ -1060,11 +921,7 @@ export function IconMatrix({ size = 16, color = 'var(--txtClr)' }) {
 export function IconNew({ size = 16, color = 'var(--txtClr)' }) {
     const refPath = useRef()
 
-    // useEffect(() => {
-    // 	const xDiff = (24 - refPath.current.getBBox().width) / 2
-    // 	const yDiff = (24 - refPath.current.getBBox().height) / 2
-    // 	refPath.current.setAttribute('transform', `translate(${xDiff}, ${yDiff})`)
-    // })
+
 
     return (
         <svg
@@ -1086,11 +943,7 @@ export function IconNew({ size = 16, color = 'var(--txtClr)' }) {
 export function IconNext({ size = 16, color = 'var(--txtClr)' }) {
     const refPath = useRef()
 
-    // useEffect(() => {
-    // 	const xDiff = (24 - refPath.current.getBBox().width) / 2
-    // 	const yDiff = (24 - refPath.current.getBBox().height) / 2
-    // 	refPath.current.setAttribute('transform', `translate(${xDiff}, ${yDiff})`)
-    // })
+
 
     return (
         <svg
@@ -1113,11 +966,7 @@ export function IconNext({ size = 16, color = 'var(--txtClr)' }) {
 export function IconPencail({ size = 16, color = 'var(--txtClr)' }) {
     const refPath = useRef()
 
-    // useEffect(() => {
-    // 	const xDiff = (24 - refPath.current.getBBox().width) / 2
-    // 	const yDiff = (24 - refPath.current.getBBox().height) / 2
-    // 	refPath.current.setAttribute('transform', `translate(${xDiff}, ${yDiff})`)
-    // })
+
 
     return (
         <svg
@@ -1148,11 +997,7 @@ export function IconPencilLabels() {
 export function IconPlusSmall({ size = 16, color = 'var(--txtClr)' }) {
     const refPath = useRef()
 
-    // useEffect(() => {
-    // 	const xDiff = (24 - refPath.current.getBBox().width) / 2
-    // 	const yDiff = (24 - refPath.current.getBBox().height) / 2
-    // 	refPath.current.setAttribute('transform', `translate(${xDiff}, ${yDiff})`)
-    // })
+
 
     return (
         <svg
@@ -1175,11 +1020,7 @@ export function IconPlusSmall({ size = 16, color = 'var(--txtClr)' }) {
 export function IconChart({ size = 16, color = 'var(--txtClr)' }) {
     const refPath = useRef()
 
-    // useEffect(() => {
-    // 	const xDiff = (24 - refPath.current.getBBox().width) / 2
-    // 	const yDiff = (24 - refPath.current.getBBox().height) / 2
-    // 	refPath.current.setAttribute('transform', `translate(${xDiff}, ${yDiff})`)
-    // })
+
 
     return (
         <svg
@@ -1202,11 +1043,7 @@ export function IconChart({ size = 16, color = 'var(--txtClr)' }) {
 export function IconLock({ size = 16, color = 'var(--txtClr)' }) {
     const refPath = useRef()
 
-    // useEffect(() => {
-    // 	const xDiff = (24 - refPath.current.getBBox().width) / 2
-    // 	const yDiff = (24 - refPath.current.getBBox().height) / 2
-    // 	refPath.current.setAttribute('transform', `translate(${xDiff}, ${yDiff})`)
-    // })
+
 
     return (
         <svg
@@ -1229,11 +1066,7 @@ export function IconLock({ size = 16, color = 'var(--txtClr)' }) {
 export function IconMan({ size = 16, color = 'var(--txtClr)' }) {
     const refPath = useRef()
 
-    // useEffect(() => {
-    // 	const xDiff = (24 - refPath.current.getBBox().width) / 2
-    // 	const yDiff = (24 - refPath.current.getBBox().height) / 2
-    // 	refPath.current.setAttribute('transform', `translate(${xDiff}, ${yDiff})`)
-    // })
+
 
     return (
         <svg width={size} height={size} role="presentation" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -1246,11 +1079,7 @@ export function IconMan({ size = 16, color = 'var(--txtClr)' }) {
 export function IconMarkDown({ size = 16, color = 'var(--txtClr)' }) {
     const refPath = useRef()
 
-    // useEffect(() => {
-    // 	const xDiff = (24 - refPath.current.getBBox().width) / 2
-    // 	const yDiff = (24 - refPath.current.getBBox().height) / 2
-    // 	refPath.current.setAttribute('transform', `translate(${xDiff}, ${yDiff})`)
-    // })
+
 
     return (
         <svg
@@ -1273,11 +1102,7 @@ export function IconMarkDown({ size = 16, color = 'var(--txtClr)' }) {
 export function IconList({ size = 16, color = 'var(--txtClr)' }) {
     const refPath = useRef()
 
-    // useEffect(() => {
-    // 	const xDiff = (24 - refPath.current.getBBox().width) / 2
-    // 	const yDiff = (24 - refPath.current.getBBox().height) / 2
-    // 	refPath.current.setAttribute('transform', `translate(${xDiff}, ${yDiff})`)
-    // })
+
 
     return (
         <svg
@@ -1299,11 +1124,7 @@ export function IconList({ size = 16, color = 'var(--txtClr)' }) {
 export function Icon_i({ size = 16, color = 'var(--txtClr)' }) {
     const refPath = useRef()
 
-    // useEffect(() => {
-    // 	const xDiff = (24 - refPath.current.getBBox().width) / 2
-    // 	const yDiff = (24 - refPath.current.getBBox().height) / 2
-    // 	refPath.current.setAttribute('transform', `translate(${xDiff}, ${yDiff})`)
-    // })
+
 
     return (
         <svg
@@ -1326,11 +1147,7 @@ export function Icon_i({ size = 16, color = 'var(--txtClr)' }) {
 export function IconItalic({ size = 16, color = 'var(--txtClr)' }) {
     const refPath = useRef()
 
-    // useEffect(() => {
-    // 	const xDiff = (24 - refPath.current.getBBox().width) / 2
-    // 	const yDiff = (24 - refPath.current.getBBox().height) / 2
-    // 	refPath.current.setAttribute('transform', `translate(${xDiff}, ${yDiff})`)
-    // })
+
 
     return (
         <svg
@@ -1362,11 +1179,7 @@ export function IconLabel({ size = 16, color = 'var(--txtClr)' }) {
 export function IconLink({ size = 16, color = 'var(--txtClr)' }) {
     const refPath = useRef()
 
-    // useEffect(() => {
-    // 	const xDiff = (24 - refPath.current.getBBox().width) / 2
-    // 	const yDiff = (24 - refPath.current.getBBox().height) / 2
-    // 	refPath.current.setAttribute('transform', `translate(${xDiff}, ${yDiff})`)
-    // })
+
 
     return (
         <svg
@@ -1389,11 +1202,7 @@ export function IconLink({ size = 16, color = 'var(--txtClr)' }) {
 export function IconImg({ size = 16, color = 'var(--txtClr)' }) {
     const refPath = useRef()
 
-    // useEffect(() => {
-    // 	const xDiff = (24 - refPath.current.getBBox().width) / 2
-    // 	const yDiff = (24 - refPath.current.getBBox().height) / 2
-    // 	refPath.current.setAttribute('transform', `translate(${xDiff}, ${yDiff})`)
-    // })
+
 
     return (
         <svg
@@ -1416,11 +1225,7 @@ export function IconImg({ size = 16, color = 'var(--txtClr)' }) {
 export function IconFont({ size = 16, color = 'var(--txtClr)' }) {
     const refPath = useRef()
 
-    // useEffect(() => {
-    // 	const xDiff = (24 - refPath.current.getBBox().width) / 2
-    // 	const yDiff = (24 - refPath.current.getBBox().height) / 2
-    // 	refPath.current.setAttribute('transform', `translate(${xDiff}, ${yDiff})`)
-    // })
+
 
     return (
         <svg
@@ -1443,11 +1248,7 @@ export function IconFont({ size = 16, color = 'var(--txtClr)' }) {
 export function IconGear({ size = 16, color = 'var(--txtClr)' }) {
     const refPath = useRef()
 
-    // useEffect(() => {
-    // 	const xDiff = (24 - refPath.current.getBBox().width) / 2
-    // 	const yDiff = (24 - refPath.current.getBBox().height) / 2
-    // 	refPath.current.setAttribute('transform', `translate(${xDiff}, ${yDiff})`)
-    // })
+
 
     return (
         <svg
@@ -1522,12 +1323,6 @@ export function IconTarelloFace({ size = 16, color = 'var(--txtClr)' }) {
 
 export function IconComment({ size = 16, color = 'var(--txtClr)' }) {
     const refPath = useRef()
-
-    // useEffect(() => {
-    // 	const xDiff = (219 - refPath.current.getBBox().width) / 2
-    // 	const yDiff = (219 - refPath.current.getBBox().height) / 2
-    // 	refPath.current.setAttribute('transform', `translate(${xDiff}, ${yDiff})`)
-    // })
 
     return (
         <svg

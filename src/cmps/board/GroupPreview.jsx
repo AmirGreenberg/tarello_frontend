@@ -1,10 +1,9 @@
 import { useEffect, useRef, useState } from 'react'
-import { AddNewTask } from './AddNewTask'
 import { TaskList } from './TaskList.jsx'
 import { GroupMenu } from './GroupMenu.jsx'
 import { utilService } from '../../services/util.service.js'
 import { boardService } from '../../services/board.service.js'
-import { Icon3DotsNarrowGap, Icon3DotsWithSpacing, IconPlusSmall } from '../../services/icons.service.jsx'
+import { Icon3DotsWithSpacing, IconPlusSmall } from '../../services/icons.service.jsx'
 
 export function GroupPreview({
     filter,

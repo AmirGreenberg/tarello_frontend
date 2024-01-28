@@ -1,11 +1,9 @@
-import { useState } from 'react'
 import { boardService } from '../../services/board.service'
 import { useNavigate } from 'react-router-dom'
 import {
     IconAlignText,
     IconAttachment,
     IconChecked,
-    IconClock,
     IconComment,
     IconPencail,
 
@@ -104,8 +102,6 @@ export function TaskPreview({ onToggleLabel, isTagOpen, boardId, groupId, task, 
                         </div>
 
                         {<div className="icon-container">
-                            {/* <IconWatch color={'var(--txtClrDark)'}/> */}
-
                             {(dueDate || startDate) &&
                                 <DateTaskBtn
                                     group={group}

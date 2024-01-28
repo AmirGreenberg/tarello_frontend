@@ -31,7 +31,6 @@ export function TaskList({ onIsCheckDate, boardId, onAddTask, onCancelAddTask, o
                         </>
                     )}
                     {group.tasks
-                        // .filter(task => [task.title, task.description].some(text => RegExp(filter.keyword,'i').test(text)))
                         .map((task, i) => (
                             <Draggable
                                 key={task.id}

@@ -97,7 +97,6 @@ function getInitials(fullName) {
 }
 
 function generateUsername(fullName) {
-    // Split the full name by spaces and join the parts without spaces
     const nameParts = fullName.split(' ')
     const username = nameParts.join('') + getRandomIntInclusive(100, 1000);
 

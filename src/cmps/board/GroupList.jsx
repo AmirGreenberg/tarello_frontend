@@ -4,7 +4,6 @@ import { GroupPreview } from './GroupPreview.jsx'
 //drag n drop
 import { dragAndDropService } from '../../services/drag-and-drop.service.js'
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
-import { useSelector } from 'react-redux'
 
 export function GroupList({ onIsCheckDate, filter, groups, boardId, onToggleLabel, onUpdateBoard, isTagOpen, board }) {
     function onAddGroup(newGroup) {

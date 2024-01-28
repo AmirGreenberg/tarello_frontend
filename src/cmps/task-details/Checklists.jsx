@@ -1,10 +1,10 @@
-import { removeChecklist, addChecklistTodo, removeTodo, updateBoardGroupTaskType, updateChecklistTitle, updateTodo } from "../../store/actions/board.actions"
+import { removeChecklist, addChecklistTodo, removeTodo, updateChecklistTitle, updateTodo } from "../../store/actions/board.actions"
 import { IconX } from "../../services/icons.service"
 import { useState } from 'react'
 import React from 'react'
 import { ProgressBar } from "./ProgressBar"
 
-export function Checklists({ board, group, task, checklist, onSetChecklistIdToEdit, checklistIdToEdit }) {
+export function Checklists({ board, group, task, checklist, checklistIdToEdit }) {
 
     const [isTitleInputFocused, setTitleInputFocus] = useState(false)
     const [focusedTodoId, setFocusedTodoId] = useState(null)
@@ -129,7 +129,6 @@ export function Checklists({ board, group, task, checklist, onSetChecklistIdToEd
     return (
         <section className="check-list-container">
 
-            {/* checklist title */}
             <div className="header flex align-center justify-between">
                 <input className="checklist-title"
                     value={checkListTitle}
@@ -177,7 +176,6 @@ export function Checklists({ board, group, task, checklist, onSetChecklistIdToEd
                 </React.Fragment>
             )}
 
-            {/* add item */}
             <input className="add-item"
                 value={newTodoTitle}
                 placeholder="Add an item"
@@ -195,9 +193,5 @@ export function Checklists({ board, group, task, checklist, onSetChecklistIdToEd
         </section>
     )
 }
-
-// button - container
-// <button className="btn-confirm" onClick={onSaveTodo}>Save</button>
-// <button className="btn-cancel">Cancel</button>
 
 

@@ -1,5 +1,4 @@
 import { useSelector } from "react-redux";
-import { utilService } from "../../services/util.service";
 import { MemberImg } from "../task-details/MemberImg";
 
 export function Users({ taskMemberIds = [], size, gap = -2 }) {

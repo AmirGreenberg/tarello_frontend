@@ -1,5 +1,3 @@
-// import { IconCover } from '../../services/icons.service'
-
 import { useState } from "react"
 import { FastAverageColor } from 'fast-average-color'
 

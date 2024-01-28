@@ -1,4 +1,3 @@
-// import { storageService } from './async-storage.service'
 import { httpService } from './http.service'
 
 const STORAGE_KEY_LOGGEDIN_USER = 'loggedinUser'
@@ -13,9 +12,6 @@ export const userService = {
     saveLocalUser,
     getUserById,
     loginAsGuest,
-    // remove,
-    // update,
-    // changeScore
 }
 
 window.userService = userService
@@ -24,7 +20,6 @@ async function login(userCred) {
     console.log('check login')
     try {
         const user = await httpService.post('auth/login', userCred)
-        console.log("🚀  user:", user)
         if (user) {
             return saveLocalUser(user)
         }
@@ -67,10 +62,8 @@ async function signup(userCred) {
 }
 
 async function getUsers() {
-    console.log('check getUsers')
     try {
         const users = await httpService.get('user');
-        console.log("🚀  users:", users)
         if (!users) return [];
         return users;
     } catch (err) {
@@ -79,7 +72,6 @@ async function getUsers() {
 }
 
 async function getUser(userId) {
-    console.log("🚀  getUser:", userId)
     try {
         const user = await httpService.get(`user/${userId}`);
         return user;
@@ -89,7 +81,6 @@ async function getUser(userId) {
 }
 
 async function getUserById(userId) {
-    console.log("🚀  getUserById:", userId)
     try {
         const user = await httpService.get(`user/${userId}`);
         return user;
@@ -108,34 +99,3 @@ function saveLocalUser(user) {
 function getLoggedinUser() {
     return JSON.parse(sessionStorage.getItem(STORAGE_KEY_LOGGEDIN_USER))
 }
-
-// function remove(userId) {
-//     return storageService.remove('user', userId)
-//     // return httpService.delete(`user/${userId}`)
-// }
-
-// async function update({ _id, score }) {
-//     const user = await storageService.get('user', _id)
-//     user.score = score
-//     await storageService.put('user', user)
-
-//     // const user = await httpService.put(`user/${_id}`, {_id, score})
-
-//     // When admin updates other user's details, do not update loggedinUser
-//     if (getLoggedinUser()._id === user._id) saveLocalUser(user)
-//     return user
-// }
-
-// async function changeScore(by) {
-//     const user = getLoggedinUser()
-//     if (!user) throw new Error('Not loggedin')
-//     user.score = user.score + by || by
-//     await update(user)
-//     return user.score
-// }
-
-// ;(async ()=>{
-//     await userService.signup({fullname: 'Puki Norma', username: 'puki', password:'123',score: 10000, isAdmin: false})
-//     await userService.signup({fullname: 'Master Adminov', username: 'admin', password:'123', score: 10000, isAdmin: true})
-//     await userService.signup({fullname: 'Muki G', username: 'muki', password:'123', score: 10000})
-// })()

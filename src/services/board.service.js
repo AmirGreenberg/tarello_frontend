@@ -309,22 +309,3 @@ function getFormattedDate(timestamp) {
 
   return { date, formattedDate }
 }
-
-
-//Not in use:
-
-// function getGroupById(board, groupId) {
-//     return board.groups.find(group => group.id === groupId)
-// }
-
-// function getTaskById(board, taskId) {
-//     var task
-//     for (const group of board.groups) {
-//         for (const _task of group.tasks) {
-//             if (_task.id === taskId) task = _task
-//             if (task) break
-//         }
-//         if (task) break
-//     }
-//     return task
-// }

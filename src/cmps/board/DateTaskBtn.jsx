@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { IconClock } from '../../services/icons.service'
 import { boardService } from '../../services/board.service'
-import { useSelector } from 'react-redux'
 
 export function DateTaskBtn({ dueDate, startDate, onIsCheckDate, task, group }) {
     const currentDate = new Date()

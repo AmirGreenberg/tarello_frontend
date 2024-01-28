@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { useDispatch } from 'react-redux'
 import boardPreview from '../../assets/img/board-preview.svg'
 import { useNavigate } from 'react-router-dom'
 

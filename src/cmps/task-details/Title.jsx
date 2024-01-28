@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react"
-import { IconEye, IconWatch } from "../../services/icons.service"
+import { IconWatch } from "../../services/icons.service"
 
 export function Title({ iconProps, task, taskTitle, groupTitle, onChangeTask, onUpdateBoard }) {
     const refTextarea = useRef()
@@ -33,12 +33,7 @@ export function Title({ iconProps, task, taskTitle, groupTitle, onChangeTask, on
                     ref={refTextarea}
                     rows={1}
                 />
-                {/* <button
-                    className="btn-close"
-                    onClick={onCloseTaskDetails}
-                >
-                    <IconX {...{...iconProps}} />
-                </button> */}
+
             </section>
             <p className="flex align-center">in list
                 <a href="#">{groupTitle}</a>

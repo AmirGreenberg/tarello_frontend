@@ -4,24 +4,19 @@ import { useNavigate, useParams } from 'react-router'
 import React from "react";
 
 
-import { loadBoard, loadBoards, updateBoard } from '../store/actions/board.actions'
+import { updateBoard } from '../store/actions/board.actions'
 import { AddLabels } from '../cmps/task-details/AddLabels'
 import { Labels } from '../cmps/task-details/Labels'
 import { Cover } from '../cmps/task-details/Cover'
-import { Title } from '../cmps/task-details/Title'
 import { Members } from '../cmps/task-details/Members'
-import { Notifications } from '../cmps/task-details/Notifications'
 import { Description } from '../cmps/task-details/Description'
 import { Attachments } from '../cmps/task-details/Attachments'
 import { Checklists } from '../cmps/task-details/Checklists'
-import { Activity } from '../cmps/task-details/Activity'
 import { AddChecklist } from '../cmps/task-details/AddChecklist'
 import { AddDates } from '../cmps/task-details/AddDates'
-import { Dates } from '../cmps/task-details/Dates'
 import { AddMembers } from '../cmps/task-details/AddMembers'
-import useOutsideClick from '../cmps/customHooks/useOutsideClick'
-import { IconArrow, IconAttachment, IconCheckList, IconChecked, IconClock, IconCover, IconDescription, IconDuplicate, IconEye, IconLabel, IconMan, IconShare, IconShareSocial, IconTaskDetails, IconV, IconWatch, IconX, IconXDetails, IconXLarge, IconXSmall } from '../services/icons.service'
-import { DynamicActionModal, TO_RIGHT } from '../cmps/dynamic-cmps/DynamicActionModal'
+import { IconArrow, IconAttachment, IconChecked, IconClock, IconCover, IconDescription, IconDuplicate, IconEye, IconLabel, IconMan, IconShareSocial, IconTaskDetails, IconV, IconWatch, IconX, IconXDetails, IconXSmall } from '../services/icons.service'
+import { DynamicActionModal } from '../cmps/dynamic-cmps/DynamicActionModal'
 import { TO_BOTTOM } from '../cmps/dynamic-cmps/DynamicActionModal'
 import { boardService } from '../services/board.service';
 import { updateBoardGroupTaskType } from '../store/actions/board.actions';
@@ -143,8 +138,7 @@ export function TaskDetails() {
                     <div className="title-img">
                         <IconTaskDetails {...iconProps} />
                     </div>
-                    {/* <Title {...{ iconProps, task, taskTitle: task.title, groupTitle: group.title, onChangeTask, onUpdateBoard }} />
-                </header> */}
+
                     <div className="task-title">
                         <h1>{task.title}</h1>
                         <p className="flex align-center">in list
@@ -172,7 +166,6 @@ export function TaskDetails() {
 
                             <div className="watch">
                                 <p className="title">Notifications</p>
-                                {/* <div className="notifications flex" onClick={onSetIsWatch}> */}
                                 <div className="notifications flex" >
                                     <IconWatch />
                                     {task.isWatch ? <p className="txt">Watching</p> : <p className="txt">Watch</p>}
@@ -188,14 +181,6 @@ export function TaskDetails() {
                                     task={task} />}
 
                         </section>
-
-                        {/* <section className="small-items"> */}
-                        {/* <Notifications  {...{ buttonIconProps, isWatching, onClickWatching: () => setIsWatching(prev => !prev) }} /> */}
-                        {/* </section> */}
-
-                        {/* <section className="small-items"> */}
-                        {/* <Dates          {...{ dates: task.dates, onClickDates: event => setModalProps({ event, content: modalContent.addDates }) }} /> */}
-                        {/* </section> */}
 
                         <div className="description-svg">
                             <IconDescription {...{ iconProps, color: 'var(--clr9)', size: 24 }} />
@@ -216,7 +201,6 @@ export function TaskDetails() {
                                     </div>
                                 </React.Fragment>)}
 
-                        {/* <Activity       {...{ iconProps, activities: task.activities }} /> */}
                     </section>
 
                     <section className="task-features">

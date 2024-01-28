@@ -24,11 +24,11 @@ export function GroupMenu({ onToggleMenu, onCreateCard, onDuplicateGroup, onMove
             <button className="clean-btn group-menu-btn" onClick={onMoveGroup}>
                 Move list
             </button>
-            <button className="clean-btn group-menu-btn" onClick={onWatchGroup}>  {/* not a must  */}
+            <button className="clean-btn group-menu-btn" onClick={onWatchGroup}>
                 Watch
             </button>
             <hr />
-            <button className="clean-btn group-menu-btn" onClick={onGroupSortBy}> {/* not a must  */}
+            <button className="clean-btn group-menu-btn" onClick={onGroupSortBy}>
                 Sort by...
             </button>
             <hr />

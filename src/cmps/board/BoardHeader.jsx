@@ -1,19 +1,10 @@
-import { Users } from './Users'
-
 import { useSelector } from 'react-redux'
 
 import {
     Icon3DotsWithSpacing,
-    IconBoard,
-    IconCalender,
-    IconFilter,
-    IconFlash,
     IconSearch,
-    IconShare,
-    IconSpaceShip,
     IconStarFull,
     IconStarOutline,
-    IconWorkspace
 } from '../../services/icons.service'
 import { useEffect, useRef, useState } from 'react'
 import useOutsideClick from '../customHooks/useOutsideClick'
@@ -94,10 +85,6 @@ export function BoardHeader({ onSetFilter, onUpdateBoard }) {
                         onChange={ev => onSetFilter(ev.target.value)}
                     />
                 </div>
-                {/* <button className="header-btn">
-                    <IconFilter size={18} />
-                    Filters
-                </button> */}
                 <div className="members flex">
                     {
                         members.map((member, index) => {
@@ -107,10 +94,7 @@ export function BoardHeader({ onSetFilter, onUpdateBoard }) {
                         })
                     }
                 </div>
-                {/* <button className="header-btn cta-btn">
-                    <IconShare color={"var(--txtClrDark)"}/>
-                    Share
-                </button> */}
+
                 <button className="header-btn">
                     <Icon3DotsWithSpacing />
                 </button>

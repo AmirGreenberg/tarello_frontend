@@ -28,15 +28,6 @@ export function SideBarLeft() {
         settSideBarIsOpen(true)
     }
 
-    function onSetBoard(ev, boardId) {
-        ev.preventDefault()
-        const board = boards.find((board) => {
-            return board._id === boardId
-        })
-        board.isStarred = !board.isStarred
-        updateBoard(board)
-    }
-
     function onToggleStarred(ev, boardId) {
         ev.preventDefault()
         const board = boards.find((board) => {

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { showErrorMsg } from '../services/event-bus.service.js'
 
 // Actions
@@ -46,7 +46,6 @@ export function Workspace() {
             await updateBoard(board);
         } catch (error) {
             console.error('Error toggling starred status:', error);
-            // Handle the error as needed
         }
     }
 

@@ -1,6 +1,5 @@
 import { boardService } from '../../services/board.service.js'
 import { store } from '../store.js'
-import { showSuccessMsg, showErrorMsg } from '../../services/event-bus.service.js'
 import { SET_BOARDS, SET_BOARD, SET_GROUP, SET_TASK, ADD_BOARD, UPDATE_BOARD, REMOVE_BOARD, UNDO_REMOVE_BOARD } from '../reducers/board.reducer.js'
 import { utilService } from '../../services/util.service.js'
 
@@ -227,7 +226,7 @@ export async function editLabel(board, group, task, labelId, color, title) {
             board.labels[labelIdx].shade = color.shade
 
         }
-        else { //add
+        else {
             board.labels.push(newLabel)
             board.groups[gIdx].tasks[tIdx].labelIds.push(newLabel.id)
         }

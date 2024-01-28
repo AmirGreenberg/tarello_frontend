@@ -92,7 +92,6 @@ export function AddDates({ onCloseModal }) {
                 if (!isStartDate && isDueDate) saveDate(board, group, task, null, { timeStamp: dueDateTimestamp, isDone: false })
                 if (isStartDate && isDueDate) saveDate(board, group, task, startDateTimestamp, { timeStamp: dueDateTimestamp, isDone: false })
             }
-            // await updateBoardGroupTaskType(null, null, null, '', null)
         } catch (err) {
             console.log('Cannot save date', err)
         }
@@ -115,7 +114,6 @@ export function AddDates({ onCloseModal }) {
     const dynClassStart = isStartDate ? 'clicked' : 'not-clicked'
     const dynClassDue = isDueDate ? 'clicked' : 'not-clicked'
 
-    // if (!startDate || !dueDate || !dueTime) return <div></div>
     return (
         <section className="feature-members scroll">
             <section className="modal-header">
