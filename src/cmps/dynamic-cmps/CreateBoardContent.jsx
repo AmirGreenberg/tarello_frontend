@@ -124,7 +124,7 @@ export function CreateBoardContent({ onToggleModal }) {
                 >
                     <span aria-hidden="true" className="span-close">
                         <img
-                            src="../src/assets/icons/close-modal-x.svg"
+                            src="https://res.cloudinary.com/dqjddwtf4/image/upload/v1706438668/close-modal-x_hqmwzk.svg"
                             alt=""
                             className="header-icon"
                         />

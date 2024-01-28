@@ -49,7 +49,7 @@ export function BoardList({
                                 <div className="starred-container">
                                     {board.isStarred ? (
                                         <img
-                                            src="../src/assets/icons/11_star_yellow_filled.svg"
+                                            src="https://res.cloudinary.com/dqjddwtf4/image/upload/v1706438603/11_star_yellow_filled_xy9fw2.svg"
                                             alt=""
                                             title="Click to unstar this board. It will be removed from your starred list."
                                             className="star-icon starred"
@@ -59,7 +59,7 @@ export function BoardList({
                                         />
                                     ) : (
                                         <img
-                                            src="../src/assets/icons/8_star_white_unfilled.svg"
+                                            src="https://res.cloudinary.com/dqjddwtf4/image/upload/v1706438639/8_star_white_unfilled_ama09b.svg"
                                             alt=""
                                             title="Click to star this board. It will be added to your starred list."
                                             className="star-icon"

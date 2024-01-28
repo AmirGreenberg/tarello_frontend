@@ -17,7 +17,7 @@ export function HomePageFooter({ scrollToTop }) {
                                         className="gif-icon"
                                     />
                                     <img
-                                        src="../src/assets/icons/logo_white.svg"
+                                        src="https://res.cloudinary.com/dqjddwtf4/image/upload/v1706438654/logo_white_xr192x.svg"
                                         alt=""
                                         className="logo-title"
                                     />

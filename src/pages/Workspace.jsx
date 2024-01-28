@@ -67,7 +67,7 @@ export function Workspace() {
                         <div className="title-header">
                             <div className="title-header-icon-container">
                                 <img
-                                    src="../src/assets/icons/8_star_workspace_header.svg"
+                                    src="https://res.cloudinary.com/dqjddwtf4/image/upload/v1706438628/8_star_workspace_header_wx7tgm.svg"
                                     alt=""
                                     className="header-icon"
                                 />
@@ -86,7 +86,7 @@ export function Workspace() {
                         <div className="title-header">
                             <div className="title-header-icon-container">
                                 <img
-                                    src="../src/assets/icons/18_clock_workspace_header.svg"
+                                    src="https://res.cloudinary.com/dqjddwtf4/image/upload/v1706438618/18_clock_workspace_header_l5hrid.svg"
                                     alt=""
                                     className="header-icon"
                                 />
