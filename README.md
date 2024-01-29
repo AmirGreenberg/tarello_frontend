@@ -6,9 +6,6 @@ https://github.com/AmirGreenberg/tarello_front_amir_greenberg/assets/132469813/a
 <div>
 <img src="https://res.cloudinary.com/dqjddwtf4/image/upload/v1706527433/Screenshot1_jq23lq.png" width="1010px"  /> 
 <img src="https://res.cloudinary.com/dqjddwtf4/image/upload/v1706527432/Screenshot2_x7nmsz.png" width="1010px"  /> 
-<img src="https://res.cloudinary.com/dqjddwtf4/image/upload/v1706527433/Screenshot3_vqhlln.png" width="1010px"  /> 
-<img src="https://res.cloudinary.com/dqjddwtf4/image/upload/v1706527433/Screenshot4_guwigz.png" width="1010px"  /> 
-<img src="https://res.cloudinary.com/dqjddwtf4/image/upload/v1706527431/Screenshot5_dcbklo.png" width="1010px"  /> 
 </div>
 
 Built with :
@@ -104,3 +101,10 @@ This project is licensed under the [MIT License](LICENSE).
 ---
 
 Feel free to contact us for any questions ! 💻
+
+<div>
+<img src="https://res.cloudinary.com/dqjddwtf4/image/upload/v1706527433/Screenshot3_vqhlln.png" width="1010px"  /> 
+<img src="https://res.cloudinary.com/dqjddwtf4/image/upload/v1706527433/Screenshot4_guwigz.png" width="1010px"  /> 
+<img src="https://res.cloudinary.com/dqjddwtf4/image/upload/v1706527431/Screenshot5_dcbklo.png" width="1010px"  /> 
+</div>
+
