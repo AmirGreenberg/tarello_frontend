@@ -4,7 +4,7 @@ A full-stack web application that replicates the core functionalities of trello 
 https://github.com/AmirGreenberg/tarello_front_amir_greenberg/assets/vids/tarello_video
 
 <div>
-<img src="https://res.cloudinary.com/dqjddwtf4/image/upload/v1706527433/Screenshot1_jq23lq.png" width="500px" height="300px" /> 
+<img src="https://res.cloudinary.com/dqjddwtf4/image/upload/v1706527433/Screenshot1_jq23lq.png" width="500px"  /> 
 <img src="https://res.cloudinary.com/dqjddwtf4/image/upload/v1706527432/Screenshot2_x7nmsz.png" width="500px" height="300px" /> 
 <img src="https://res.cloudinary.com/dqjddwtf4/image/upload/v1706527433/Screenshot3_vqhlln.png" width="500px" height="300px" /> 
 <img src="https://res.cloudinary.com/dqjddwtf4/image/upload/v1706527433/Screenshot4_guwigz.png" width="500px" height="300px" /> 
