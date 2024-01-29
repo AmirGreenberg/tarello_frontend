@@ -90,7 +90,7 @@ export function Workspace() {
                                     className="header-icon"
                                 />
                             </div>
-                            <h3>Recently viewed</h3>
+                            <h3>All boards</h3>
                         </div>
                         <div className="primary-boards-container-section">
                             {boards && boards?.length > 0 && <BoardList

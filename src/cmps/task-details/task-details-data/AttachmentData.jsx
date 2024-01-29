@@ -53,7 +53,7 @@ export function AttachmentData({ board, group, task, attachment, attachIdx }) {
                     <button className="delete-attachment" onClick={onRemoveAttachment}>Delete</button>
                     {isImgFormat &&
                         <div className="flex align-center" onClick={() => onSetImageBackground(attachment.url)}>
-                            <IconCover />
+                            <IconCover size={10} color={'var(--clr4)'} />
                             <button className="make-cover">Make Cover</button>
                         </div>}
                 </div>
