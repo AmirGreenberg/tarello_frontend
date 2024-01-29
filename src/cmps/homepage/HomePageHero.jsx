@@ -12,7 +12,7 @@ export function HomePageHero() {
                     Keep everything in the same place-even if your team isn’t.
                 </p>
                 <Link to={'/workspace'}>
-                    <button className="btn-action">Start now</button>
+                    <button className="blue-action-btn">Start now</button>
                 </Link>
             </div>
 

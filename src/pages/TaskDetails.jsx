@@ -25,6 +25,7 @@ import { DeleteLabel } from '../cmps/task-details/DeleteLabel';
 import { DatesData } from '../cmps/task-details/DatesData';
 import { AddAttachments } from '../cmps/task-details/AddAttachments';
 import { AddCover } from '../cmps/task-details/AddCover';
+import { Title } from '../cmps/task-details/Title';
 
 const ICON_SIZE = 21
 const ICON_SIZE_BUTTON = 16
@@ -100,6 +101,12 @@ export function TaskDetails() {
         setModalProps({ event, content })
     }
 
+    function onChangeTask(ev) {
+        const name = ev.target.name
+        const value = ev.target.value
+        setTask(prev => ({ ...prev, [name]: value }))
+    }
+
 
     if (!task) {
         if (!errorMessage)
@@ -134,17 +141,13 @@ export function TaskDetails() {
             <section className="task-details-container" ref={refTaskDetails} onClick={(ev) => ev.stopPropagation()} >
                 <Cover {...{ task }} />
 
-                <header className="task-header flex align-start">
+                <header className="task-header">
                     <div className="title-img">
                         <IconTaskDetails {...iconProps} />
                     </div>
 
                     <div className="task-title">
-                        <h1>{task.title}</h1>
-                        <p className="flex align-center">in list
-                            <a href="#">{group.title}</a>
-                            {task.isWatch && <IconEye />}
-                        </p>
+                        <Title {...{ iconProps, taskTitle: task.title, groupTitle: group.title, onChangeTask, onUpdateBoard }} />
                     </div>
                 </header>
 
@@ -164,7 +167,7 @@ export function TaskDetails() {
                                 }
                             }} />
 
-                            <div className="watch">
+                            {/* <div className="watch">
                                 <p className="title">Notifications</p>
                                 <div className="notifications flex" >
                                     <IconWatch />
@@ -172,7 +175,7 @@ export function TaskDetails() {
                                     {task.isWatch &&
                                         <div className="v-icon flex justify-center align-center"><IconV /></div>}
                                 </div>
-                            </div>
+                            </div> */}
 
                             {(task.startDate !== null || task.dueDate !== null) &&
                                 <DatesData

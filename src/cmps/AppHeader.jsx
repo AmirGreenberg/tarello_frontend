@@ -69,7 +69,7 @@ export function AppHeader() {
                     <IconWorkspace />
 
                 </button>
-                <button onClick={event => setModalProps({ event, content: modalContent.addBoard })}>Create</button>
+                <button className='blue-action-btn' onClick={event => setModalProps({ event, content: modalContent.addBoard })}>Create</button>
 
             </section>
 
@@ -94,8 +94,8 @@ export function AppHeader() {
                         </div>
                     </button> :
 
-                    <div>
-                        <button onClick={() => navigate('/auth')} className='btn-action guest'>Login</button>
+                    <div className='mar-end-8'>
+                        <button onClick={() => navigate('/auth')} className='blue-action-btn'>Login</button>
                     </div>
                 }
 

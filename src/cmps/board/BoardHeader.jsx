@@ -85,7 +85,7 @@ export function BoardHeader({ onSetFilter, onUpdateBoard }) {
                         onChange={ev => onSetFilter(ev.target.value)}
                     />
                 </div>
-                <div className="members flex">
+                <div className="members flex mar-end-8">
                     {
                         members.map((member, index) => {
                             return (
@@ -95,9 +95,9 @@ export function BoardHeader({ onSetFilter, onUpdateBoard }) {
                     }
                 </div>
 
-                <button className="header-btn">
+                {/* <button className="header-btn">
                     <Icon3DotsWithSpacing />
-                </button>
+                </button> */}
             </section>
         </header>
     )

@@ -19,7 +19,7 @@ export function Title({ iconProps, task, taskTitle, groupTitle, onChangeTask, on
     }
 
     return (
-        <div className="task-title">
+        <div className="checklist-title">
 
             <section className="title-input-container">
                 <textarea
@@ -34,11 +34,10 @@ export function Title({ iconProps, task, taskTitle, groupTitle, onChangeTask, on
                     rows={1}
                 />
 
+                <p className="flex align-center">in list
+                    <a href="#">{groupTitle}</a>
+                </p>
             </section>
-            <p className="flex align-center">in list
-                <a href="#">{groupTitle}</a>
-                {task.isWatch && <IconWatch />}
-            </p>
         </div>
     )
 }

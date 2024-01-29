@@ -47,6 +47,8 @@
 
     .btn-cancel {
         background-color: #0000;
+        color: var(--clr8);
+        font-weight: 500;
 
         &:hover {
             background-color: var(--task-details-btn-hover-bg-clr);

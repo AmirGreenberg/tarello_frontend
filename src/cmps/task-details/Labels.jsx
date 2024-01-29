@@ -15,7 +15,7 @@ export function Labels({ task, board, onClickLabel }) {
                         {labelsColor.title}
                     </li>
                 )}
-                <button className="round-btn plus-btn-members flex center" onClick={onClickLabel}>
+                <button className="square-btn " onClick={onClickLabel}>
                     <IconPlusAddList />
                 </button>
             </div>

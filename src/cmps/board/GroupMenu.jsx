@@ -12,7 +12,7 @@ export function GroupMenu({ onToggleMenu, onCreateCard, onDuplicateGroup, onMove
             <div className="group-menu-header">
                 <span className="header-font" >List actions</span>
                 <button className="x-btn btn-type-2 clean-btn flex center" onClick={onToggleMenu}>
-                    <IconX size={12} color={'var(--txtClrDark)'} />
+                    <IconX size={10} color={'var(--clr4)'} />
                 </button>
             </div>
             <button className="clean-btn group-menu-btn" onClick={onCreateCard}>
