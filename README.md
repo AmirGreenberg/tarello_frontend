@@ -1,6 +1,11 @@
 # Tarello - A "Trello" Clone
 A full-stack web application that replicates the core functionalities of Trello app, developed by Amir Greenberg, David Tal-Rivlin and Michael Lulev.
 
+Built with :
+
+![Tech](https://skillicons.dev/icons?i=js,html,css,sass,react,redux,mongodb,nodejs,vite,&perline=10)
+
+
 https://github.com/AmirGreenberg/tarello_front_amir_greenberg/assets/132469813/ad886ad4-cac9-4409-acdb-9d745e984ee0
 
 <div>
@@ -8,9 +13,6 @@ https://github.com/AmirGreenberg/tarello_front_amir_greenberg/assets/132469813/a
 <img src="https://res.cloudinary.com/dqjddwtf4/image/upload/v1706527432/Screenshot2_x7nmsz.png" width="1010px"  /> 
 </div>
 
-Built with :
-
-![Tech](https://skillicons.dev/icons?i=js,html,css,sass,react,redux,mongodb,nodejs,vite,&perline=10)
 
 ## Table of Contents
 
