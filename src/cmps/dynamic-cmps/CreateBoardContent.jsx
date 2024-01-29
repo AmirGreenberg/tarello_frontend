@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import boardPreview from 'https://res.cloudinary.com/dqjddwtf4/image/upload/v1706466881/board-preview_tcr2sc.svg'
+import boardPreview from '../../assets/img/board-preview.svg'
 import { useNavigate } from 'react-router-dom'
 
 // Actions
