@@ -4,11 +4,11 @@ A full-stack web application that replicates the core functionalities of trello 
 https://github.com/AmirGreenberg/tarello_front_amir_greenberg/assets/132469813/ad886ad4-cac9-4409-acdb-9d745e984ee0
 
 <div>
-<img src="https://res.cloudinary.com/dqjddwtf4/image/upload/v1706527433/Screenshot1_jq23lq.png" width="800px"  /> 
-<img src="https://res.cloudinary.com/dqjddwtf4/image/upload/v1706527432/Screenshot2_x7nmsz.png" width="800px"  /> 
-<img src="https://res.cloudinary.com/dqjddwtf4/image/upload/v1706527433/Screenshot3_vqhlln.png" width="800px"  /> 
-<img src="https://res.cloudinary.com/dqjddwtf4/image/upload/v1706527433/Screenshot4_guwigz.png" width="800px"  /> 
-<img src="https://res.cloudinary.com/dqjddwtf4/image/upload/v1706527431/Screenshot5_dcbklo.png" width="800px"  /> 
+<img src="https://res.cloudinary.com/dqjddwtf4/image/upload/v1706527433/Screenshot1_jq23lq.png" width="1010px"  /> 
+<img src="https://res.cloudinary.com/dqjddwtf4/image/upload/v1706527432/Screenshot2_x7nmsz.png" width="1010px"  /> 
+<img src="https://res.cloudinary.com/dqjddwtf4/image/upload/v1706527433/Screenshot3_vqhlln.png" width="1010px"  /> 
+<img src="https://res.cloudinary.com/dqjddwtf4/image/upload/v1706527433/Screenshot4_guwigz.png" width="1010px"  /> 
+<img src="https://res.cloudinary.com/dqjddwtf4/image/upload/v1706527431/Screenshot5_dcbklo.png" width="1010px"  /> 
 </div>
 
 Built with :
